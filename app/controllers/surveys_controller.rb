@@ -1,23 +1,10 @@
 class SurveysController < ApplicationController
-  def index
-    @surveys = Survey.all
-  end
+  before_filter :require_user
   
   def show
-    @survey = Survey.find(params[:id])
-  end
-  
-  def new
-    @survey = Survey.new
-  end
-  
-  def create
-    @survey = Survey.new(params[:survey])
-    if @survey.save
-      flash[:notice] = "Successfully created survey."
-      redirect_to @survey
-    else
-      render :action => 'new'
+    respond_to do |format|
+      format.html { redirect_to :action => 'edit' }
+      format.xml { }
     end
   end
   

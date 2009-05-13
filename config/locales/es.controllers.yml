@@ -1,4 +1,5 @@
 es:
   controllers:
-    users_sessions:
+    user_sessions:
       create: "Bienvenido a E3E"
+      destroy: "Se ha cerrado la sesión"

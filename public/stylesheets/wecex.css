@@ -51,6 +51,9 @@ p {margin: 0.4em 0;}
 .session a {font-variant: small-caps; padding: 0.5em; }
 .content {padding: 1em 2em;}
 
+.flash_notice {background-color: #7F7F7F; color: white; width: 100%; margin: 0 auto; padding: 2px; text-align: center;
+    -moz-border-radius: 0.2em; }
+
 .dialog {width: 70%; margin: 3em auto; border: 0.5em solid #efefef; padding: 1em;}
 .dialog h2 {margin-left: 5.3em; margin-bottom: 0.2em;}
 .dialog ul {margin: 1em 0 0.5em 8em;}
@@ -58,8 +61,8 @@ p {margin: 0.4em 0;}
 form p {width: 100%; overflow: hidden; margin-bottom: 0.2em;}
 form p.info {margin: 1em 0 0.5em 8em; color: #4F4F4F;}
 form p.save {background-color: #efefef; padding: 0.5em; margin-left: 8em; width: auto;}
-form label {float: left; display: block; width: 4em; text-align: right; padding-top: 0.2em;
-    margin-right: 0.5em; margin-left: 4.5em; color: gray;}
+form label {float: left; display: block; width: 6em; text-align: right; padding-top: 0.2em;
+    margin-right: 0.5em; margin-left: 2.5em; color: gray;}
 form span {margin-left: 1em;}
 #encuesta input[type=text] {width: 6em;}
 #encuesta textarea {width: 40em; height: 10em;}

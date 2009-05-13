@@ -1,0 +1,3 @@
+es:
+  flash:
+    require_user: "Necesitas estar autorizado para hacer esto"

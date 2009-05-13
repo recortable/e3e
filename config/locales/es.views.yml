@@ -1,5 +1,10 @@
 es:
+  disable_with: "Por favor, espere..."
   new_user_session: "Entrar"
   username: "Usuario"
   password: "Contraseña"
+  password_confirmation: "Repite contraseña"
   login: "Entrar"
+  question: "Pregunta"
+  answer: "Respuesta"
+  submit_create_user: "Dar de alta"

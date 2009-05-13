@@ -9,8 +9,11 @@ module NavigationHelpers
     case page_name
     
     when /entrar/
-      new_user_session_path
-    
+      new_user_sessions_path
+
+    when /la encuesta/
+      survey_path
+      
     # Add more mappings here.
     # Here is a more fancy example:
     #

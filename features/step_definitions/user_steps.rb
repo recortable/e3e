@@ -1,5 +1,6 @@
 Dado /^una usuario con nombre "([^\"]*)" y con contraseña "([^\"]*)"$/ do |name, password|
-  User.create!(:username => name, :password => password, :password_confirmation => password)
+  user = Factory(:user, :username => name, :password => password, :password_confirmation => password)
+  user.save!
 end
 
 Dado /^que existen los usuarios "([^\"]*)"$/ do |lista|

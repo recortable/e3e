@@ -1,5 +1,4 @@
-# Filters added to this controller apply to all controllers in the application.
-# Likewise, all the methods added will be available for all controllers.
+require File.expand_path(File.dirname(__FILE__) + '/authentication_methods.rb')
 
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
@@ -7,20 +6,13 @@ class ApplicationController < ActionController::Base
   layout 'e3e'
 
   filter_parameter_logging :password
-  helper_method :current_user, :signed_in?
+  helper_method :current_user, :signed_in?, :qt
+
+  include AuthenticationMethods
 
   private
-  def current_user_session
-    return @current_user_session if defined?@current_user_session
-    @current_user_session = UserSession.find
-  end
-
-  def current_user
-    return @current_user if defined?(@current_user)
-    @current_user = current_user_session && current_user_session.record
-  end
-
-  def signed_in?
-    !current_user.nil?
+  def qt(*symbols)
+    last = symbols.pop
+    I18n.t(last, :scope => symbols)
   end
 end

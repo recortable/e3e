@@ -1,20 +1,27 @@
 <% form_for @user do |f| %>
   <%= f.error_messages %>
   <p>
-    <%= f.label :username %><br />
+    <%= f.label t(:username) %>
     <%= f.text_field :username %>
   </p>
   <p>
-    <%= f.label :password %><br />
+    <%= f.label t(:password) %>
     <%= f.text_field :password %>
   </p>
   <p>
-    <%= f.label :question %><br />
+    <%= f.label t(:password_confirmation) %>
+    <%= f.text_field :password_confirmation %>
+  </p>
+  <p>
+    <%= f.label t(:question) %>
     <%= f.text_field :question %>
   </p>
   <p>
-    <%= f.label :answer %><br />
+    <%= f.label t(:answer) %>
     <%= f.text_field :answer %>
   </p>
-  <p><%= f.submit "Submit" %></p>
+  <p>
+    <%= f.label ' ' %>
+<%= f.submit submit_label_for(@user), :disable_with => t(:disable_with) %>
+  </p>
 <% end %>

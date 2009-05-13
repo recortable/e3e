@@ -35,7 +35,7 @@
         <div class="session">
           <% if signed_in? %>
             Hola <%= current_user.username %>
-            <%= link_to t(:close, :scope => [:session]), user_session_path, :method => 'delete' %>
+            <%= link_to t(:close, :scope => [:session]), user_sessions_path, :method => 'delete' %>
           <% else -%>
             <%= link_to 'Entrar', new_user_sessions_path %>
             <%= link_to 'Darse de alta', new_user_path %>
@@ -43,6 +43,9 @@
         </div>
 
       </div>
+      <% if flash[:notice] %>
+        <div class="flash_notice"><%= flash[:notice] %></div>
+      <% end %>
       <div class="content">
         <%= yield %>
       </div>

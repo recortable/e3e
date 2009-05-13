@@ -7,7 +7,7 @@ class UserSessionsController < ApplicationController
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
       flash[:notice] = t(:create, :scope => [:controllers, :user_sessions])
-      redirect_to root_url
+      redirect_back_or root_url
     else
       render :action => 'new'
     end
