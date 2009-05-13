@@ -9,23 +9,16 @@ class SurveysController < ApplicationController
   end
   
   def edit
-    @survey = Survey.find(params[:id])
+    @survey = @current_user.survey
   end
   
   def update
-    @survey = Survey.find(params[:id])
+    @survey = @current_user.survey
     if @survey.update_attributes(params[:survey])
       flash[:notice] = "Successfully updated survey."
       redirect_to @survey
     else
       render :action => 'edit'
     end
-  end
-  
-  def destroy
-    @survey = Survey.find(params[:id])
-    @survey.destroy
-    flash[:notice] = "Successfully destroyed survey."
-    redirect_to surveys_url
   end
 end
