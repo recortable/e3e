@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>E3E - <%= yield(:title) || 'Prototipo' %></title>
+    <!-- link rel="icon" href="images/e3e.ico" type="image/x-icon" / -->
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.6.0/build/reset/reset-min.css" />
+    <%= stylesheet_link_tag 'wecex.css' %>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+    <%= yield :header %>
+  </head>
+  <body>
+    <div class="top <%= @controller.class %>" ></div>
+    <div id="page">
+      <div id="head">
+        <div id="logo">
+          <h1><%= link_to 'wecex', root_path %></h1>
+          <p>Mejorar el consumo energético</p>
+        </div>
+
+        <div id="navigation">
+          <div class="sections">
+            <% if signed_in? %>
+              <%= section t(:profile), edit_survey_path %>
+              <%= section t(:invoices), invoices_path %>
+              <%= section t(:report), report_path, :class => 'report' %>
+
+            <% else -%>
+              <%= section 'Qué es wecex', about_path %>
+              <%= section 'Quiénes somos', who_path %>
+              <%= section 'Para qué sirve', mission_path %>
+            <% end %>
+          </div>
+        </div>
+        <div class="session">
+          <% if signed_in? %>
+            Hola <%= current_user.email %>.
+            <%= link_to t(:close, :scope => [:session]), user_session_path, :method => 'delete' %>
+          <% else -%>
+            <%= link_to 'Entrar', new_user_session_path %>
+            <%= link_to 'Darse de alta', new_user_path %>
+          <% end -%>
+        </div>
+
+      </div>
+      <div class="content">
+        <%= yield %>
+      </div>
+      <div class="bottom">E3E versión 0.2.0 - hecho a mano por <%= link_to 'c a l c', 'http://calcaxy.com' %></div>
+    </div>
+  </body>
+</html>

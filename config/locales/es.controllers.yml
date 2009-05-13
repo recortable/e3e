@@ -1,0 +1,4 @@
+es:
+  controllers:
+    users_sessions:
+      create: "Bienvenido a E3E"
