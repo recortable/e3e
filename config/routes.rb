@@ -1,5 +1,4 @@
 ActionController::Routing::Routes.draw do |map|
-
   map.root :controller => 'about'
 
   map.login "login", :controller => "user_sessions", :action => "new"
@@ -9,8 +8,9 @@ ActionController::Routing::Routes.draw do |map|
   map.who '/quienes', :controller => 'about', :action => 'who'
   map.mission '/paraque', :controller => 'about', :action => 'mission'
 
-  map.resources :user_sessions
+  map.resource :user_sessions
   map.resources :users
+  map.resource :survey
 
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'

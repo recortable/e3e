@@ -21,9 +21,9 @@
         <div id="navigation">
           <div class="sections">
             <% if signed_in? %>
-              <%= section t(:profile), edit_survey_path %>
-              <%= section t(:invoices), invoices_path %>
-              <%= section t(:report), report_path, :class => 'report' %>
+              <%= section t(:profile), root_path %>
+              <%= section t(:invoices), root_path %>
+              <%= section t(:report), root_path, :class => 'report' %>
 
             <% else -%>
               <%= section 'Qué es wecex', about_path %>
@@ -34,10 +34,10 @@
         </div>
         <div class="session">
           <% if signed_in? %>
-            Hola <%= current_user.email %>.
+            Hola <%= current_user.username %>
             <%= link_to t(:close, :scope => [:session]), user_session_path, :method => 'delete' %>
           <% else -%>
-            <%= link_to 'Entrar', new_user_session_path %>
+            <%= link_to 'Entrar', new_user_sessions_path %>
             <%= link_to 'Darse de alta', new_user_path %>
           <% end -%>
         </div>
