@@ -19,7 +19,7 @@ Cuando /^relleno "(.*)" con "(.*)"$/ do |field, value|
   fill_in(field, :with => value) 
 end
 
-When /^I select "(.*)" from "(.*)"$/ do |value, field|
+Cuando /^selecciono "(.*)" de "(.*)"$/ do |value, field|
   select(value, :from => field) 
 end
 

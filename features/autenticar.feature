@@ -4,7 +4,7 @@ Característica: autenticarse en e3e
   Quiero poder autenticarme en la aplicación
 
   Escenario: hacer login
-    Dado una usuario con nombre "pepe" y con contraseña "secreta"
+    Dado un usuario con nombre "pepe" y con contraseña "secreta"
     Cuando voy a entrar
     Y relleno "user_session_username" con "pepe"
     Y relleno "user_session_password" con "secreta"

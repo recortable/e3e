@@ -1,5 +1,7 @@
-Dado /^que estoy autenticado con "([^\"]*)" y "([^\"]*)"$/ do |email, pass|
-  Dado %(una cresta con email "#{email}" y con contraseña "#{pass}")
+
+Dado /^que estoy autenticado como "([^\"]*)"$/ do |email|
+  pass = "secreto"
+  Dado %(un usuario con nombre "#{email}" y con contraseña "#{pass}")
   Dado %(voy a entrar)
   Dado %(relleno "user_session_username" con "#{email}")
   Dado %(relleno "user_session_password" con "#{pass}")

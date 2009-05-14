@@ -4,11 +4,11 @@
       var spinner = $('#municipio_spinner');
       spinner.hide();
 
-      $('#profile_provincia_id').change(function() {
+      $('#survey_provincia_id').change(function() {
         spinner.show();
         var provinciaId = $(this).val();
         $.getJSON('/provincias/show/' + provinciaId, function(data) {
-          var list = $('#profile_municipio_id');
+          var list = $('#survey_municipio_id');
           list.empty();
           $.each(data, function(index) {
             var m = data[index];
@@ -37,11 +37,11 @@
     <p class="info"><%=  t(:localidad, :scope => [:encuesta, :ciudad]) %></p>
     <p>
       <label>&nbsp;</label>
-      <%= select :profile, :provincia_id, @provincias_select  %>
+      <%= select :survey, :provincia_id, @provincias_select  %>
     </p>
     <p>
       <label>&nbsp;</label>
-      <%= select :profile, :municipio_id, @municipios_select %>
+      <%= select :survey, :municipio_id, @municipios_select %>
       <%= image_tag 'spinner.gif', :class => 'spinner', :id => 'municipio_spinner' %>
     </p>
 

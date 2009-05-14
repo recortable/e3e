@@ -13,3 +13,4 @@ es:
     login: "Entrar a la sección de administración"
     session_closed: "No estás autenticado como adminstrador"
     session_close: "Salir de la sección de administración"
+    users: "Usuarios registrados"

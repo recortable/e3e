@@ -8,8 +8,7 @@ es:
       localidad: "Provincia y municipio más próximo a su vivienda:"
     edificio:
       titulo: "Mi edificio"
-      anyo: "Indique, si lo conoce, el año de construcción de su edificio:"
-      periodo: "En caso contrario señale el periodo aproximado de construcción:"
+      periodo: "Señale el periodo aproximado de construcción de su edificio:"
       tipo: "¿En qué tipo de edificio está ubicada a vivienda?"
       plantas: "Indique el número de plantas que tiene el edificio sobre rasante (incluyendo la baja):"
     vivienda:
