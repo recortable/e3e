@@ -6,4 +6,4 @@ Característica: completar encuestas
   Escenario: ver encuesta sin autenticarse
     Dado que no estoy autenticado
     Cuando voy a la encuesta
-    Entonces debería ver el mensaje :user_required
+    Entonces debería ver el mensaje :require_user

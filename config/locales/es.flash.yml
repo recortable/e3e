@@ -1,3 +1,9 @@
 es:
   flash:
     require_user: "Necesitas estar autorizado para hacer esto"
+    require_admin: "Solo administradores de E3E tienen acceso a esta sección."
+    survey:
+      updated: "Encuesta guardada. Muchas gracias."
+    admin_session:
+      created: "Has entrado a la sección de administración"
+      destroyed: "La sessión como administrador ha sido cerrada."

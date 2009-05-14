@@ -1,8 +1,74 @@
-<% title "Edit Survey" %>
+<% content_for :header do %>
+  <script type="text/javascript">
+    jQuery(function($) {
+      var spinner = $('#municipio_spinner');
+      spinner.hide();
 
-<%= render :partial => 'form' %>
+      $('#profile_provincia_id').change(function() {
+        spinner.show();
+        var provinciaId = $(this).val();
+        $.getJSON('/provincias/show/' + provinciaId, function(data) {
+          var list = $('#profile_municipio_id');
+          list.empty();
+          $.each(data, function(index) {
+            var m = data[index];
+            list.append('<option value="' + m.id + '">' + m.name +  '</option>');
+          });
+          spinner.hide();
+        });
+      });
+    });
+  </script>
+<% end %>
 
-<p>
-  <%= link_to "Show", @survey %> |
-  <%= link_to "View All", surveys_path %>
-</p>
+
+<h1><%=  t(:titulo, :scope => [:encuesta]) %></h1>
+
+<div id="encuesta">
+  <% form_for(@survey, :url => survey_path) do |f| %>
+    <%= f.error_messages %>
+
+    <p class="info"><%= t(:subtitulo, :scope => [:encuesta]) %></p>
+    <p class="save">
+      <%= f.submit 'Guardar' %> Pulse "Guardar" cuando complete el cuestionario.
+    </p>
+
+    <h3><%=  t(:titulo, :scope => [:encuesta, :ciudad]) %></h3>
+    <p class="info"><%=  t(:localidad, :scope => [:encuesta, :ciudad]) %></p>
+    <p>
+      <label>&nbsp;</label>
+      <%= select :profile, :provincia_id, @provincias_select  %>
+    </p>
+    <p>
+      <label>&nbsp;</label>
+      <%= select :profile, :municipio_id, @municipios_select %>
+      <%= image_tag 'spinner.gif', :class => 'spinner', :id => 'municipio_spinner' %>
+    </p>
+
+
+    <%= render :partial => 'edit_edificio_vivienda', :locals => {:f => f} %>
+    <%= render :partial => 'edit_edificio_equipamiento', :locals => {:f => f} %>
+
+
+    <br/>
+    <h3>Mis costumbres</h3>
+    <p class="info"><%=  t(:personas, :scope => [:encuesta, :costumbres]) %></p>
+    <p><label>&nbsp;</label><%= f.text_field :costumbres_personas %></p>
+
+    <p class="info"><%=  t(:horas, :scope => [:encuesta, :costumbres]) %></p>
+    <p><label>&nbsp;</label><%= f.text_field :costumbres_horas %></p>
+    <br/>
+
+    <h3>Mi opinión</h3>
+    <p class="info"><%=  t(:opina, :scope => [:encuesta, :opinion]) %></p>
+    <p><label>&nbsp;</label><%= f.text_area :opinion %></p>
+    <br/>
+    <p class="save">
+      <%= f.submit 'Guardar' %> Pulse "Guardar" cuando complete el cuestionario.
+    </p>
+  <% end %>
+</div>
+
+<script type="text/javascript">
+
+</script>

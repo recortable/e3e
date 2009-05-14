@@ -30,6 +30,29 @@ module AuthenticationMethods
     end
   end
 
+  def current_admin_session
+    return @current_admin_session if defined?@current_admin_session
+    @current_admin_session = AdminSession.find
+  end
+
+  def current_admin
+    return @current_admin if defined?(@current_admin)
+    @current_admin = current_admin_session && current_admin_session.record
+  end
+
+  def admin?
+    !current_admin.nil?
+  end
+
+  def require_admin
+    unless current_admin
+      store_location
+      flash[:notice] = qt(:flash, :require_admin)
+      redirect_to root_path
+      return false
+    end
+  end
+
   def store_location
     session[:return_to] = request.request_uri
   end

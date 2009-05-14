@@ -18,3 +18,8 @@ end
 
 require 'cucumber/rails/rspec'
 require 'webrat/core/matchers'
+
+  def qt(*symbols)
+    last = symbols.pop
+    I18n.t(last, :scope => symbols)
+  end

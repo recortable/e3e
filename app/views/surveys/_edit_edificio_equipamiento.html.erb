@@ -1,0 +1,158 @@
+<h3><%=  t(:titulo, :scope => [:encuesta, :equipo]) %></h3>
+
+
+<p class="info"><%=  t(:fuentes, :scope => [:encuesta, :equipo]) %></p>
+<table>
+  <thead><tr>
+      <td></td><% Survey::EQUIP_SERVICIOS.each do |service| %><td>
+          <%= t(service, :scope => [:encuesta, :equipamiento]) %>
+        </td><%  end -%>
+  </tr></thead><tbody>
+    <% Survey::EQUIP_FUENTES.each do |source| %>
+      <tr class="<%= cycle :odd, :even %> "><td class="name"><%= t(source, :scope => [:encuesta, :equipamiento]) %></td>
+        <% Survey::EQUIP_SERVICIOS.each do |service| %>
+          <td><%= f.check_box "equip_fuentes_#{service}_#{source}"  %></td>
+        <% end %>
+      </tr>
+  <% end %></tbody>
+</table>
+
+<h4><%=  t(:titulo, :scope => [:encuesta, :equipo, :agua]) %></h4>
+
+<p class="info"><%=  t(:tiene, :scope => [:encuesta, :equipo, :agua]) %></p>
+<% Survey::SINO.each do |option| %>
+  <p><%= f.radio_answer :equip_agua_caliente, option, :comun %></p>
+<% end -%>
+
+<p class="info"><%=  t(:tipo, :scope => [:encuesta, :equipo, :agua]) %></p>
+<% Survey::EQUIP_AGUA_TIPO.each do |option| %>
+  <p><%= f.radio_answer :equip_agua_tipo, option, :equipamiento %></p>
+<% end -%>
+
+<p class="info"><%=  t(:solar, :scope => [:encuesta, :equipo, :agua]) %></p>
+<% Survey::SINO.each do |option| %>
+  <p><%= f.radio_answer :equip_agua_solar, option, :comun %></p>
+<% end -%>
+
+<p class="info"><%=  t(:edad, :scope => [:encuesta, :equipo, :agua]) %></p>
+<p><label>&nbsp;</label><%= f.text_field :equip_agua_edad %></p>
+
+<p class="info"><%=  t(:caldera_tipo, :scope => [:encuesta, :equipo, :agua]) %></p>
+<% Survey::EQUIP_TIPO_IC.each do |option| %>
+  <p><%= f.radio_answer :equip_agua_caldera_tipo, option, :equipamiento %></p>
+<% end -%>
+
+<p class="info"><%=  t(:caldera_deposito, :scope => [:encuesta, :equipo, :agua]) %></p>
+<% Survey::SINO.each do |option| %>
+  <p><%= f.radio_answer :equip_agua_caldera_acumulacion, option, :comun %></p>
+<% end -%>
+
+
+
+<h4><%=  t(:titulo, :scope => [:encuesta, :equipo, :calefaccion]) %></h4>
+
+<!-- debería desaparecer por lo de común -->
+<p class="info"><%=  t(:tiene, :scope => [:encuesta, :equipo, :calefaccion]) %></p>
+<% Survey::SINO.each do |option| %>
+  <p><%= f.radio_answer :equip_calefaccion, option, :comun %></p>
+<% end -%>
+
+
+<p class="info"><%=  t(:tipo, :scope => [:encuesta, :equipo, :calefaccion]) %></p>
+<% Survey::EQUIP_CALE_TIPO.each do |option| %>
+  <p><%= f.radio_answer :equip_calefaccion_tipo, option, :equipamiento %></p>
+<% end -%>
+
+<p class="info"><%=  t(:estancias, :scope => [:encuesta, :equipo, :calefaccion]) %></p>
+<table>
+  <thead><tr><td/><% Survey::TAN.each do |option| %><td><%= t(option, :scope => [:encuesta, :comun]) %></td><%  end -%></tr></thead>
+  <tbody>
+    <% Survey::EQUIP_DONDE.each do |donde| %>
+      <tr class="<%= cycle :odd, :even %> ">
+        <td class="name"><%= t(donde, :scope => [:encuesta, :equipamiento]) %></td>
+        <% Survey::TAN.each do |option| %>
+          <td><%= f.radio_button "equip_calefaccion_donde_#{donde}", option  %></td>
+        <% end -%>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<p class="info"><%=  t(:caldera_misma, :scope => [:encuesta, :equipo, :calefaccion]) %></p>
+<% Survey::SINO.each do |option| %>
+  <p><%= f.radio_answer :equip_calefaccion_misma, option, :comun %></p>
+<% end -%>
+
+<!-- debe desaparecer -->
+<p class="info"><%=  t(:caldera_tipo, :scope => [:encuesta, :equipo, :calefaccion]) %></p>
+<% Survey::EQUIP_TIPO_IC.each do |option| %>
+  <p><%= f.radio_answer :equip_calefaccion_caldera_tipo, option, :equipamiento %></p>
+<% end -%>
+
+<p class="info"><%=  t(:bomba_tipo, :scope => [:encuesta, :equipo, :calefaccion]) %></p>
+<% Survey::EQUIP_BOMBA_TIPO.each do |option| %>
+  <p><%= f.radio_answer :equip_calefaccion_bomba_tipo, option, :equipamiento %></p>
+<% end -%>
+
+<p class="info"><%=  t(:edad, :scope => [:encuesta, :equipo, :calefaccion]) %></p>
+<p><label>&nbsp;</label><%= f.text_field :equip_calefaccion_edad %></p>
+
+<!-- AIRE ACONDICIONADO -->
+<h4><%=  t(:titulo, :scope => [:encuesta, :equipo, :aire]) %></h4>
+
+<!-- cambia a la estándar -->
+<p class="info"><%=  t(:tiene, :scope => [:encuesta, :equipo, :aire]) %></p>
+<% Survey::SINO.each do |option| %>
+  <p><%= f.radio_answer :equip_ac, option, :comun %></p>
+<% end -%>
+
+<p class="info"><%=  t(:estancias, :scope => [:encuesta, :equipo, :aire]) %></p>
+<table>
+  <tr><td>&nbsp;</td><% Survey::TAN.each do |option| %><td><%= t(option, :scope => [:encuesta, :comun]) %></td><%  end -%></tr>
+  <% Survey::EQUIP_DONDE.each do |donde| %>
+    <tr class="<%= cycle :odd, :even %> ">
+      <td class="name"><%= t(donde, :scope => [:encuesta, :equipamiento]) %></td>
+      <% Survey::TAN.each do |option| %>
+        <td><%= f.radio_button "equip_ac_donde_#{donde}", option  %></td>
+      <% end -%>
+    </tr>
+  <% end %>
+</table>
+
+<p class="info"><%=  t(:tipo, :scope => [:encuesta, :equipo, :aire]) %></p>
+<% Survey::EQUIP_TIPO_IC.each do |option| %>
+  <p><%= f.radio_answer :equip_ac_tipo, option, :equipamiento %></p>
+<% end -%>
+
+<p class="info"><%=  t(:edad, :scope => [:encuesta, :equipo, :aire]) %></p>
+<p><label>&nbsp;</label><%= f.text_field :equip_ac_edad %></p>
+
+
+<p class="info"><%=  t(:individual, :scope => [:encuesta, :equipo, :aire]) %></p>
+* de ventana / * split (aparatos indipendientes)
+
+<p class="info"><%=  t(:independientes, :scope => [:encuesta, :equipo, :aire]) %></p>
+* uno fuera, varios dentro / * varios fuera, varios dentro
+
+
+<h4><%=  t(:titulo, :scope => [:encuesta, :equipo, :dispositivos]) %></h4>
+<p class="info"><%=  t(:electrodomesticos, :scope => [:encuesta, :equipo, :dispositivos]) %></p>
+<table>
+  <% Survey::EQUIP_DISPOSITIVOS.each do |disp| %>
+    <tr class="<%= cycle :odd, :even %> "><td class="name"><%= t(disp, :scope => [:encuesta, :dispositivos]) %></td>
+    <td><%= f.text_field "equip_disp_tiene_#{disp}"  %></td></tr>
+  <% end %>
+</table>
+
+<p class="info"><%=  t(:iluminacion, :scope => [:encuesta, :equipo, :dispositivos]) %></p>
+<table>
+  <% Survey::EQUIP_ILUMINACION.each do |disp| %>
+    <tr class="<%= cycle :odd, :even %> "><td class="name"><%= t(disp, :scope => [:encuesta, :dispositivos]) %></td>
+    <td><%= f.text_field "equip_ilum_tiene_#{disp}"  %></td></tr>
+  <% end %>
+</table>
+
+
+
+
+

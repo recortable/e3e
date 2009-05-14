@@ -1,6 +1,5 @@
 es:
   disable_with: "Por favor, espere..."
-  new_user_session: "Entrar"
   username: "Usuario"
   password: "Contraseña"
   password_confirmation: "Repite contraseña"
@@ -8,3 +7,9 @@ es:
   question: "Pregunta"
   answer: "Respuesta"
   submit_create_user: "Dar de alta"
+  user:
+    login: "Entrar en la zona de usuarios"
+  admin:
+    login: "Entrar a la sección de administración"
+    session_closed: "No estás autenticado como adminstrador"
+    session_close: "Salir de la sección de administración"

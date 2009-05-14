@@ -6,7 +6,9 @@ class ApplicationController < ActionController::Base
   layout 'e3e'
 
   filter_parameter_logging :password
-  helper_method :current_user, :signed_in?, :qt
+  helper_method :qt
+  helper_method :current_user, :signed_in?
+  helper_method :current_admin, :admin?
 
   include AuthenticationMethods
 

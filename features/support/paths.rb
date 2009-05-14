@@ -13,6 +13,9 @@ module NavigationHelpers
 
     when /la encuesta/
       survey_path
+
+    when /usuarios/
+      users_path
       
     # Add more mappings here.
     # Here is a more fancy example:

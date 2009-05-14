@@ -11,3 +11,8 @@ Dado /^que no estoy autenticado$/ do
   session.destroy if session
 end
 
+Dado /^que no estoy autenticado como administrador$/ do
+  session = AdminSession.find
+  session.destroy if session
+end
+

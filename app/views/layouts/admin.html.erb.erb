@@ -8,6 +8,8 @@
     <%= stylesheet_link_tag 'wecex.css' %>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
     <%= yield :header %>
+
+    <style type="text/css">html {background-color: gray;}</style>
   </head>
   <body>
     <div class="top <%= @controller.class %>" ></div>
@@ -33,12 +35,11 @@
           </div>
         </div>
         <div class="session">
-          <% if signed_in? %>
-            Hola <%= current_user.username %>
-            <%= link_to t(:close, :scope => [:session]), logout_path, :method => 'delete' %>
+          <% if admin? %>
+            Eres el administrador<%= current_admin.email %>
+            <%= link_to qt(:admin, :session_close), logout_admin_path %>
           <% else -%>
-            <%= link_to 'Entrar', new_user_sessions_path %>
-            <%= link_to 'Darse de alta', new_user_path %>
+            <%= qt(:admin, :session_closed) %>
           <% end -%>
         </div>
 

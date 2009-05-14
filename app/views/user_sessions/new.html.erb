@@ -1,7 +1,7 @@
 <% title t(:new_user_session) %>
 
 <div class="dialog">
-  <h2><%= t(:login) %></h2>
+  <h2><%= qt(:user, :login) %></h2>
   <% form_for @user_session do |f| %>
     <%= f.error_messages %>
     <p>
@@ -10,11 +10,11 @@
     </p>
     <p>
       <%= f.label t(:password) %>
-      <%= f.text_field :password %>
+      <%= f.password_field :password %>
     </p>
     <p>
       <%= f.label ' ' %>
-      <%= f.submit t(:login) %>
+      <%= f.submit t(:login), :disable_with => t(:disable_with) %>
     </p>
   <% end %>
   <ul>

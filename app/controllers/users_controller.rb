@@ -1,5 +1,12 @@
 class UsersController < ApplicationController
 
+  before_filter :require_admin, :only => [:index]
+
+  def index
+    @users = User.all
+    render :layout => 'admin'
+  end
+
   def new
     @user = User.new
   end
