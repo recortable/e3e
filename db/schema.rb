@@ -110,10 +110,10 @@ ActiveRecord::Schema.define(:version => 20090514122206) do
     t.integer  "equip_ilum_tiene_incan"
     t.integer  "equip_ilum_tiene_bajocon"
     t.integer  "equip_ilum_tiene_fluor"
+    t.integer  "equip_ilum_tiene_leds"
     t.integer  "costumbres_personas"
     t.integer  "costumbres_horas"
     t.text     "opinion"
-    t.integer  "equip_ilum_tiene_leds"
   end
 
   create_table "users", :force => true do |t|
