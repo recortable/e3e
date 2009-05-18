@@ -22,7 +22,7 @@ class Survey < ActiveRecord::Base
   EQUIP_TIPO_IC =['individual', 'centralizada']
   EQUIP_DISPOSITIVOS = ['lavadora', 'secadora', 'lavavajillas', 'frigo', 'congelador', 'hornoel', 'hornonoel', 'microondas',
     'tele', 'ordenador', 'portatil' ]
-  EQUIP_ILUMINACION = ['incan', 'bajocon', 'fluor']
+  EQUIP_ILUMINACION = ['incan', 'bajocon', 'fluor', 'leds']
   EQUIP_DONDE = ['salas', 'dormitorios']
   EQUIP_AC_TIPO = ['caldera', 'bomba', 'radiador', 'acumulad']
   EQUIP_BOMBA_TIPO = ['uneq', 'varioseq']

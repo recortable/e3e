@@ -139,7 +139,8 @@
 <p class="info"><%=  t(:electrodomesticos, :scope => [:encuesta, :equipo, :dispositivos]) %></p>
 <table>
   <% Survey::EQUIP_DISPOSITIVOS.each do |disp| %>
-    <tr class="<%= cycle :odd, :even %> "><td class="name"><%= t(disp, :scope => [:encuesta, :dispositivos]) %></td>
+    <tr class="<%= cycle :odd, :even %> "><td class="name">
+      <%= t(disp, :scope => [:encuesta, :equipo, :dispositivos]) %></td>
     <td><%= f.text_field "equip_disp_tiene_#{disp}"  %></td></tr>
   <% end %>
 </table>
@@ -147,7 +148,8 @@
 <p class="info"><%=  t(:iluminacion, :scope => [:encuesta, :equipo, :dispositivos]) %></p>
 <table>
   <% Survey::EQUIP_ILUMINACION.each do |disp| %>
-    <tr class="<%= cycle :odd, :even %> "><td class="name"><%= t(disp, :scope => [:encuesta, :dispositivos]) %></td>
+    <tr class="<%= cycle :odd, :even %> ">
+      <td class="name"><%= t(disp, :scope => [:encuesta, :equipo, :dispositivos]) %></td>
     <td><%= f.text_field "equip_ilum_tiene_#{disp}"  %></td></tr>
   <% end %>
 </table>

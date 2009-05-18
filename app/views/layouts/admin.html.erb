@@ -22,10 +22,10 @@
 
         <div id="navigation">
           <div class="sections">
-            <% if signed_in? %>
+            <% if admin? %>
               <%= section qt(:admin, :users), users_path %>
-              <%= section t(:invoices), root_path %>
-              <%= section t(:report), root_path, :class => 'report' %>
+              <%= section qt(:admin, :statistics), statistics_path %>
+              <%= section qt(:admin, :development), development_path,  :class => 'report' %>
 
             <% else -%>
               <%= section 'Qué es wecex', about_path %>

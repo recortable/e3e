@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090514103029) do
+ActiveRecord::Schema.define(:version => 20090514122206) do
 
   create_table "admins", :force => true do |t|
     t.string   "email"
@@ -42,14 +42,13 @@ ActiveRecord::Schema.define(:version => 20090514103029) do
     t.datetime "updated_at"
     t.integer  "provincia_id"
     t.integer  "municipio_id"
-    t.string   "edificio_anyo",                       :limit => 4
     t.string   "edificio_periodo",                    :limit => 32
     t.string   "vivienda_tipo_edificio",              :limit => 32
     t.integer  "vivienda_num_plantas"
     t.string   "vivienda_planta"
     t.integer  "vivienda_estancias"
     t.integer  "vivienda_servicios"
-    t.string   "vivienda_tejado"
+    t.string   "edificio_tejado"
     t.float    "vivienda_superficie"
     t.boolean  "vivienda_aistejado"
     t.boolean  "vivienda_aisparedes"
@@ -114,6 +113,7 @@ ActiveRecord::Schema.define(:version => 20090514103029) do
     t.integer  "costumbres_personas"
     t.integer  "costumbres_horas"
     t.text     "opinion"
+    t.integer  "equip_ilum_tiene_leds"
   end
 
   create_table "users", :force => true do |t|

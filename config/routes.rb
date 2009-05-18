@@ -10,13 +10,16 @@ ActionController::Routing::Routes.draw do |map|
   map.about '/', :controller => 'about', :action => 'index'
   map.who '/quienes', :controller => 'about', :action => 'who'
   map.mission '/paraque', :controller => 'about', :action => 'mission'
+  map.development '/admin/desarrollo', :controller => 'about', :action => 'development'
+  map.statistics '/admin/estadisticas', :controller => 'about', :action => 'statistics'
 
-  map.resources :users, :as => 'usuario'
+  map.resources :users, :as => 'usuarios'
   map.resource :survey, :as => 'encuesta'
 
   map.resources :admin_sessions, :as => 'administracion'
-  map.login_admin "/admin", :controller => 'admin_sessions', :action => 'new'
-  map.logout_admin "/cerrar", :controller => 'admin_sessions', :action => 'destroy'
+  map.admin "/admin", :controller => 'admin_sessions', :action => 'index'
+  map.login_admin "/admin/entrar", :controller => 'admin_sessions', :action => 'new'
+  map.logout_admin "admin/cerrar", :controller => 'admin_sessions', :action => 'destroy'
 
 
   map.connect ':controller/:action/:id'

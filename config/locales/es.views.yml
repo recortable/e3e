@@ -14,3 +14,5 @@ es:
     session_closed: "No estás autenticado como adminstrador"
     session_close: "Salir de la sección de administración"
     users: "Usuarios registrados"
+    development: "Evolución de E3E"
+    statistics: "Estadísticas"

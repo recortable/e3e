@@ -1,6 +1,11 @@
 class AdminSessionsController < ApplicationController
   layout 'admin'
 
+  def index
+    path = admin? ? users_path : admin_login_path
+    redirect_to path
+  end
+
   def new
     @admin_session = AdminSession.new
   end

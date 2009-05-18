@@ -15,9 +15,9 @@
 <p class="info"><%=  t(:plantas, :scope => [:encuesta, :edificio]) %></p>
 <p><label>&nbsp;</label><%= f.text_field :vivienda_num_plantas %></p>
 
-<p class="info"><%=  t(:tejado, :scope => [:encuesta, :vivienda]) %></p>
+<p class="info"><%=  qt(:encuesta, :edificio, :tejado) %></p>
 <% Survey::VIVIENDA_TEJADO.each do |option| %>
-  <p><%= f.radio_answer :vivienda_tejado, option, :vivienda %></p>
+  <p><%= f.radio_answer :edificio_tejado, option, :edificio %></p>
 <% end -%>
 
 <h3><%=  t(:titulo, :scope => [:encuesta, :vivienda]) %></h3>
