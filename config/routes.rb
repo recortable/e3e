@@ -18,8 +18,8 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :admin_sessions, :as => 'administracion'
   map.admin "/admin", :controller => 'admin_sessions', :action => 'index'
-  map.login_admin "/admin/entrar", :controller => 'admin_sessions', :action => 'new'
-  map.logout_admin "admin/cerrar", :controller => 'admin_sessions', :action => 'destroy'
+  map.admin_login "/admin/entrar", :controller => 'admin_sessions', :action => 'new'
+  map.admin_logout "admin/cerrar", :controller => 'admin_sessions', :action => 'destroy'
 
 
   map.connect ':controller/:action/:id'

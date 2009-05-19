@@ -6,9 +6,10 @@ module ApplicationHelper
     I18n.t "submit_#{action}_#{klass}"
   end
 
-  def title(page_title, show = true)
+  def title(page_title, options = {})
+    options = {:show => true, :tag => 'h1'}.update(options)
     content_for(:title) { page_title }
-    content_tag(:h1, page_title) if show
+    content_tag(options[:tag], page_title) if options[:show]
   end
 
   def section(label, path, expected = nil, options = {})

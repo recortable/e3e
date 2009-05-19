@@ -1,5 +1,14 @@
-
 es:
+  activerecord:
+    models:
+      user: "usuario"
+    attributes:
+      user:
+        username: "Ese nombre de usuario"
+        password: "Contraseña"
+        password_confirmation: "Repite contraseña"
+        question: "La pregunta"
+        answer: "La espuesta"
   profile: "Paso 1: Encuesta"
   report: "Paso 3: Consumo"
   invoices: "Paso 2: Facturas"

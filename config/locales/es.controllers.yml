@@ -3,3 +3,5 @@ es:
     user_sessions:
       create: "Bienvenido a E3E"
       destroy: "Se ha cerrado la sesión"
+    users:
+      create: "Bienvenido a E3E. Puede empezar rellando el cuestionario"

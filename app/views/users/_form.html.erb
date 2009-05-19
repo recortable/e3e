@@ -6,11 +6,11 @@
   </p>
   <p>
     <%= f.label t(:password) %>
-    <%= f.text_field :password %>
+    <%= f.password_field :password %>
   </p>
   <p>
     <%= f.label t(:password_confirmation) %>
-    <%= f.text_field :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
   </p>
   <p>
     <%= f.label t(:question) %>
@@ -22,6 +22,6 @@
   </p>
   <p>
     <%= f.label ' ' %>
-<%= f.submit submit_label_for(@user), :disable_with => t(:disable_with) %>
+    <%= f.submit submit_label_for(@user), :disable_with => t(:disable_with) %>
   </p>
 <% end %>

@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       flash[:notice] = t(:create, :scope => [:controllers, :users])
-      redirect_to root_url
+      redirect_to survey_path
     else
       render :action => 'new'
     end

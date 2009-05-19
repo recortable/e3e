@@ -37,7 +37,7 @@
         <div class="session">
           <% if admin? %>
             Eres el administrador<%= current_admin.email %>
-            <%= link_to qt(:admin, :session_close), logout_admin_path %>
+            <%= link_to qt(:admin, :session_close), admin_logout_path %>
           <% else -%>
             <%= qt(:admin, :session_closed) %>
           <% end -%>

@@ -9,6 +9,7 @@ es:
   submit_create_user: "Dar de alta"
   user:
     login: "Entrar en la zona de usuarios"
+    new_user: "Dar de alta un nuevo usuario"
   admin:
     login: "Entrar a la sección de administración"
     session_closed: "No estás autenticado como adminstrador"
