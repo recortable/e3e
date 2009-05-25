@@ -1,9 +1,10 @@
 module ApplicationHelper
 
   def submit_label_for(model)
-    klass = model.class.to_s.downcase
+    #klass = model.class.to_s.downcase
     action = model.new_record? ? 'create' : 'update'
-    I18n.t "submit_#{action}_#{klass}"
+    #I18n.t "submit_#{action}_#{klass}"
+    t(action)
   end
 
   def title(page_title, options = {})

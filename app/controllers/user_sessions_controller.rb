@@ -6,8 +6,8 @@ class UserSessionsController < ApplicationController
   def create
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
-      flash[:notice] = t(:create, :scope => [:controllers, :user_sessions])
-      redirect_back_or root_url
+      flash[:notice] = t(:notice)
+      redirect_to survey_path
     else
       render :action => 'new'
     end
@@ -16,7 +16,7 @@ class UserSessionsController < ApplicationController
   def destroy
     @user_session = UserSession.find(params[:id])
     @user_session.destroy
-    flash[:notice] = t(:destroy, :scope => [:controllers, :user_sessions])
+    flash[:notice] = t(:notice)
     redirect_to root_url
   end
 end

@@ -21,7 +21,7 @@ class SurveysController < ApplicationController
   def update
     @survey = @current_user.survey
     if @survey.update_attributes(params[:survey])
-      flash[:notice] = qt(:flash, :survey, :updated)
+      flash[:notice] = t(:flash)
       redirect_to edit_survey_path
     else
       render :action => 'edit'

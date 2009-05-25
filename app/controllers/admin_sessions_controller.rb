@@ -13,8 +13,8 @@ class AdminSessionsController < ApplicationController
   def create
     @admin_session = AdminSession.new(params[:admin_session])
     if @admin_session.save
-      flash[:notice] = qt(:flash, :admin_session, :created)
-      redirect_to root_url
+      flash[:notice] = t(:flash)
+      redirect_to users_path
     else
       render :action => 'new'
     end
@@ -23,7 +23,7 @@ class AdminSessionsController < ApplicationController
   def destroy
     @admin_session = AdminSession.find(params[:id])
     @admin_session.destroy
-      flash[:notice] = qt(:flash, :admin_session, :destroyed)
+      flash[:notice] = t(:flash)
     redirect_to root_url
   end
 end

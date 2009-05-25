@@ -6,6 +6,10 @@ class User < ActiveRecord::Base
 
   after_create :create_survey
 
+  def invoice(type)
+    Invoice.new(type, self)
+  end
+
   private
   def create_survey
     Survey.create!(:user_id => self.id)

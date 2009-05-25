@@ -2,7 +2,7 @@ es:
   disable_with: "Por favor, espere..."
   username: "Usuario"
   password: "Contraseña"
-  password_confirmation: "Repite contraseña"
+  password_confirmation: "Repite"
   login: "Entrar"
   question: "Pregunta"
   answer: "Respuesta"
@@ -17,3 +17,6 @@ es:
     users: "Usuarios registrados"
     development: "Evolución de E3E"
     statistics: "Estadísticas"
+  invoices:
+    gas: "Consumo de gas"
+    elec: "Consumo eléctrico"

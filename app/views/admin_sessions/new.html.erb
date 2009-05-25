@@ -1,20 +1,19 @@
-<% title "New Admin Session" %>
 
 <div class="dialog">
-  <h2><%= qt(:admin, :login) %></h2>
+  <%= title t(:title), :tag => :h2 %>
   <% form_for @admin_session do |f| %>
     <%= f.error_messages %>
     <p>
-      <%= f.label :email %>
+      <%= f.label t(:email) %>
       <%= f.text_field :email%>
     </p>
     <p>
-      <%= f.label :password %>
+      <%= f.label t(:password) %>
       <%= f.password_field :password %>
     </p>
     <p>
       <%= f.label ' ' %>
-      <%= f.submit t(:login), :disable_with => t(:disable_with) %>
+      <%= f.submit t(:submit), :disable_with => t(:disable_with) %>
     </p>
   <% end %>
 </div>

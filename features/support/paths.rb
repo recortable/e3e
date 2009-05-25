@@ -7,7 +7,10 @@ module NavigationHelpers
   #
   def path_to(page_name)
     case page_name
-    
+
+    when /entrar administradores/
+      new_admin_session_path
+
     when /entrar/
       new_user_sessions_path
 

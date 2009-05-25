@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  service: MyString
+  ammount: 1
+  month: MyString
+  user: 
+
+two:
+  service: MyString
+  ammount: 1
+  month: MyString
+  user: 

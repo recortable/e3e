@@ -14,6 +14,7 @@ html {
 .AdminSessionsController {background-color: #000;}
 .UsersController {background-color: #0c0; }
 
+.container {width: 100%; overflow: hidden;}
 
 h1, h2, h3 {color: #333333;}
 h1 {font-size: 250%;}
@@ -43,12 +44,12 @@ p {margin: 0.4em 0;}
 
 #navigation {margin-top: 1em;}
 #navigation .sections {float: left; }
-#navigation  a, #navigation span {padding: 2em 0.5em 1.5em 0.5em; font-variant: small-caps;}
+#navigation  a, #navigation span {padding: 2em 0.5em 1.5em 0.5em; font-variant: small-caps;  -moz-border-radius: 0 0 0.5em 0.5em;}
 #navigation span {color: white;}
 #navigation a:hover {background-color: #efefef;}
 
 .session {width: 100%; overflow: hidden; border-top: 1px solid gray; border-bottom: 1px solid gray; margin-bottom: 1em;
-   color: gray; font-size: 90%; padding: 0.2em 0;}
+    color: gray; font-size: 90%; padding: 0.2em 0;}
 .session a {font-variant: small-caps; padding: 0.5em; }
 .content {padding: 1em 2em;}
 
@@ -63,9 +64,16 @@ form p {width: 100%; overflow: hidden; margin-bottom: 0.2em;}
 form span {margin-left: 1em;}
 form span.fieldWithErrors {float: left; margin-left: 0; border: 2px solid #c00; }
 form p.info {margin: 1em 0 0.5em 8em; color: #4F4F4F;}
-form p.save {background-color: #efefef; padding: 0.5em; margin-left: 8em; width: auto;}
+form p.save {background-color: #efefef; padding: 0.5em 2em; margin-left: 6em; width: auto;
+    -moz-border-radius: 1em;}
 form label {float: left; display: block; width: 6em; text-align: right; padding-top: 0.2em;
     margin-right: 0.5em; margin-left: 2.5em; color: gray;}
+form p.error_message {color: #c00; margin-left: 9em; margin-botto: 1em;}
+form p.error {background-color: #FFAFAF; padding-top: 5px;}
+
+.errorExplanation {margin-left: 2em;}
+.errorExplanation h2 {font-size: 100%; margin-left: 0;}
+
 
 #encuesta input[type=text] {width: 6em;}
 #encuesta textarea {width: 40em; height: 10em;}
@@ -74,3 +82,7 @@ form table {margin: 1em 0 2em 8em;}
 form tr.even {background-color: #efefef;}
 form table td {padding: 0.2em 1em; text-align: center;}
 form table td.name {text-align: right; padding-right: 0.5em; width: 12em;}
+
+.invoice {width: 44%; float: left; text-align: center; padding: 2%; background-color: #efefef; margin-right: 2%;
+    -moz-border-radius: 0.5em;}
+.invoice img {margin: 1em 0;}

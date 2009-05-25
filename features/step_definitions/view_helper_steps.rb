@@ -1,7 +1,10 @@
 
-Entonces /^debería ver el mensaje (.*)$/ do|message_id|
-  id = message_id.slice(1..-1)
-  message = qt(:flash, id)
+Entonces /^debería ver el mensaje (.*)$/ do|messages_id|
+  chain = []
+  messages_id.split(' ').each do |message_id|
+    chain << message_id.strip.slice(1..-1).to_sym
+  end
+  message = qt(chain)
   Entonces %(debería ver "#{message}")
 end
 

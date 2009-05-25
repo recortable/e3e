@@ -1,27 +1,34 @@
+
+
 <% form_for @user do |f| %>
   <%= f.error_messages %>
   <p>
     <%= f.label t(:username) %>
-    <%= f.text_field :username %>
+    <%= f.text_field :username, :class => 'not_empty length_more_than_4' %>
   </p>
   <p>
     <%= f.label t(:password) %>
-    <%= f.password_field :password %>
+    <%= f.password_field :password, :class => 'not_empty length_more_than_4' %>
   </p>
   <p>
     <%= f.label t(:password_confirmation) %>
-    <%= f.password_field :password_confirmation %>
+    <%= f.password_field :password_confirmation, :class => 'not_empty length_more_than_4' %>
   </p>
   <p>
     <%= f.label t(:question) %>
-    <%= f.text_field :question %>
+    <%= f.text_field :question, :class => 'not_empty length_more_than_4' %>
   </p>
   <p>
     <%= f.label t(:answer) %>
-    <%= f.text_field :answer %>
+    <%= f.text_field :answer, :class => 'not_empty length_more_than_4' %>
   </p>
   <p>
     <%= f.label ' ' %>
-    <%= f.submit submit_label_for(@user), :disable_with => t(:disable_with) %>
+    <%= f.submit submit_label_for(@user) %>
   </p>
 <% end %>
+
+
+<script type="text/javascript">
+  $('form').validate('<%= t(:disable_with) %>');
+</script>

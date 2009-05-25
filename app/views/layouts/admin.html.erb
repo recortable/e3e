@@ -23,9 +23,9 @@
         <div id="navigation">
           <div class="sections">
             <% if admin? %>
-              <%= section qt(:admin, :users), users_path %>
-              <%= section qt(:admin, :statistics), statistics_path %>
-              <%= section qt(:admin, :development), development_path,  :class => 'report' %>
+              <%= section t(:users), users_path %>
+              <%= section t(:statistics), statistics_path %>
+              <%= section t(:development), development_path,  :class => 'report' %>
 
             <% else -%>
               <%= section 'Qué es wecex', about_path %>
@@ -35,12 +35,12 @@
           </div>
         </div>
         <div class="session">
-          <% if admin? %>
-            Eres el administrador<%= current_admin.email %>
-            <%= link_to qt(:admin, :session_close), admin_logout_path %>
-          <% else -%>
-            <%= qt(:admin, :session_closed) %>
-          <% end -%>
+          <% if current_admin %>
+          Hola <%= current_admin.email %>
+          <%= link_to t(:session_close), admin_logout_path %>
+          <% else %>
+            Zona de aministración
+          <% end %>
         </div>
 
       </div>

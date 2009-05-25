@@ -15,6 +15,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :users, :as => 'usuarios'
   map.resource :survey, :as => 'encuesta'
+  map.resource :invoice, :as => 'factura'
 
   map.resources :admin_sessions, :as => 'administracion'
   map.admin "/admin", :controller => 'admin_sessions', :action => 'index'

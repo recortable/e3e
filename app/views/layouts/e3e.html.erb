@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.6.0/build/reset/reset-min.css" />
     <%= stylesheet_link_tag 'wecex.css' %>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+    <%= javascript_include_tag 'jquery.validator.js'  %>
     <%= yield :header %>
   </head>
   <body>
@@ -21,8 +22,8 @@
         <div id="navigation">
           <div class="sections">
             <% if signed_in? %>
-              <%= section t(:profile), survey_path, :SurveysController %>
-              <%= section t(:invoices), root_path, :NotImplemented %>
+              <%= section t(:survey), survey_path, :SurveysController %>
+              <%= section t(:invoices), invoice_path, :InvoicesController %>
               <%= section t(:report), root_path, :NotImplemented, :class => 'report' %>
 
             <% else -%>
@@ -35,7 +36,7 @@
         <div class="session">
           <% if signed_in? %>
             Hola <%= current_user.username %>
-            <%= link_to t(:close, :scope => [:session]), logout_path, :method => 'delete' %>
+            <%= link_to t(:user_session_close), logout_path, :method => 'delete' %>
           <% else -%>
             <%= link_to 'Entrar', new_user_sessions_path %>
             <%= link_to 'Darse de alta', new_user_path %>

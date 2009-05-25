@@ -24,7 +24,7 @@ module AuthenticationMethods
   def require_user
     unless current_user
       store_location
-      flash[:notice] = qt(:flash, :require_user)
+      flash[:notice] = t(:require_user)
       redirect_to new_user_sessions_url
       return false
     end
@@ -47,7 +47,7 @@ module AuthenticationMethods
   def require_admin
     unless current_admin
       store_location
-      flash[:notice] = qt(:flash, :require_admin)
+      flash[:notice] = t(:require_admin)
       redirect_to root_path
       return false
     end
