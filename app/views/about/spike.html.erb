@@ -1,0 +1,71 @@
+
+<% content_for :header do %>
+
+  <%= javascript_include_tag 'jscharts' %>
+
+  <style>
+    #dataset label {width: 10em;}
+  </style>
+
+  <script type="text/javascript">
+    (function($) {
+      var charts = [];
+
+      $.chart = function(dataset, containerId) {
+        var chart = getChart(containerId);
+        var data = getData(dataset);
+        chart.setDataArray(data);
+        chart.draw();
+      };
+
+      var getChart = function(containerId) {
+        if (charts[containerId] == null) {
+          var current = charts[containerId] = new JSChart(containerId, 'bar');
+          current.setTitle("Evolución del consumo de electricidad")
+          current.setAxisNameX("mes");
+          current.setAxisNameY("")
+          current.setBarOpacity(0.6);
+          current.setSize(700, 300);
+        }
+        return charts[containerId]
+      };
+
+      var getData = function(dataset) {
+        var data = new Array();
+        $(dataset).find("input.data").each(function() {
+          var value = parseInt($(this).val());
+          if (isNaN(value)) value = 0;
+          data.push([$(this).attr('id'), value]);
+        });
+        return data;
+      };
+    })(jQuery);
+
+    jQuery(function($) {
+      $("#dataset input.data").change(function() {      $.chart('#dataset', 'chart');      });
+      $.chart('#dataset', 'chart');
+    })
+  </script>
+
+<% end %>
+
+<%= title("Prototipo para la introducción de datos de la factura") %>
+
+<div id="chart">
+
+</div>
+
+<% factura = Consumption.new %>
+
+<% form_tag({:action => 'epa'}, :id => 'dataset') do %>
+  <table>
+    <% factura.months do |month| %>
+      <tr class="<%= cycle('even', 'odd'); %>">
+        <td><%= label_tag factura.name(month) %></td>
+        <td><%= text_field_tag "data[#{month}]", factura.value(month), :class => 'data', :id => factura.label(month) %></td>
+        <td><span>kWM/h</span></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
+

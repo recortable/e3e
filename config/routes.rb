@@ -3,11 +3,12 @@ ActionController::Routing::Routes.draw do |map|
 
   map.root :controller => 'about'
 
+  map.resource :consumption
   map.resource :user_sessions, :as => 'sesion'
   map.login "/entrar", :controller => "user_sessions", :action => "new"
   map.logout "/salir", :controller => "user_sessions", :action => "destroy"
 
-  map.about '/', :controller => 'about', :action => 'index'
+  map.about '/', :controller => 'about', :action => 'about'
   map.who '/quienes', :controller => 'about', :action => 'who'
   map.mission '/paraque', :controller => 'about', :action => 'mission'
   map.development '/admin/desarrollo', :controller => 'about', :action => 'development'
