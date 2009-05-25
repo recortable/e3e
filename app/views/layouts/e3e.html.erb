@@ -22,7 +22,7 @@
         <div id="navigation">
           <div class="sections">
             <% if signed_in? %>
-              <%= section t(:profile), survey_path, :SurveysController %>
+              <%= section t(:survey), survey_path, :SurveysController %>
               <%= section t(:invoices), {:action => 'spike', :controller => 'about' } %>
               <%= section t(:report), root_path, :NotImplemented, :class => 'report' %>
             <% else -%>

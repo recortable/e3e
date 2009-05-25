@@ -55,7 +55,7 @@
 
 </div>
 
-<% factura = Consumption.gas(current_user) %>
+<% factura = Invoice.gas(current_user) %>
 
 <% form_tag({:action => 'epa'}, :id => 'dataset') do %>
   <table>

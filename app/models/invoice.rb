@@ -21,8 +21,8 @@ class Invoice
     MESES = %w(Enero Febrero Marzo Abril Mayo Junio Julio Agosto Septiembre Octubre Noviembre Diciembre)
   MSS = MESES.map{|m| m[0..2]}
 
-  def months
-    0.upto(11).each {|n| yield n}
+  def months(&block)
+    0.upto(11, &block)
   end
 
   def name(month)
