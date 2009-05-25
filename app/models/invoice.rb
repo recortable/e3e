@@ -5,16 +5,35 @@ class Invoice
 
   attr_accessor :service
 
+  def self.gas(user)
+    Invoice.new(GAS, user)
+  end
+
+  def self.elec(user)
+    Invoice.new(ELEC, user)
+  end
+
   def initialize(service, user)
-    @type = type
+    @user = user
     @service = service
   end
 
-  def chart
-    size = "350x200"
-    type = 'bvs'
-    data = 't:10,50,60,80,40,20,15,35,60'
-    color = '4D89F9'
-    "http://chart.apis.google.com/chart?chs=#{size}&cht=#{type}&chd=#{data}&chco=#{color}"
+    MESES = %w(Enero Febrero Marzo Abril Mayo Junio Julio Agosto Septiembre Octubre Noviembre Diciembre)
+  MSS = MESES.map{|m| m[0..2]}
+
+  def months
+    0.upto(11).each {|n| yield n}
+  end
+
+  def name(month)
+    "#{MESES[month]} del 2009"
+  end
+
+  def label(month)
+    "#{MSS[month]} 09"
+  end
+
+  def value(month)
+    1300
   end
 end

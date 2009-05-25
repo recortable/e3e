@@ -1,5 +1,15 @@
 class AboutController < ApplicationController
 
+  def index
+    if admin?
+      redirect_to current_admin
+    elsif current_user
+      redirect_to survey_path
+    else
+      render :action => 'about'
+    end
+  end
+
   def development
     render :layout => 'admin'
   end

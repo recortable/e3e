@@ -22,10 +22,9 @@
         <div id="navigation">
           <div class="sections">
             <% if signed_in? %>
-              <%= section t(:survey), survey_path, :SurveysController %>
-              <%= section t(:invoices), invoice_path, :InvoicesController %>
+              <%= section t(:profile), survey_path, :SurveysController %>
+              <%= section t(:invoices), {:action => 'spike', :controller => 'about' } %>
               <%= section t(:report), root_path, :NotImplemented, :class => 'report' %>
-
             <% else -%>
               <%= section 'Qué es wecex', about_path %>
               <%= section 'Quiénes somos', who_path %>
