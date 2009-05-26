@@ -5,9 +5,8 @@ es:
   password: "Contraseña"
   email: "Email"
   
-  flash:
-    require_user: "Necesitas estar dado de alta como usuario para acceder a esta zona"
-    require_admin: "Necesitas ser un administrador para acceder a esta zona"
+  require_user: "Necesitas estar dado de alta como usuario para acceder a esta zona"
+  require_admin: "Necesitas ser un administrador para acceder a esta zona"
     
   layouts:
     e3e:
