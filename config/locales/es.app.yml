@@ -16,6 +16,9 @@ es:
       elec: "Paso 3: Electricidad"
       report: "Paso 4: Informe"
       user_session_close: "Salir"
+      what: "Qué es wecex"
+      who: "Quiénes somos"
+      mission: "Para qué sirve wecex"
     admin:
       users: "Usuarios"
       statistics: "Estadísticas"
@@ -23,7 +26,7 @@ es:
       session_close: "Salir de la zona de administración"
 
   about:
-    about:
+    what:
       title: "Qué es wecex"
     development:
       title: "Desarrollo"
@@ -56,7 +59,13 @@ es:
       title_gas: "Evolución del consumo de gas"
       title_elec: "Evolución del consumo eléctrico"
       submit: "Guardar"
+    update:
+      updated: "Los datos de la factura han sido guardados."
 
+  reports:
+    show:
+      title: "Informe"
+      
   user_sessions:
     username: "Nombre"
     password: "Contraseña"

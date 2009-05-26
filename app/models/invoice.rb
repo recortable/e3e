@@ -18,8 +18,7 @@ class Invoice
   def initialize(service, user)
     @user = user
     @service = service
-    # #@consumptions = @user.consumptions
-    @consumptions = []
+    @consumptions = @user.consumptions
     initialize_consumptions if @consumptions.size == 0
   end
 

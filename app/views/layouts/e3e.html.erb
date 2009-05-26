@@ -25,9 +25,9 @@
               <%= section t(:survey), survey_path, :SurveysController %>
               <%= section t(:gas), gas_path %>
               <%= section t(:elec), elec_path %>
-              <%= section t(:report), root_path, :NotImplemented, :class => 'report' %>
+              <%= section t(:report), report_path, :ReportsController, :class => 'report' %>
             <% else -%>
-              <%= section t(:about), about_path %>
+              <%= section t(:what), what_path %>
               <%= section t(:who), who_path %>
               <%= section t(:mission), mission_path %>
             <% end %>
@@ -50,7 +50,11 @@
       <div class="content">
         <%= yield %>
       </div>
-      <div class="bottom">E3E versión 0.2.0 - hecho a mano por <%= link_to 'c a l c', 'http://calcaxy.com' %></div>
+      <div class="bottom">
+        <%= link_to t(:what), what_path %> |
+        <%= link_to t(:who), who_path %> | 
+        <%= link_to t(:mission), mission_path %> |
+      </div>
     </div>
   </body>
 </html>

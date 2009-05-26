@@ -6,7 +6,7 @@ class AboutController < ApplicationController
     elsif current_user
       redirect_to survey_path
     else
-      render :action => 'about'
+      redirect_to what_path
     end
   end
 

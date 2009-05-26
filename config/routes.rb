@@ -8,7 +8,7 @@ ActionController::Routing::Routes.draw do |map|
   map.login "/entrar", :controller => "user_sessions", :action => "new"
   map.logout "/salir", :controller => "user_sessions", :action => "destroy"
 
-  map.about '/', :controller => 'about', :action => 'about'
+  map.what '/que_es', :controller => 'about', :action => 'what'
   map.who '/quienes', :controller => 'about', :action => 'who'
   map.mission '/paraque', :controller => 'about', :action => 'mission'
   map.development '/admin/desarrollo', :controller => 'about', :action => 'development'
@@ -19,6 +19,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users, :as => 'usuarios'
   map.resource :survey, :as => 'encuesta'
   map.resource :invoice, :as => 'factura'
+  map.resource :report, :as => 'informe'
 
 
   map.resources :admin_sessions, :as => 'administracion'

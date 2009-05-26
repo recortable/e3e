@@ -9,7 +9,7 @@ html {
 .AboutController {background-color: #A5C941;}
 .InvoicesController {background-color: #2DAEBF;}
 .SurveysController {background-color: #A9014B;}
-.ProfilesController {background-color: #FC9200;}
+.ReportsController {background-color: #FC9200;}
 .UserSessionsController {background-color: #0c0; }
 .AdminSessionsController {background-color: #000;}
 .UsersController {background-color: #0c0; }

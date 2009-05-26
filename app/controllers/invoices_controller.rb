@@ -14,8 +14,13 @@ class InvoicesController  < ApplicationController
     @invoice = current_user.invoice(params[:service])
   end
 
-  def create
-    flash[:notice] = "Todavía no guarda..."
+  def update
+    flash[:notice] = t(:updated)
+
+    params[:consumption].each do |param|
+      Consumption.find(param[0]).update_attributes(param[1])
+    end
+
     redirect_to :back
   end
 
