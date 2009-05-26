@@ -1,37 +1,8 @@
 require 'test_helper'
 
 class AdminsControllerTest < ActionController::TestCase
-  def test_new
-    get :new
-    assert_template 'new'
-  end
-  
-  def test_create_invalid
-    Admin.any_instance.stubs(:valid?).returns(false)
-    post :create
-    assert_template 'new'
-  end
-  
-  def test_create_valid
-    Admin.any_instance.stubs(:valid?).returns(true)
-    post :create
-    assert_redirected_to root_url
-  end
-  
-  def test_edit
-    get :edit, :id => Admin.first
-    assert_template 'edit'
-  end
-  
-  def test_update_invalid
-    Admin.any_instance.stubs(:valid?).returns(false)
-    put :update, :id => Admin.first
-    assert_template 'edit'
-  end
-  
-  def test_update_valid
-    Admin.any_instance.stubs(:valid?).returns(true)
-    put :update, :id => Admin.first
-    assert_redirected_to root_url
+  # Replace this with your real tests.
+  test "the truth" do
+    assert true
   end
 end

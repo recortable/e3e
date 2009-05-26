@@ -1,5 +1,4 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :admins
 
   map.root :controller => 'about'
 
@@ -14,17 +13,17 @@ ActionController::Routing::Routes.draw do |map|
   map.development '/admin/desarrollo', :controller => 'about', :action => 'development'
   map.statistics '/admin/estadisticas', :controller => 'about', :action => 'statistics'
 
-  map.gas "/factura/gas", :controller => 'invoices', :action => 'edit', :service => 'gas'
-  map.elec "/factura/electricidad", :controller => 'invoices', :action => 'edit', :service => 'elec'
+  map.resource :gas, :as => 'gas', :controller => 'gas'
+  map.resource :electricidad, :as => 'electricidad', :controller => 'electricidad'
   map.resources :users, :as => 'usuarios'
   map.resource :survey, :as => 'encuesta'
   map.resource :invoice, :as => 'factura'
   map.resource :report, :as => 'informe'
+  map.resources :admins
 
 
   map.resources :admin_sessions, :as => 'administracion'
-  map.admin "/admin", :controller => 'admin_sessions', :action => 'index'
-  map.admin_login "/admin/entrar", :controller => 'admin_sessions', :action => 'new'
+  map.admin_login "/admin", :controller => 'admin_sessions', :action => 'new'
   map.admin_logout "admin/cerrar", :controller => 'admin_sessions', :action => 'destroy'
 
 

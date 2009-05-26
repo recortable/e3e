@@ -1,9 +1,7 @@
 class AboutController < ApplicationController
 
   def index
-    if admin?
-      redirect_to current_admin
-    elsif current_user
+    if current_user
       redirect_to survey_path
     else
       redirect_to what_path

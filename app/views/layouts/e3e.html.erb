@@ -24,7 +24,7 @@
             <% if signed_in? %>
               <%= section t(:survey), survey_path, :SurveysController %>
               <%= section t(:gas), gas_path %>
-              <%= section t(:elec), elec_path %>
+              <%= section t(:elec), electricidad_path %>
               <%= section t(:report), report_path, :ReportsController, :class => 'report' %>
             <% else -%>
               <%= section t(:what), what_path %>
@@ -41,6 +41,9 @@
             <%= link_to 'Entrar', new_user_sessions_path %>
             <%= link_to 'Darse de alta', new_user_path %>
           <% end -%>
+          <% if current_admin %>
+            <%= link_to t(:admin_zone), current_admin %>
+          <% end %>
         </div>
 
       </div>
@@ -52,7 +55,7 @@
       </div>
       <div class="bottom">
         <%= link_to t(:what), what_path %> |
-        <%= link_to t(:who), who_path %> | 
+        <%= link_to t(:who), who_path %> |
         <%= link_to t(:mission), mission_path %> |
       </div>
     </div>

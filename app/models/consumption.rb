@@ -13,7 +13,7 @@ class Consumption < ActiveRecord::Base
   end
 
   def label
-    "#{MSS[month_index]} #{yr}"
+    "#{MSS[month_index]}#{yr}"
   end
 
   private

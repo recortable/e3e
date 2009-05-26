@@ -1,11 +1,16 @@
 
 <%= title t(:title) %>
 
-<table>
+<div>
+  En la actualidad hay registrados <%= @users.size %> usuarios/as.
+</div>
+
+<table class="users">
   <thead>
     <tr>
-      <td>Nombre de usuario</td>
-      <td>Última vez que entró</td>
+      <td><%= t(:username) %></td>
+      <td><%= t(:created_at) %></td>
+      <td><%= t(:updated_at) %></td>
       <td></td>
     </tr>
   </thead>
@@ -13,7 +18,9 @@
     <% @users.each do |user| %>
       <tr class="<%= cycle('even', 'odd') %>">
         <td><%= user.username %></td>
-        <td></td>
+        <td><%= user.created_at.fecha %></td>
+        <td><%= user.updated_at.fecha %></td>
+        <td><%= link_to t(:show_survey), survey_path(:user_id => user.id) %></td>
       </tr>
     <% end %>
   </tbody>

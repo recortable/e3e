@@ -2,23 +2,16 @@
 class Invoice
   GAS = 'gas'
   ELEC = 'elec'
+  MONTHS = 18
 
   UNITS = {:gas => 'm3', :elec => 'kW/h'}
 
   attr_accessor :service
 
-  def self.gas(user)
-    Invoice.new(GAS, user)
-  end
-
-  def self.elec(user)
-    Invoice.new(ELEC, user)
-  end
-
   def initialize(service, user)
     @user = user
     @service = service
-    @consumptions = @user.consumptions
+    @consumptions = @user.consumptions(service)
     initialize_consumptions if @consumptions.size == 0
   end
 
@@ -36,8 +29,9 @@ class Invoice
 
   private
   def initialize_consumptions
-    year_ago = Date.today << 12
-    0.upto(11) do |offset|
+    year_ago = Date.today << MONTHS
+    max = MONTHS - 1
+    0.upto(max) do |offset|
       date = year_ago >> offset
       @consumptions << Consumption.new(:period => date.strftime("%Y%m"))
     end

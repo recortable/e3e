@@ -4,6 +4,7 @@ es:
   username: "Nombre"
   password: "Contraseña"
   email: "Email"
+  submit: "Guardar"
   
   require_user: "Necesitas estar dado de alta como usuario para acceder a esta zona"
   require_admin: "Necesitas ser un administrador para acceder a esta zona"
@@ -19,11 +20,12 @@ es:
       what: "Qué es wecex"
       who: "Quiénes somos"
       mission: "Para qué sirve wecex"
+      admin_zone: "Eres administrador"
     admin:
       users: "Usuarios"
       statistics: "Estadísticas"
       development: "Desarrollo"
-      session_close: "Salir de la zona de administración"
+      session_close: "Cerrar sesión como administrador"
 
   about:
     what:
@@ -45,22 +47,24 @@ es:
     create: "Dar de alta"
     index:
       title: "Listado de usuarios registrados"
+      username: "Nombre de usuario"
+      created_at: "Fecha de alta"
+      updated_at: "Último acceso"
+      show_survey: "Ver encuesta"
     new:
       title: "Darse de alta como nuevo usuario"
 
-  invoices:
-    show:
-      title: "Facturas de su vivienda"
-      gas: "Consumo de gas"
-      elec: "Consumo eléctrico"
-      edit_gas: "Editar factura de gas"
-      edit_elec: "Editar factura de electricidad"
+  gas:
     edit:
-      title_gas: "Evolución del consumo de gas"
-      title_elec: "Evolución del consumo eléctrico"
-      submit: "Guardar"
+      title: "Evolución del consumo de gas"
     update:
-      updated: "Los datos de la factura han sido guardados."
+      updated: "Los datos de la factura de gas han sido guardados. Gracias."
+  electricidad:
+    edit:
+      title: "Evolución del consumo eléctrico"
+    update:
+      updated: "Los datos de la factura de electricidad han sido guardados. Gracias."
+
 
   reports:
     show:

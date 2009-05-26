@@ -28,7 +28,7 @@
               <%= section t(:development), development_path,  :class => 'report' %>
 
             <% else -%>
-              <%= section 'Qué es wecex', about_path %>
+              <%= section 'Qué es wecex', what_path %>
               <%= section 'Quiénes somos', who_path %>
               <%= section 'Para qué sirve', mission_path %>
             <% end %>
@@ -39,7 +39,7 @@
           Hola <%= current_admin.email %>
           <%= link_to t(:session_close), admin_logout_path %>
           <% else %>
-            Zona de aministración
+            <%= link_to 'Volver', root_path %>
           <% end %>
         </div>
 
