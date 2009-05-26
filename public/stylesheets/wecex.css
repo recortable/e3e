@@ -90,7 +90,7 @@ form table td.name {text-align: right; padding-right: 0.5em; width: 12em;}
 table.dataset {margin-left: auto; margin-right: auto;}
 table.dataset td {padding-left: 0; padding-right: 0.2em;}
 table.dataset input {width: 4em; margin-left: 0; margin-right: 0;}
-table.dataset label {color: black; margin-right: 1em;}
+table.dataset label {color: black; margin-right: 1em; width: 10em;}
 table.dataset span {margin-left: 0; margin-right: 1em; color: gray;}
 
 /* USERS */
