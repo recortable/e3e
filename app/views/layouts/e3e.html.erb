@@ -23,12 +23,13 @@
           <div class="sections">
             <% if signed_in? %>
               <%= section t(:survey), survey_path, :SurveysController %>
-              <%= section t(:invoices), {:action => 'spike', :controller => 'about' } %>
+              <%= section t(:gas), gas_path %>
+              <%= section t(:elec), elec_path %>
               <%= section t(:report), root_path, :NotImplemented, :class => 'report' %>
             <% else -%>
-              <%= section 'Qué es wecex', about_path %>
-              <%= section 'Quiénes somos', who_path %>
-              <%= section 'Para qué sirve', mission_path %>
+              <%= section t(:about), about_path %>
+              <%= section t(:who), who_path %>
+              <%= section t(:mission), mission_path %>
             <% end %>
           </div>
         </div>

@@ -14,9 +14,12 @@ ActionController::Routing::Routes.draw do |map|
   map.development '/admin/desarrollo', :controller => 'about', :action => 'development'
   map.statistics '/admin/estadisticas', :controller => 'about', :action => 'statistics'
 
+  map.gas "/factura/gas", :controller => 'invoices', :action => 'edit', :service => 'gas'
+  map.elec "/factura/electricidad", :controller => 'invoices', :action => 'edit', :service => 'elec'
   map.resources :users, :as => 'usuarios'
   map.resource :survey, :as => 'encuesta'
   map.resource :invoice, :as => 'factura'
+
 
   map.resources :admin_sessions, :as => 'administracion'
   map.admin "/admin", :controller => 'admin_sessions', :action => 'index'

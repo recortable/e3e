@@ -12,7 +12,9 @@ es:
     e3e:
       survey: "Paso 1: Encuesta"
       invoices: "Paso 2: Facturas"
-      report: "Paso 3: Consumo"
+      gas: "Paso 2: Gas"
+      elec: "Paso 3: Electricidad"
+      report: "Paso 4: Informe"
       user_session_close: "Salir"
     admin:
       users: "Usuarios"
@@ -21,6 +23,8 @@ es:
       session_close: "Salir de la zona de administración"
 
   about:
+    about:
+      title: "Qué es wecex"
     development:
       title: "Desarrollo"
     
@@ -49,7 +53,8 @@ es:
       edit_gas: "Editar factura de gas"
       edit_elec: "Editar factura de electricidad"
     edit:
-      title_gas: "Editar consumo de gas"
+      title_gas: "Evolución del consumo de gas"
+      title_elec: "Evolución del consumo eléctrico"
       submit: "Guardar"
 
   user_sessions:

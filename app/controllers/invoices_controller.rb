@@ -14,4 +14,9 @@ class InvoicesController  < ApplicationController
     @invoice = current_user.invoice(params[:service])
   end
 
+  def create
+    flash[:notice] = "Todavía no guarda..."
+    redirect_to :back
+  end
+
 end

@@ -83,6 +83,14 @@ form tr.even {background-color: #efefef;}
 form table td {padding: 0.2em 1em; text-align: center;}
 form table td.name {text-align: right; padding-right: 0.5em; width: 12em;}
 
+/* INVOICES */
+#chart {width: 600px; margin: 1em 0 1em 6em; border: 1em solid #efefef;}
+table.dataset {margin-left: auto; margin-right: auto;}
+table.dataset td {padding-left: 0; padding-right: 0.2em;}
+table.dataset input {width: 4em; margin-left: 0; margin-right: 0;}
+table.dataset label {color: black; margin-right: 1em;}
+table.dataset span {margin-left: 0; margin-right: 1em; color: gray;}
+
 .invoice {width: 44%; float: left; text-align: center; padding: 2%; background-color: #efefef; margin-right: 2%;
     -moz-border-radius: 0.5em;}
 .invoice img {margin: 1em 0;}

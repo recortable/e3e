@@ -1,0 +1,81 @@
+
+<% content_for :header do %>
+
+  <%= javascript_include_tag 'jscharts' %>
+
+  <style>
+    #dataset label {width: 10em;}
+  </style>
+
+  <script type="text/javascript">
+    (function($) {
+      var charts = [];
+
+      $.chart = function(dataset, containerId) {
+        var chart = getChart(containerId);
+        var data = getData(dataset);
+        chart.setDataArray(data);
+        chart.draw();
+      };
+
+      var getChart = function(containerId) {
+        if (charts[containerId] == null) {
+          var current = charts[containerId] = new JSChart(containerId, 'bar');
+          current.setTitle("Evolución del consumo de electricidad")
+          current.setAxisNameX("mes");
+          current.setAxisNameY("")
+          current.setBarOpacity(0.6);
+          current.setSize(600, 300);
+          current.setBarColor("#1F767F");
+          current.setBarValues(false);
+          current.setBarValuesColor("#2DAEBF");
+          current.setAxisValuesNumberY(1);
+        }
+        return charts[containerId]
+      };
+
+      var getData = function(dataset) {
+        var data = new Array();
+        $(dataset).find("input.data").each(function() {
+          var value = parseInt($(this).val());
+          if (isNaN(value)) value = 0;
+          data.push([$(this).attr('id'), value]);
+        });
+        return data;
+      };
+    })(jQuery);
+
+    jQuery(function($) {
+      $("#dataset input.data").change(function() {      $.chart('#dataset', 'chart');      });
+      $.chart('#dataset', 'chart');
+    })
+  </script>
+
+<% end %>
+
+
+<%= title t("title_#{@invoice.service}") %>
+
+<div id="chart">
+  Generando gráfico...
+</div>
+
+<% form_tag(invoice_path, :id => 'dataset') do %>
+  <p class="save">
+    <%= submit_tag t(:submit) %> Pulse "Guardar" cuando complete el cuestionario.
+  </p>
+  <table class="dataset">
+    <% @invoice.months do |consumo, index| %>
+      <tr class="<%= cycle('even', 'odd'); %>">
+        <td><%= label_tag consumo.name %></td>
+        <td><%= text_field_tag "ammount[#{index}]", consumo.ammount, :class => 'data', :id => consumo.label %></td>
+        <td><span><%= @invoice.units %></span>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+  <p class="save">
+    <%= submit_tag t(:submit) %> Pulse "Guardar" cuando complete el cuestionario.
+  </p>
+<% end %>
+

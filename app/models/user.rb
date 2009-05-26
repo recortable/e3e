@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_one :survey
+  has_many :consumptions
   acts_as_authentic
   validates_presence_of :question, :answer
   validates_uniqueness_of :username
