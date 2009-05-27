@@ -1,4 +1,6 @@
 <% content_for :header do %>
+  <%= javascript_include_tag 'activeforms' %>
+
   <script type="text/javascript">
     jQuery(function($) {
       var spinner = $('#municipio_spinner');
@@ -17,6 +19,10 @@
           spinner.hide();
         });
       });
+
+      $("#encuesta").slideUp(0);
+      $("#javascript").hide();
+      $("#encuesta").slideDown(2000);
     });
   </script>
 <% end %>
@@ -24,7 +30,11 @@
 
 <h1><%=  t(:title) %></h1>
 
-<div id="encuesta">
+<div id="javascript">
+  Debes tener javascript para poder ver el formulario.
+</div>
+
+<div id="encuesta" style="display: none;">
   <% form_for(@survey, :url => survey_path) do |f| %>
     <%= f.error_messages %>
 
@@ -70,5 +80,7 @@
 </div>
 
 <script type="text/javascript">
-
+  jQuery(function($) {
+    $.applyRules();
+  });
 </script>

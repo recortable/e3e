@@ -61,16 +61,20 @@ p {margin: 0.4em 0;}
 .dialog h2 {margin-left: 5.3em; margin-bottom: 0.2em;}
 .dialog ul {margin: 1em 0 0.5em 8em;}
 .dialog ul li {list-style-type: none; margin-left: 0; margin-top: 0.2em;}
+form input[type=radio] {margin-right: 0.3em; display: block; float: left; margin-top: 0.15em;}
 form p {width: 100%; overflow: hidden; margin-bottom: 0.2em;}
-form span {margin-left: 1em;}
+form span {margin-left: 0.2em;}
 form span.fieldWithErrors {float: left; margin-left: 0; border: 2px solid #c00; }
 form p.info {margin: 1em 0 0.5em 8em; color: #4F4F4F;}
 form p.save {background-color: #efefef; padding: 0.5em 2em; margin-left: 6em; width: auto;
     -moz-border-radius: 1em;}
 form label {float: left; display: block; width: 6em; text-align: right; padding-top: 0.2em;
     margin-right: 0.5em; margin-left: 2.5em; color: gray;}
-form p.error_message {color: #c00; margin-left: 9em; margin-botto: 1em;}
+form p.error_message {color: #c00; margin-left: 9em; margin-bottom: 1em;}
 form p.error {background-color: #FFAFAF; padding-top: 5px;}
+
+form .disabled {-moz-opacity: 0.5;}
+form .disabled span {color: gray;}
 
 .errorExplanation {margin-left: 2em;}
 .errorExplanation h2 {font-size: 100%; margin-left: 0;}
