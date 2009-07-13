@@ -44,16 +44,31 @@
 
 
 
-<p class="info"><%=  t(:reformas, :scope => [:encuesta, :vivienda]) %></p>
-<% Survey::VIVIENDA_REFORMAS.each do |reforma| %>
-  <p><label>&nbsp;</label><%= f.check_box "vivienda_#{reforma}" %>
-    <span><%= t("reforma_#{reforma}", :scope => [:encuesta, :vivienda]) %></span>
-  </p>
-<%  end -%>
+<div id="vivienda_reformas">
+  <p class="info"><%=  t(:reformas, :scope => [:encuesta, :vivienda]) %></p>
+  <% Survey::VIVIENDA_REFORMAS.each do |reforma| %>
+    <p ><label>&nbsp;</label><%= f.check_box "vivienda_#{reforma}" %>
+      <span><%= t("reforma_#{reforma}", :scope => [:encuesta, :vivienda]) %></span>
+    </p>
+  <%  end -%>
+</div>
 
-<p class="info"><%=  t(:cuando_reformas, :scope => [:encuesta, :vivienda]) %></p>
-<% Survey::VIVIENDA_REFORMA_ULTIMA.each do |option| %>
-  <p><%= f.radio_answer :vivienda_reforma_ultima, option, :vivienda %></p>
-<%  end -%>
+<div id="vivienda_reforma_ultima">
+  <p  class="info"><%=  t(:cuando_reformas, :scope => [:encuesta, :vivienda]) %></p>
+  <% Survey::VIVIENDA_REFORMA_ULTIMA.each do |option| %>
+    <p ><%= f.radio_answer :vivienda_reforma_ultima, option, :vivienda %></p>
+  <%  end -%>
+</div>
+
+<script type="text/javascript">
+  $(function() {
+    $.rule("reformas", $("#vivienda_reforma_ultima").disabled_if(function() {
+      return ($("#vivienda_reformas input:checked").length == 0);
+    }));
+
+    $("#vivienda_reformas input").fires("reformas");
+  });
+</script>
+
 
 

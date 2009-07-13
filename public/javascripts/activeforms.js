@@ -1,33 +1,67 @@
 (function($) {
-    var rules = [];
+    if (typeof console == "undefined" || typeof console.log == "undefined") {
+        console = {
+            log : function() {},
+            debug : function() {}
+        };
+    }
 
-    $.disableWhen = function(group, value, selector) {
-        rules.push({
-            'group': group,
-            'value': value,
-            'selector': selector
-        });
-        $(group).change(function() {
-            $.applyRules();
+    var rules = {};
+
+    $.rule = function(name, method) {
+        console.log("Adding rule: " + name);
+        rules[name] = method;
+    }
+
+
+    $.fn.fires = function() {
+        var names = arguments;
+        return this.change(function() {
+            for (var index = 0; index < names.length; index++) {
+                var name = names[index];
+                console.log("Applying " + name);
+                rules[name].apply();
+            }
         });
     };
 
-    $.applyRules = function() {
-        $.each(rules, function() {
-            var rule = this;
-            $("" + rule.group + " input").each(function() {
-                var ruleApplies = $(this).attr('checked') == true && $(this).val() == rule.value;
-                setEnabled(!ruleApplies, rule.selector);
-            });
+    $.fn.disabled_if_checked = function(selector) {
+        return this.disabled_if(function () {
+            return $(selector).attr('checked');
         });
-    }
+    };
+
+    $.fn.disabled_if_not_checked = function(selector) {
+        return this.disabled_if(function () {
+            return !$(selector).attr('checked');
+        });
+    };
+
+
+    $.fn.disabled_if = function(condition) {
+        var selector = this;
+        return function() {
+            var isEnabled = !condition.call();
+            setEnabled(isEnabled, selector);
+        }
+    };
+
+    $.applyRules = function() {
+        console.log("Init activeform");
+        $.each(rules, function(name) {
+            console.log("Applying rule: " + name);
+            this.apply();
+        });
+    };
 
     var setEnabled = function(isEnabled, selector) {
+        console.log("Enabled: " + isEnabled);
+        console.debug(selector);
         if (isEnabled) {
             $(selector).removeClass("disabled");
         } else {
             $(selector).addClass("disabled");
         }
-        $(selector + " input").attr("disabled", !isEnabled);
+        $(selector).find("input").attr("disabled", !isEnabled);
     };
 })(jQuery);

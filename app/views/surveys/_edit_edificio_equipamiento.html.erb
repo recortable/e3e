@@ -34,19 +34,19 @@
   <% end -%>
 </div>
 
-<div class="agua">
+<div id="equip_agua_paneles" class="agua">
   <p class="info"><%=  t(:solar, :scope => [:encuesta, :equipo, :agua]) %></p>
   <% Survey::SINO.each do |option| %>
     <p><%= f.radio_answer :equip_agua_solar, option, :comun %></p>
   <% end -%>
 </div>
 
-<div class="agua">
+<div id="si_paneles" class="agua">
   <p class="info"><%=  t(:edad, :scope => [:encuesta, :equipo, :agua]) %></p>
   <p><label>&nbsp;</label><%= f.text_field :equip_agua_edad %><span>años</span></p>
 </div>
 
-<div class="agua">
+<div id="si_caldera" class="agua">
   <p class="info"><%=  t(:caldera_deposito, :scope => [:encuesta, :equipo, :agua]) %></p>
   <% Survey::SINO.each do |option| %>
     <p><%= f.radio_answer :equip_agua_caldera_acumulacion, option, :comun %></p>
@@ -55,9 +55,25 @@
 
 <script type="text/javascript">
   jQuery(function($) {
-    $.disableWhen("#equip_agua_tipo", "notengo", ".agua");
-    $.disableWhen("#equip_calefaccion_tipo", "notengo", ".calefaccion");
+    $.rule("caldera", $("#si_caldera").disabled_if(function() {
+      return $("#survey_equip_agua_caldera_tipo_notengo").attr('checked') ||
+        $("#survey_equip_agua_tipo_caldera").attr('checked') == false;
+    }));
+
+    $.rule("paneles", $("#si_paneles").disabled_if(function () {
+      return $("#survey_equip_agua_caldera_tipo_notengo").attr('checked') ||
+        $("#survey_equip_agua_solar_s").attr('checked') == false;
+    }));
+    
+    $.rule("agua", $(".agua").disabled_if_checked("#survey_equip_agua_caldera_tipo_notengo"));
+    $.rule("calefaccion", $(".calefaccion").disabled_if_checked("#survey_equip_calefaccion_caldera_tipo_notengo"));
+
+    $("#equip_agua_tipo input").fires("agua", "caldera", "paneles");
+    $("#equip_agua_dispositivo_tipo input").fires("caldera");
+    $("#equip_agua_paneles input").fires("paneles");
+    $("#equip_calefaccion_tipo input").fires("calefaccion");
   });
+
 </script>
 
 

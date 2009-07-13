@@ -6,7 +6,7 @@ class Survey < ActiveRecord::Base
   SINO = ['s', 'n']
   TAN = ['todas', 'alguna', 'ninguna']
 
-  EDIFICIO_PERIODO = ['antes1950', 'de1951a1960', 'de1961a1970', 'de1971a1980', 'de1981a1990', 'de1991a2000', 'post2000']
+  EDIFICIO_PERIODO = ['antes1950', 'de1901a1940', 'de1941a1960', 'de1961a1980', 'de1981a2006', 'post2006']
 
   VIVIENDA_TIPO_EDIFICIO = ['bloque', 'aislado', 'adosado', 'pareado']
   VIVIENDA_PLANTA = ['planta_baja', 'planta_intermedia', 'planta_ultima']
