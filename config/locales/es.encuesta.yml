@@ -95,7 +95,7 @@ es:
         tipo: "¿Qué tipo de calefacción tiene?"
         dispositivo: "¿Qué tipo de dispositivo calienta el agua?"
         edad: "Edad aproximada de la instalación"
-        caldera_misma: "Si caldera tanto para agua como para calefacción... <br/>¿utiliza la misma caldera para la calefacción y el agua caliente?"
+        caldera_misma: "¿Utiliza la misma caldera para la calefacción y el agua caliente?"
         caldera_tipo: "Si no es la misma, ¿qué tipo de caldera tiene la calefacción?"
         bomba_tipo: "Si tiene bombas de calor... ¿de qué tipo son?"
       aire:

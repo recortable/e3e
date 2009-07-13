@@ -62,9 +62,12 @@
 
 <script type="text/javascript">
   $(function() {
-    $.rule("reformas", $("#vivienda_reforma_ultima").disabled_if(function() {
-      return ($("#vivienda_reformas input:checked").length == 0);
-    }));
+
+    $.rule("reformas", $.when(function() {
+      return $("#vivienda_reformas input:checked").length == 0;
+    },
+    $.disable("#vivienda_reforma_ultima")
+  ));
 
     $("#vivienda_reformas input").fires("reformas");
   });

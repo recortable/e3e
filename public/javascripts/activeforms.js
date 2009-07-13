@@ -25,26 +25,33 @@
         });
     };
 
-    $.fn.disabled_if_checked = function(selector) {
-        return this.disabled_if(function () {
-            return $(selector).attr('checked');
-        });
-    };
-
-    $.fn.disabled_if_not_checked = function(selector) {
-        return this.disabled_if(function () {
-            return !$(selector).attr('checked');
-        });
-    };
-
-
-    $.fn.disabled_if = function(condition) {
-        var selector = this;
+    $.when = function(condition, action) {
         return function() {
-            var isEnabled = !condition.call();
-            setEnabled(isEnabled, selector);
+            if (condition.call()) action.call();
         }
     };
+
+    $.checked = function(selector) {
+        return function() {
+            $(selector).attr('checked');
+        }
+    };
+    $.not_checked = function(selector) {
+        return function() {
+            $(selector).attr('checked');
+        }
+    };
+
+    $.enable = function(selector) {
+        return function() {
+            setEnabled(true, selector);
+        }
+    }
+    $.disable = function(selector) {
+        return function() {
+            setEnabled(false, selector); 
+        }
+    }
 
     $.applyRules = function() {
         console.log("Init activeform");
