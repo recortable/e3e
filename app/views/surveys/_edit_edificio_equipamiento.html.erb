@@ -23,7 +23,7 @@
 <div id="equip_agua_tipo" >
   <p class="info"><%=  t(:tipo, :scope => [:encuesta, :equipo, :agua]) %></p>
   <% Survey::EQUIP_TIPO.each do |option| %>
-    <p><%= f.radio_answer :equip_agua_caldera_tipo, option, :equipamiento %></p>
+    <p><%= f.radio_answer :equip_agua_tipo, option, :equipamiento %></p>
   <% end -%>
 </div>
 
@@ -110,43 +110,54 @@
 <h4><%=  t(:titulo, :scope => [:encuesta, :equipo, :aire]) %></h4>
 
 <!-- cambia a la estándar -->
-<p class="info"><%=  t(:tiene, :scope => [:encuesta, :equipo, :aire]) %></p>
-<% Survey::SINO.each do |option| %>
-  <p><%= f.radio_answer :equip_ac, option, :comun %></p>
-<% end -%>
+<div id="equip_aire_tiene">
+  <p class="info"><%=  t(:tiene, :scope => [:encuesta, :equipo, :aire]) %></p>
+  <% Survey::SINO.each do |option| %>
+    <p><%= f.radio_answer :equip_ac, option, :comun %></p>
+  <% end -%>
+</div>
 
-<p class="info"><%=  t(:estancias, :scope => [:encuesta, :equipo, :aire]) %></p>
-<table>
-  <tr><td>&nbsp;</td><% Survey::TAN.each do |option| %><td><%= t(option, :scope => [:encuesta, :comun]) %></td><%  end -%></tr>
-  <% Survey::EQUIP_DONDE.each do |donde| %>
-    <tr class="<%= cycle :odd, :even %> ">
-      <td class="name"><%= t(donde, :scope => [:encuesta, :equipamiento]) %></td>
-      <% Survey::TAN.each do |option| %>
-        <td><%= f.radio_button "equip_ac_donde_#{donde}", option  %></td>
-      <% end -%>
-    </tr>
-  <% end %>
-</table>
+<div class="aire">
+  <p class="info"><%=  t(:estancias, :scope => [:encuesta, :equipo, :aire]) %></p>
+  <table>
+    <tr><td>&nbsp;</td><% Survey::TAN.each do |option| %><td><%= t(option, :scope => [:encuesta, :comun]) %></td><%  end -%></tr>
+    <% Survey::EQUIP_DONDE.each do |donde| %>
+      <tr class="<%= cycle :odd, :even %> ">
+        <td class="name"><%= t(donde, :scope => [:encuesta, :equipamiento]) %></td>
+        <% Survey::TAN.each do |option| %>
+          <td><%= f.radio_button "equip_ac_donde_#{donde}", option  %></td>
+        <% end -%>
+      </tr>
+    <% end %>
+  </table>
 
-<p class="info"><%=  t(:tipo, :scope => [:encuesta, :equipo, :aire]) %></p>
-<% Survey::EQUIP_TIPO_IC.each do |option| %>
-  <p><%= f.radio_answer :equip_ac_tipo, option, :equipamiento %></p>
-<% end -%>
+  <div id="equip_ac_tipo">
+    <p class="info"><%=  t(:tipo, :scope => [:encuesta, :equipo, :aire]) %></p>
+    <% Survey::EQUIP_TIPO_IC.each do |option| %>
+      <p><%= f.radio_answer :equip_ac_tipo, option, :equipamiento %></p>
+    <% end -%>
+  </div>
 
-<p class="info"><%=  t(:edad, :scope => [:encuesta, :equipo, :aire]) %></p>
-<p><label>&nbsp;</label><%= f.text_field :equip_ac_edad %></p>
+  <p class="info"><%=  t(:edad, :scope => [:encuesta, :equipo, :aire]) %></p>
+  <p><label>&nbsp;</label><%= f.text_field :equip_ac_edad %></p>
 
 
-<p class="info"><%=  t(:individual, :scope => [:encuesta, :equipo, :aire]) %></p>
-<% Survey::EQUIP_AC_INDIVIDUAL.each do |option| %>
-  <p><%= f.radio_answer :equip_ac_tipo, option, :equipamiento %></p>
-<% end -%>
+  <div id="aire_si_individual">
+    <p class="info"><%=  t(:individual, :scope => [:encuesta, :equipo, :aire]) %></p>
+    <% Survey::EQUIP_AC_INDIVIDUAL.each do |option| %>
+      <p><%= f.radio_answer :equip_ac_individual_tipo, option, :equipamiento %></p>
+    <% end -%>
+  </div>
 
-<p class="info"><%=  t(:independientes, :scope => [:encuesta, :equipo, :aire]) %></p>
-<% Survey::EQUIP_AC_INDEPENDIENTES.each do |option| %>
-  <p><%= f.radio_answer :equip_ac_tipo, option, :equipamiento %></p>
-<% end -%>
+  <div id="aire_si_independientes">
+    <p class="info"><%=  t(:independientes, :scope => [:encuesta, :equipo, :aire]) %></p>
+    <% Survey::EQUIP_AC_INDEPENDIENTES.each do |option| %>
+      <p><%= f.radio_answer :equip_ac_indepe_tipo, option, :equipamiento %></p>
+    <% end -%>
+  </div>
+</div>
 
+<!-- DISPOSITIVOS -->
 <h4><%=  t(:titulo, :scope => [:encuesta, :equipo, :dispositivos]) %></h4>
 <p class="info"><%=  t(:electrodomesticos, :scope => [:encuesta, :equipo, :dispositivos]) %></p>
 <table>
@@ -170,28 +181,34 @@
   jQuery(function($) {
 
     $.rule("caldera", $.disable("#si_caldera"), $.OR($.checked("#survey_equip_agua_caldera_tipo_notengo"),
-    $.not_checked("#survey_equip_agua_tipo_caldera")));
-
-
+      $.not_checked("#survey_equip_agua_tipo_caldera")));
     $.rule("paneles", $.disable("#si_paneles"), $.OR($.checked("#survey_equip_agua_caldera_tipo_notengo"),
-    $.not_checked("#survey_equip_agua_solar_s")));
-
+     $.not_checked("#survey_equip_agua_solar_s")));
     $.rule("agua", $.disable(".agua"),
-    $.checked("#survey_equip_agua_caldera_tipo_notengo"));
-
+      $.checked("#survey_equip_agua_caldera_tipo_notengo"));
     $.rule("calefaccion", $.disable(".calefaccion"),
-    $.checked("#survey_equip_calefaccion_caldera_tipo_notengo"));
-
+     $.checked("#survey_equip_calefaccion_caldera_tipo_notengo"));
     $.rule("misma_caldera", $.enable("#misma_caldera"),
-    $.AND($.checked("#survey_equip_calefaccion_tipo_caldera"), $.checked("#survey_equip_agua_tipo_caldera")));
-
-    $.rule("bomba_calor", $.checked("#survey_equip_calefaccion_tipo_bomba"), $.enable("#si_bomba"));
+      $.AND($.checked("#survey_equip_calefaccion_tipo_caldera"), $.checked("#survey_equip_agua_tipo_caldera")));
+    $.rule("bomba_calor", $.enable("#si_bomba"), $.checked("#survey_equip_calefaccion_tipo_bomba"));
 
     $("#equip_agua_tipo input").fires("agua", "caldera", "paneles");
     $("#equip_agua_paneles input").fires("paneles");
     $("#equip_agua_dispositivo_tipo input").fires("caldera", "misma_caldera");
     $("#equip_calefaccion_dispositivo_tipo input").fires("misma_caldera", "bomba_calor");
     $("#equip_calefaccion_tipo input").fires("calefaccion");
+
+    $.rule("aire", $.disable(".aire"), $.checked("#survey_equip_ac_n"));
+    $.rule("aire_individual", $.enable("#aire_si_individual"),
+      $.checked("#survey_equip_ac_tipo_individual"));
+    $.rule("aire_independientes", $.enable("#aire_si_independientes"),
+      $.AND($.checked("#survey_equip_ac_tipo_individual"), $.checked("#survey_equip_ac_individual_tipo_split")));
+
+    $("#equip_aire_tiene input").fires("aire");
+    $("#equip_ac_tipo input").fires("aire_individual", "aire_independientes");
+    $("#aire_si_individual input").fires("aire_independientes");
+
+
   });
 </script>
 

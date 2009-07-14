@@ -8,19 +8,21 @@
         };
     };
 
+    var logger = console.log;
+
     var rules = {};
 
     var rulify = function(name, action, condition) {
         return function() {
-            console.log("Rule: " + name)
+            logger("Rule: " + name)
             var isActive = condition.call();
-            console.log("Condition: " + isActive);
+            logger("Condition: " + isActive);
             action.call(null, isActive);
         }
     };
 
     $.rule = function(name, action, condition) {
-        console.log("Adding rule: " + name);
+        logger("Adding rule: " + name);
         rules[name] = rulify(name, action, condition);
     };
 
@@ -51,9 +53,10 @@
     $.fn.fires = function() {
         var names = arguments;
         return this.change(function() {
+            logger(this);
             for (var index = 0; index < names.length; index++) {
                 var name = names[index];
-                console.log("Applying " + name);
+                logger("Applying " + name);
                 rules[name].apply();
             }
         });
@@ -61,38 +64,41 @@
 
     $.checked = function(selector) {
         return function() {
-            return $(selector).attr('checked');
+            var isChecked = $(selector).attr('checked');
+            logger("Checked?: " + selector + " => " + isChecked);
+            return isChecked;
         }
     };
     $.not_checked = function(selector) {
         return function() {
+            logger("Not checked?: " + selector);
             return !$(selector).attr('checked');
         }
     };
 
     $.enable = function(selector) {
         return function(active) {
-            console.log("Enable with: " + active);
+            logger("Enable with: " + active);
             setEnabled(active, selector);
         }
     }
     $.disable = function(selector) {
         return function(active) {
-            console.log("Disable with: " + active);
+            logger("Disable with: " + active);
             setEnabled(!active, selector);
         }
     };
 
     $.applyRules = function() {
-        console.log("Init activeform");
+        logger("Init activeform");
         $.each(rules, function(name) {
-            console.log("Applying rule: " + name);
+            logger("Applying rule: " + name);
             this.apply();
         });
     };
 
     var setEnabled = function(isEnabled, selector) {
-        console.log("Enabled: " + isEnabled);
+        logger("Enabled: " + isEnabled);
         console.debug(selector);
         if (isEnabled) {
             $(selector).removeClass("disabled");

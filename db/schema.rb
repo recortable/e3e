@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090521112455) do
+ActiveRecord::Schema.define(:version => 20090714085951) do
 
   create_table "admins", :force => true do |t|
     t.string   "email"
@@ -89,11 +89,10 @@ ActiveRecord::Schema.define(:version => 20090521112455) do
     t.boolean  "equip_fuentes_agua_solar"
     t.boolean  "equip_fuentes_agua_madera"
     t.boolean  "equip_fuentes_agua_otros"
-    t.string   "equip_agua_caliente",                 :limit => 3
-    t.string   "equip_agua_tipo",                     :limit => 8
+    t.string   "equip_agua_disp",                     :limit => 8
     t.string   "equip_agua_solar",                    :limit => 3
     t.integer  "equip_agua_edad",                     :limit => 3
-    t.string   "equip_agua_caldera_tipo",             :limit => 8
+    t.string   "equip_agua_tipo",                     :limit => 8
     t.string   "equip_agua_caldera_acumulacion",      :limit => 3
     t.string   "equip_calefaccion",                   :limit => 3
     t.string   "equip_calefaccion_tipo",              :limit => 8
@@ -126,6 +125,8 @@ ActiveRecord::Schema.define(:version => 20090521112455) do
     t.integer  "costumbres_horas"
     t.text     "opinion"
     t.integer  "equip_ilum_tiene_leds"
+    t.string   "equip_ac_individual_tipo"
+    t.string   "equip_ac_indepe_tipo"
   end
 
   create_table "users", :force => true do |t|

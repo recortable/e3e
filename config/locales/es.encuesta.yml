@@ -99,7 +99,7 @@ es:
         caldera_tipo: "Si no es la misma, ¿qué tipo de caldera tiene la calefacción?"
         bomba_tipo: "Si tiene bombas de calor... ¿de qué tipo son?"
       aire:
-        titulo: "Aire"
+        titulo: "Aire acondicionado"
         tiene: "¿Tiene aire acondicionado?"
         estancias: "¿En qué estancias tiene aire acondicionado?"
         tipo: "¿Es individual o centralizada para todo el bloque?"
