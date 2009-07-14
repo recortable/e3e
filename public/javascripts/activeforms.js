@@ -1,18 +1,52 @@
+
+
 (function($) {
     if (typeof console == "undefined" || typeof console.log == "undefined") {
         console = {
             log : function() {},
             debug : function() {}
         };
-    }
+    };
 
     var rules = {};
 
-    $.rule = function(name, method) {
-        console.log("Adding rule: " + name);
-        rules[name] = method;
-    }
+    var rulify = function(name, action, condition) {
+        return function() {
+            console.log("Rule: " + name)
+            var isActive = condition.call();
+            console.log("Condition: " + isActive);
+            action.call(null, isActive);
+        }
+    };
 
+    $.rule = function(name, action, condition) {
+        console.log("Adding rule: " + name);
+        rules[name] = rulify(name, action, condition);
+    };
+
+    $.OR = function() {
+        var params = arguments;
+        return function() {
+            for(var index = 0; index < params.length; index++) {
+                if (params[index].call() == true) {
+                    return true;
+                }
+            }
+            return false;
+        }
+    };
+
+    $.AND = function() {
+        var params = arguments;
+        return function() {
+            for(var index = 0; index < params.length; index++) {
+                if (params[index].call() == false) {
+                    return false;
+                }
+            }
+            return true;
+        }
+    };
 
     $.fn.fires = function() {
         var names = arguments;
@@ -25,33 +59,29 @@
         });
     };
 
-    $.when = function(condition, action) {
-        return function() {
-            if (condition.call()) action.call();
-        }
-    };
-
     $.checked = function(selector) {
         return function() {
-            $(selector).attr('checked');
+            return $(selector).attr('checked');
         }
     };
     $.not_checked = function(selector) {
         return function() {
-            $(selector).attr('checked');
+            return !$(selector).attr('checked');
         }
     };
 
     $.enable = function(selector) {
-        return function() {
-            setEnabled(true, selector);
+        return function(active) {
+            console.log("Enable with: " + active);
+            setEnabled(active, selector);
         }
     }
     $.disable = function(selector) {
-        return function() {
-            setEnabled(false, selector); 
+        return function(active) {
+            console.log("Disable with: " + active);
+            setEnabled(!active, selector);
         }
-    }
+    };
 
     $.applyRules = function() {
         console.log("Init activeform");

@@ -169,31 +169,23 @@
 <script type="text/javascript">
   jQuery(function($) {
 
-    $.rule("caldera", $.disable("#si_caldera"), $.when(function() {
-      return $.is_checked("#survey_equip_agua_caldera_tipo_notengo") ||
-        $.is_not_checked("#survey_equip_agua_tipo_caldera").call();
-    }));
-
-    $.rule("caldera", $("#si_caldera").disabled_if(function() {
-      return $("#survey_equip_agua_caldera_tipo_notengo").attr('checked') ||
-        $("#survey_equip_agua_tipo_caldera").attr('checked') == false;
-    }));
-
-    $.rule("paneles", $("#si_paneles").disabled_if(function () {
-      return $("#survey_equip_agua_caldera_tipo_notengo").attr('checked') ||
-        $("#survey_equip_agua_solar_s").attr('checked') == false;
-    }));
-
-    $.rule("agua", $(".agua").disabled_if_checked("#survey_equip_agua_caldera_tipo_notengo"));
-    $.rule("calefaccion", $(".calefaccion").disabled_if_checked("#survey_equip_calefaccion_caldera_tipo_notengo"));
-
-    $.rule("misma_caldera", $("#misma_caldera").enabled_if(function () {
-      return $.checked("#survey_equip_calefaccion_tipo_caldera") &&
-        $.checked("#survey_equip_agua_tipo_caldera");
-    }));
+    $.rule("caldera", $.disable("#si_caldera"), $.OR($.checked("#survey_equip_agua_caldera_tipo_notengo"),
+    $.not_checked("#survey_equip_agua_tipo_caldera")));
 
 
-    $.rule("bomba_calor", $.when($.checked("#survey_equip_calefaccion_tipo_bomba"), $.enable("#si_bomba")));
+    $.rule("paneles", $.disable("#si_paneles"), $.OR($.checked("#survey_equip_agua_caldera_tipo_notengo"),
+    $.not_checked("#survey_equip_agua_solar_s")));
+
+    $.rule("agua", $.disable(".agua"),
+    $.checked("#survey_equip_agua_caldera_tipo_notengo"));
+
+    $.rule("calefaccion", $.disable(".calefaccion"),
+    $.checked("#survey_equip_calefaccion_caldera_tipo_notengo"));
+
+    $.rule("misma_caldera", $.enable("#misma_caldera"),
+    $.AND($.checked("#survey_equip_calefaccion_tipo_caldera"), $.checked("#survey_equip_agua_tipo_caldera")));
+
+    $.rule("bomba_calor", $.checked("#survey_equip_calefaccion_tipo_bomba"), $.enable("#si_bomba"));
 
     $("#equip_agua_tipo input").fires("agua", "caldera", "paneles");
     $("#equip_agua_paneles input").fires("paneles");
