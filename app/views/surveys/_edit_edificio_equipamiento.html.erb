@@ -30,7 +30,7 @@
 <div id="equip_agua_dispositivo_tipo" class="agua">
   <p class="info"><%=  t(:dispositivo, :scope => [:encuesta, :equipo, :agua]) %></p>
   <% Survey::EQUIP_AGUA_DISP.each do |option| %>
-    <p><%= f.radio_answer :equip_agua_tipo, option, :equipamiento %></p>
+    <p><%= f.radio_answer :equip_agua_disp  , option, :equipamiento %></p>
   <% end -%>
 </div>
 
@@ -185,7 +185,7 @@
     $.rule("paneles", $.disable("#si_paneles"), $.OR($.checked("#survey_equip_agua_caldera_tipo_notengo"),
      $.not_checked("#survey_equip_agua_solar_s")));
     $.rule("agua", $.disable(".agua"),
-      $.checked("#survey_equip_agua_caldera_tipo_notengo"));
+      $.checked("#survey_equip_agua_tipo_notengo"));
     $.rule("calefaccion", $.disable(".calefaccion"),
      $.checked("#survey_equip_calefaccion_caldera_tipo_notengo"));
     $.rule("misma_caldera", $.enable("#misma_caldera"),

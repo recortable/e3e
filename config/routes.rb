@@ -15,7 +15,9 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resource :gas, :as => 'gas', :controller => 'gas'
   map.resource :electricidad, :as => 'electricidad', :controller => 'electricidad'
-  map.resources :users, :as => 'usuarios'
+  map.resources(:users, :as => 'usuarios') do |user|
+    user.resource :survey, :as => 'encuesta'
+  end
   map.resource :survey, :as => 'encuesta'
   map.resource :invoice, :as => 'factura'
   map.resource :report, :as => 'informe'

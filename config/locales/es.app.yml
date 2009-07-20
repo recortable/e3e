@@ -51,6 +51,7 @@ es:
       created_at: "Fecha de alta"
       updated_at: "Último acceso"
       show_survey: "Ver encuesta"
+      show_xml: "Ver encuesta en xml"
     new:
       title: "Darse de alta como nuevo usuario"
 

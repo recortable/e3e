@@ -1,7 +1,7 @@
 
 <% content_for :header do %>
   <script type="text/javascript">
-    barColor = "<%= @bar_color %>";
+    var barColor = "<%= @bar_color %>";
     jQuery(function($) {
       $("#dataset input.data").change(function() {      $.chart('#dataset', 'chart');      });
       $.chart('#dataset', 'chart');
@@ -17,6 +17,13 @@
   <div id="chart">
     Generando gráfico...
   </div>
+  <div class="chartfields">
+    <% @invoice.months do |consumo, index| -%>
+      <div class="inline-data" id="<%= consumo.label %>-inline"><%= consumo.ammount %></div>
+    <% end %>
+  </div>
+
+
 </div>
 
 <% form_tag({:action => 'update'}, :id => 'dataset', :method => 'PUT') do %>

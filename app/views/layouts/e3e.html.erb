@@ -15,7 +15,7 @@
     <div id="page">
       <div id="head">
         <div id="logo">
-              <h1><%= link_to 'E3E', root_path %></h1>
+          <h1><%= link_to 'E3E', root_path %></h1>
           <p>Mejorar el consumo energético</p>
         </div>
 
@@ -33,20 +33,22 @@
             <% end %>
           </div>
         </div>
-        <div class="session">
-          <% if signed_in? %>
-            Hola <%= current_user.username %>
-            <%= link_to t(:user_session_close), logout_path, :method => 'delete' %>
-          <% else -%>
-            <%= link_to 'Entrar', new_user_sessions_path %>
-            <%= link_to 'Darse de alta', new_user_path %>
-          <% end -%>
-          <% if current_admin %>
-            <%= link_to t(:admin_zone), current_admin %>
-          <% end %>
-        </div>
-
       </div>
+
+      <div class="session">
+        <% if signed_in? %>
+          Hola <%= current_user.username %>
+          <%= link_to t(:user_session_close), logout_path, :method => 'delete' %>
+        <% else -%>
+          <%= link_to 'Entrar', new_user_sessions_path %>
+          <%= link_to 'Darse de alta', new_user_path %>
+        <% end -%>
+        <% if current_admin %>
+          <%= link_to t(:admin_zone), current_admin %>
+        <% end %>
+      </div>
+
+
       <% if flash[:notice] %>
         <div class="flash_notice"><%= flash[:notice] %></div>
       <% end %>

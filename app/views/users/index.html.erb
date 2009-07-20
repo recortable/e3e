@@ -20,7 +20,8 @@
         <td><%= user.username %></td>
         <td><%= user.created_at.fecha %></td>
         <td><%= user.updated_at.fecha %></td>
-        <td><%= link_to t(:show_survey), survey_path(:user_id => user.id) %></td>
+        <td><%= link_to t(:show_survey), user_survey_path(user) %> |
+        <%= link_to t(:show_xml), user_survey_path(user, :format => :xml) %>
       </tr>
     <% end %>
   </tbody>

@@ -24,9 +24,9 @@
     };
 
     var createChart = function(containerId) {
-        var current = new JSChart(containerId, 'bar');;
+        var current = new JSChart(containerId, 'bar');
         current.setTitle("")
-        current.setAxisNameX("mes");
+        current.setAxisNameX("");
         current.setAxisNameY("")
         current.setBarOpacity(0.6);
         current.setSize(size[0], size[1]);
@@ -45,7 +45,7 @@
         var offset = container.offset();
         var columnWidth = Math.floor(((size[0] - padding[1] - padding[3]) / columnCount));
         var ndVertical = size[1] - padding[0] - padding[2];
-        console.log(columnWidth);
+        console.log("Column width: " + columnWidth);
         container.click(function(event) {
             var x = event.pageX - offset.left - padding[3] - 3;
             var y = event.pageY - offset.top - padding[0];
@@ -70,14 +70,22 @@
                     newValue = maxValue[1] - amount;
                 }
 
+                newValue = Math.floor(newValue / 10) * 10;
                 console.log("NewValue: " + newValue);
-                if (newValue >= 0) {
-                    $("#" + currentValue[0]).val(Math.floor(newValue));
-                    repaint(chart, dataset);
-                }
+                changeValue(chart, dataset, currentValue, newValue);
             }
         });
-    }
+    };
+
+    var changeValue = function(chart, dataset, currentValue, newValue) {
+        if (newValue > 0) {
+            $("#" + currentValue[0] + "-inline").html(newValue);
+            $("#" + currentValue[0]).val(newValue);
+            repaint(chart, dataset);
+        } else {
+            $("#" + currentValue[0] + "-inline").html('N/D');
+        }
+    };
 
     var getData = function(dataset) {
         var data = new Array();
