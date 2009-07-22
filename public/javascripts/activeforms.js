@@ -1,7 +1,7 @@
 
 
 (function($) {
-    if (typeof console == "undefined" || typeof console.log == "undefined") {
+    if (typeof console == "undefined" || typeof console.log == "undefined" || typeof console.debug == "undefined" ) {
         console = {
             log : function() {},
             debug : function() {}
@@ -99,7 +99,6 @@
 
     var setEnabled = function(isEnabled, selector) {
         logger("Enabled: " + isEnabled);
-        console.debug(selector);
         if (isEnabled) {
             $(selector).removeClass("disabled");
         } else {
