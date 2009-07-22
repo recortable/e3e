@@ -2,7 +2,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title>E3E - <%= yield(:title) || 'Prototipo' %></title>
+    <title>E3E Administración - <%= yield(:title) || ''%></title>
     <!-- link rel="icon" href="images/e3e.ico" type="image/x-icon" / -->
     <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.6.0/build/reset/reset-min.css" />
     <%= stylesheet_link_tag 'wecex.css' %>
@@ -25,7 +25,6 @@
             <% if admin? %>
               <%= section t(:users), users_path %>
               <%= section t(:statistics), statistics_path %>
-              <%= section t(:development), development_path,  :class => 'report' %>
 
             <% else -%>
               <%= section 'Qué es wecex', what_path %>
@@ -34,16 +33,17 @@
             <% end %>
           </div>
         </div>
-        <div class="session">
-          <% if current_admin %>
+      </div>
+
+      <div class="session">
+        <% if current_admin %>
           Hola <%= current_admin.email %>
           <%= link_to t(:session_close), admin_logout_path %>
-          <% else %>
-            <%= link_to 'Volver', root_path %>
-          <% end %>
-        </div>
-
+        <% else %>
+          <%= link_to 'Volver', root_path %>
+        <% end %>
       </div>
+
       <% if flash[:notice] %>
         <div class="flash_notice"><%= flash[:notice] %></div>
       <% end %>

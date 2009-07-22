@@ -46,7 +46,7 @@
   <p><label>&nbsp;</label><%= f.text_field :equip_agua_edad %><span>años</span></p>
 </div>
 
-<div id="si_caldera" class="agua">
+<div id="equip_agua_caldera_acumulacion" class="agua">
   <p class="info"><%=  t(:caldera_deposito, :scope => [:encuesta, :equipo, :agua]) %></p>
   <% Survey::SINO.each do |option| %>
     <p><%= f.radio_answer :equip_agua_caldera_acumulacion, option, :comun %></p>
@@ -180,16 +180,21 @@
 <script type="text/javascript">
   jQuery(function($) {
 
-    $.rule("caldera", $.disable("#si_caldera"), $.OR($.checked("#survey_equip_agua_caldera_tipo_notengo"),
-      $.not_checked("#survey_equip_agua_tipo_caldera")));
-    $.rule("paneles", $.disable("#si_paneles"), $.OR($.checked("#survey_equip_agua_caldera_tipo_notengo"),
-     $.not_checked("#survey_equip_agua_solar_s")));
     $.rule("agua", $.disable(".agua"),
-      $.checked("#survey_equip_agua_tipo_notengo"));
+    $.checked("#survey_equip_agua_tipo_notengo"));
+
+    $.rule("caldera", $.enable("#equip_agua_caldera_acumulacion"),
+    $.AND($.not_checked("#survey_equip_agua_tipo_notengo"),
+    $.checked("#survey_equip_agua_disp_caldera")));
+
+    $.rule("paneles", $.disable("#si_paneles"),
+    $.OR($.checked("#survey_equip_agua_tipo_notengo"),
+    $.not_checked("#survey_equip_agua_solar_s")));
+
     $.rule("calefaccion", $.disable(".calefaccion"),
-     $.checked("#survey_equip_calefaccion_caldera_tipo_notengo"));
+    $.checked("#survey_equip_calefaccion_caldera_tipo_notengo"));
     $.rule("misma_caldera", $.enable("#misma_caldera"),
-      $.AND($.checked("#survey_equip_calefaccion_tipo_caldera"), $.checked("#survey_equip_agua_tipo_caldera")));
+    $.AND($.checked("#survey_equip_calefaccion_tipo_caldera"), $.checked("#survey_equip_agua_tipo_caldera")));
     $.rule("bomba_calor", $.enable("#si_bomba"), $.checked("#survey_equip_calefaccion_tipo_bomba"));
 
     $("#equip_agua_tipo input").fires("agua", "caldera", "paneles");
@@ -200,9 +205,9 @@
 
     $.rule("aire", $.disable(".aire"), $.checked("#survey_equip_ac_n"));
     $.rule("aire_individual", $.enable("#aire_si_individual"),
-      $.checked("#survey_equip_ac_tipo_individual"));
+    $.checked("#survey_equip_ac_tipo_individual"));
     $.rule("aire_independientes", $.enable("#aire_si_independientes"),
-      $.AND($.checked("#survey_equip_ac_tipo_individual"), $.checked("#survey_equip_ac_individual_tipo_split")));
+    $.AND($.checked("#survey_equip_ac_tipo_individual"), $.checked("#survey_equip_ac_individual_tipo_split")));
 
     $("#equip_aire_tiene input").fires("aire");
     $("#equip_ac_tipo input").fires("aire_individual", "aire_independientes");

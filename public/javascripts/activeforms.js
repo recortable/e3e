@@ -71,8 +71,9 @@
     };
     $.not_checked = function(selector) {
         return function() {
-            logger("Not checked?: " + selector);
-            return !$(selector).attr('checked');
+            var isNotChecked = !$(selector).attr('checked');
+            logger("Not checked?: " + selector + " => " + isNotChecked);
+            return isNotChecked;
         }
     };
 
