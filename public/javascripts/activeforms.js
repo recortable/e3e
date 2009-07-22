@@ -56,7 +56,7 @@
             logger(this);
             for (var index = 0; index < names.length; index++) {
                 var name = names[index];
-                logger("Applying " + name);
+                logger("Fired rule: " + name);
                 rules[name].apply();
             }
         });
