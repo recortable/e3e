@@ -16,7 +16,7 @@ module ApplicationHelper
   def section(label, path, expected = nil, options = {})
     condition = expected ? (controller.class.to_s == expected.to_s) : (path == request.fullpath)
     if condition
-      content_tag :span,  label, :class => "active #{controller.class}"
+      content_tag :span,  label, :class => "active #{controller.class.to_s.downcase}"
     else
       link_to label, path, options
     end
