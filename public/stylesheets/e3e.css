@@ -176,6 +176,14 @@ form p {
   overflow: hidden;
   margin-bottom: 0.2em;
 }
+form p span.fake_field {
+  display: block;
+  margin-left: 9em;
+  width: 15em;
+  color: gray;
+  border: 1px solid white;
+  padding: 2px;
+}
 form span { margin-left: 0.2em; }
 form span.fieldWithErrors {
   float: left;
@@ -212,6 +220,7 @@ form p.error_message {
 form p.error {
   background-color: #ffafaf;
   padding-top: 5px;
+  text-align: center;
 }
 form .disabled { -moz-opacity: 0.5; }
 form .disabled span { color: gray; }

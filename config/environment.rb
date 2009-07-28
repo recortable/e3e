@@ -8,6 +8,9 @@ Rails::Initializer.run do |config|
 
   config.time_zone = 'UTC'
   config.i18n.default_locale = :es
+
+  config.action_controller.resources_path_names = { :new => 'nueva', :edit => 'cambia' }
+
 end
 
 require "form_helper_answer_extensions"

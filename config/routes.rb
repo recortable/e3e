@@ -19,6 +19,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :user_sessions, :as => 'sesion'
   map.resource :gas, :as => 'gas', :controller => 'gas'
   map.resource :electricidad, :as => 'electricidad', :controller => 'electricidad'
+  map.resource :password_reminders, :as => 'recordar', :only => [:new, :create, :show], :collection => {:new => :post}
   map.resources(:users, :as => 'usuarios') do |user|
     user.resource :survey, :as => 'encuesta'
   end

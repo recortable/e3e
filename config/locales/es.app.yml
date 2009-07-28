@@ -70,6 +70,21 @@ es:
   reports:
     show:
       title: "Informe"
+
+
+  password_reminders:
+    answer: "Respuesta"
+    title: "Recordar contraseña"
+    show:
+      info: "Paso 1: Introduce el nombre de tu usuario"
+      create: "Ir a Paso 2"
+    new:
+      info: "Paso 2: Responde a la pregunta"
+      question: "Pregunta"
+      create: "Responder"
+      fail: "Ese nombre de usuario no está registrado"
+    create:
+      fail: "Lo siento, el usuario y la respuesta no coinciden."
       
   user_sessions:
     username: "Nombre"
@@ -78,6 +93,7 @@ es:
       title: "Entrar en la zona de usuarios"
       submit: "Entrar"
       sign_up: "Darse de alta"
+      forgot_password: "Olvidé la contraseña"
     create:
       notice: "Bienvenido a E3E"
     destroy:

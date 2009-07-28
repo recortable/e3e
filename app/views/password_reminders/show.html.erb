@@ -1,0 +1,24 @@
+<% title t(:title) %>
+
+<div class="dialog">
+
+<% form_for([:new, @password_reminder]) do |f| %>
+  <h2><%= t(:title) %></h2>
+  <p class="info"><%= t(:info) %></p>
+  <% if flash[:notice] %>
+    <p class="error"><%= flash[:notice] %></p>
+    <% end %>
+  <p>
+    <%= f.label t(:username) %>
+    <%= f.text_field :username, :class => 'not_empty length_more_than_4' %>
+  </p>
+  <p>
+    <%= f.label ' ' %>
+    <%= f.submit submit_label_for(@password_reminder) %>
+  </p>
+<% end %>
+
+</div>
+<script type="text/javascript">
+  $('form').validate('<%= t(:disable_with) %>');
+</script>
