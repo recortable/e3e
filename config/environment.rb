@@ -11,7 +11,7 @@ Rails::Initializer.run do |config|
   config.i18n.default_locale = :es
 
   config.action_controller.resources_path_names = { :new => 'nueva', :edit => 'cambia' }
-
+  config.action_controller.page_cache_directory = RAILS_ROOT + "/public/cache/"
 end
 
 require "form_helper_answer_extensions"
