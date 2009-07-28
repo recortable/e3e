@@ -5,6 +5,7 @@ require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
   config.gem "authlogic"
+  config.gem "newrelic_rpm"
 
   config.time_zone = 'UTC'
   config.i18n.default_locale = :es
