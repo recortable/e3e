@@ -10,7 +10,7 @@ class InvoicesController  < ApplicationController
         format.xml { render :xml => @invoices}
       end
     else
-      requre_user
+      require_user
     end
   end
 

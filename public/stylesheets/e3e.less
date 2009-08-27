@@ -34,7 +34,12 @@ p {margin: 0.4em 0;}
 .help {margin: 1em 0; background-color: #efefef; padding: 1em;
     -moz-border-radius: 0.3em; -webkit-border-radius: 0.3em;}
 
-.top {width: 100%; height: 0.7em;}
+#top {width: 100%; overflow: hidden; height: 40px;}
+#header {width: 900px; margin: auto;}
+.session {float: right;}
+.session a {font-variant: small-caps; padding: 0.5em; }
+#logo {float: left; margin-right: 2em; margin-bottom: 1em;}
+
 #page {width: 900px; margin: 0 auto 2em auto; background-color: white; padding: 0 1em;
     -moz-border-radius: 0 0 1em 1em;
     -webkit-border-bottom-left-radius: 1em; -webkit-border-bottom-right-radius: 1em;}
@@ -42,24 +47,21 @@ p {margin: 0.4em 0;}
 .bottom {text-align: center; font-size: 70%; color: gray; padding: 0.5em 0;
     margin-top: 2em; border-top: 1px solid #9F9F9F;}
 
-#logo {float: left; margin-right: 2em; margin-bottom: 1em;}
 
 #head {width: 100%; overflow: hidden; }
 #head h1 {font-size: 500%; letter-spacing: -0.1em; font-weight: bold;}
 #head h1 a {color: #222222;}
 #head p {font-variant: small-caps; margin-top: -1em; }
 
-#navigation {margin-top: 1em; }
+#navigation {width: 100%; overflow: hidden; margin-bottom: 2em;}
 #navigation .sections {float: left; }
-#navigation  a, #navigation span {padding: 2em 0.5em 1.5em 0.5em; font-variant: small-caps;
-    -moz-border-radius: 0 0 0.5em 0.5em;
+#navigation  a, #navigation span {display: block; float: left; margin-right: 0.5em;
+    padding: 0.5em 1em 0.5em 1em; font-variant: small-caps;
+    -moz-border-radius: 0 0 0.5em 0.5em; background-color: #efefef;
      -webkit-border-bottom-left-radius: 0.5em; -webkit-border-bottom-right-radius: 0.5em;}
 #navigation span {color: white;}
-#navigation a:hover {background-color: #efefef;}
+#navigation a:hover {background-color: #DFFFCF;}
 
-.session {width: 100%; overflow: hidden; border-top: 1px solid gray; border-bottom: 1px solid gray; margin-bottom: 1em;
-    color: gray; font-size: 90%; padding: 0.2em 0;}
-.session a {font-variant: small-caps; padding: 0.5em; }
 .content {padding: 1em 2em;}
 
 .flash_notice {background-color: #7F7F7F; font-size: 120%;

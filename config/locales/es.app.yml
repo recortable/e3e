@@ -11,11 +11,12 @@ es:
     
   layouts:
     e3e:
+      about: "Qué es E3E"
       survey: "Paso 1: Encuesta"
       invoices: "Paso 2: Facturas"
       gas: "Paso 2: Gas"
       elec: "Paso 3: Electricidad"
-      report: "Paso 4: Informe"
+      report: "Informe"
       user_session_close: "Salir"
       what: "Qué es wecex"
       who: "Quiénes somos"
