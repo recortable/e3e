@@ -15,6 +15,7 @@ ActionController::Routing::Routes.draw do |map|
   map.statistics '/admin/estadisticas', :controller => 'about', :action => 'statistics'
 
 
+  map.resources :provincias, :only => [:index, :show]
   map.resource :consumption
   map.resource :user_sessions, :as => 'sesion'
   map.resource :gas, :as => 'gas', :controller => 'gas'

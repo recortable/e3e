@@ -133,10 +133,11 @@ p { margin: 0.4em 0; }
 .content { padding: 1em 2em; }
 .flash_notice {
   background-color: #7f7f7f;
+  font-size: 120%;
   color: white;
   width: 100%;
   margin: 0 auto;
-  padding: 2px;
+  padding: 5px 2px;
   text-align: center;
   -moz-border-radius: 0.2em;
   -webkit-border-radius: 0.2em;
@@ -283,11 +284,11 @@ table.dataset span {
   overflow: hidden;
   margin: -10px 0 10px 40px;
 }
-.chartfields div.inline-data {
+.chartfields input {
   font-size: 80%;
   border: 1px solid #efefef;
   padding: 1px;
-  width: 29px;
+  width: 27px;
   float: left;
   margin-left: 4.5px;
   margin-right: 3px;

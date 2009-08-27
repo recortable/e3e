@@ -8,4 +8,7 @@ class GasController < InvoicesController
     "#DF9A37"
   end
 
+  def next_step
+    electricidad_path
+  end
 end

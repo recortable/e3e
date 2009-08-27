@@ -26,8 +26,15 @@ class SurveysController < ApplicationController
     require_user
     @survey = @current_user.survey
     if @survey.update_attributes(params[:survey])
-      flash[:notice] = t(:flash)
-      redirect_to survey_path
+
+      if @survey.completed?
+        flash[:notice] = t(:flash)
+        redirect_to next_step
+      else
+        flash[:notice] = t(:not_completed)
+        redirect_to survey_path
+      end
+
     else
       load_municipios_provincias
       render :action => 'edit'
@@ -35,6 +42,10 @@ class SurveysController < ApplicationController
   end
 
   private
+  def next_step
+    gas_path
+  end
+
   def load_municipios_provincias
     @provincias_select = Provincia.all.collect {|p| [ p.name, p.id ] }
     if @survey.provincia

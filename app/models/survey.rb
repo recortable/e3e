@@ -29,4 +29,9 @@ class Survey < ActiveRecord::Base
   EQUIP_AC_INDIVIDUAL = ['ventana', 'split']
   EQUIP_AC_INDEPENDIENTES = ['unovarios', 'variosvarios']
   EQUIP_BOMBA_TIPO = ['uneq', 'varioseq']
+
+  def completed?
+    return true
+  end
+
 end

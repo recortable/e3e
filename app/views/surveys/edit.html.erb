@@ -10,7 +10,7 @@
       $('#survey_provincia_id').change(function() {
         spinner.show();
         var provinciaId = $(this).val();
-        $.getJSON('/provincias/show/' + provinciaId, function(data) {
+        $.getJSON('/provincias/' + provinciaId, function(data) {
           var list = $('#survey_municipio_id');
           list.empty();
           $.each(data, function(index) {
@@ -23,6 +23,9 @@
 
       $("#javascript").hide();
       $("#encuesta").show();
+      $.prevent();
+      $.applyRules();
+
     });
   </script>
 <% end %>
@@ -79,8 +82,3 @@
   <% end %>
 </div>
 
-<script type="text/javascript">
-  jQuery(function($) {
-    $.applyRules();
-  });
-</script>

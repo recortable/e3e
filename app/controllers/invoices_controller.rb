@@ -28,7 +28,7 @@ class InvoicesController  < ApplicationController
       end
     end
 
-    redirect_to :action => 'show'
+    redirect_to next_step
   end
 
 end

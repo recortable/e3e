@@ -2,48 +2,35 @@
 <% content_for :header do %>
   <script type="text/javascript">
     var barColor = "<%= @bar_color %>";
-    jQuery(function($) {
-      $("#dataset input.data").change(function() {      $.chart('#dataset', 'chart');      });
-      $.chart('#dataset', 'chart');
-    });
-
+    (function($) {
+      $(function() {
+        $("#dataset input.data").change(function() {      $.chart('#dataset', 'chart');      });
+        $.chart('#dataset', 'chart');
+        $.prevent();
+      });
+    })(jQuery);
   </script>
 
   <%= javascript_include_tag 'jscharts', 'charteditor' %>
 
 <% end %>
 
-<div id="chart_panel">
-  <div id="chart">
-    Generando gráfico...
-  </div>
-  <div class="chartfields">
-    <% @invoice.months do |consumo, index| -%>
-      <div class="inline-data" id="<%= consumo.label %>-inline"><%= consumo.ammount %></div>
-    <% end %>
-  </div>
-
-
-</div>
-
 <% form_tag({:action => 'update'}, :id => 'dataset', :method => 'PUT') do %>
-  <p class="save">
-    <%= submit_tag t(:submit) %> Pulse "Guardar" cuando acabe de introducir los datos
-  </p>
-  <table class="dataset">
-    <% @invoice.months do |consumo, index| %>
-      <% fields_for("consumption[]", consumo) do |f| %>
-        <tr class="<%= cycle('even', 'odd'); %>">
-          <td><%= label_tag consumo.name %></td>
-          <td><%= f.text_field  :ammount , :class => 'data', :id => consumo.label %></td>
-          <td><span><%= @invoice.units %></span>
-            <%= f.hidden_field :id %>
-            <%= f.hidden_field :period %>
-          </td>
-        </tr>
+  <div id="chart_panel">
+    <div id="chart">
+      Generando gráfico...
+    </div>
+    <div class="chartfields">
+      <% @invoice.months do |consumo, index| %>
+        <% fields_for("consumption[]", consumo) do |f| %>
+          <%= f.text_field  :ammount , :class => 'data', :id => consumo.label %>
+          <%= f.hidden_field :id %>
+          <%= f.hidden_field :period %>
+        <% end %>
       <% end %>
-    <% end %>
-  </table>
+    </div>
+  </div>
+
   <p class="save">
     <%= submit_tag t(:submit) %> Pulse "Guardar" cuando acabe de introducir los datos
   </p>

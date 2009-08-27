@@ -39,6 +39,7 @@ es:
       subtitle: "Le rogamos nos conteste a los siguientes datos, aunque sea de forma aproximada"
     update:
       flash: "Encuesta guardada con éxito. Gracias"
+      not_completed: "Faltan algunas preguntas por responder."
       
   users:
     password_confirmation: "Confirma contraseña"
