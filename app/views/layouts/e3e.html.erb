@@ -16,6 +16,7 @@
         <div class="session">
           <% if signed_in? %>
             Hola <%= current_user.username %>
+            <%= link_to t('users.edit'), edit_user_path(current_user) %>
             <%= link_to t(:user_session_close), logout_path, :method => 'delete' %>
           <% else -%>
             <%= link_to 'Entrar', new_user_sessions_path %>

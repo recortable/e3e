@@ -43,6 +43,7 @@ es:
       not_completed: "Faltan algunas preguntas por responder."
       
   users:
+    edit: "Cambiar tu perfil"
     password_confirmation: "Confirma contraseña"
     question: "Pregunta"
     answer: "Respuesta"

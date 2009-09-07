@@ -11,7 +11,16 @@ html {
   color: black;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-.aboutcontroller { background-color: #a5c941; }
+.round {
+  -moz-border-radius: 0.5em;
+  -webkit-border-radius: 0.5em;
+}
+.tab-borders {
+  -moz-border-radius: 0 0 0.5em 0.5em;
+  -webkit-border-bottom-left-radius: 0.5em;
+  -webkit-border-bottom-right-radius: 0.5em;
+}
+.aboutcontroller { background-color: #df0dc7; }
 .electricidadcontroller { background-color: #2daebf; }
 .gascontroller { background-color: #fc9200; }
 .surveyscontroller { background-color: #a9014b; }
@@ -24,8 +33,6 @@ html {
   overflow: hidden;
 }
 h1, h2, h3 { color: #333333; }
-h2 { color: #333333; }
-h3 { color: #333333; }
 h1 { font-size: 250%; }
 h2 { font-size: 150%; }
 h3 {
@@ -49,7 +56,10 @@ a {
   color: gray;
   text-decoration: none;
 }
-a:hover { color: black; }
+a:hover {
+  color: black;
+  text-decoration: undeline;
+}
 p { margin: 0.4em 0; }
 .help {
   margin: 1em 0;
@@ -67,10 +77,18 @@ p { margin: 0.4em 0; }
   width: 900px;
   margin: auto;
 }
-.session { float: right; }
+.session {
+  float: right;
+  margin-top: 1em;
+  margin-right: -1em;
+}
 .session a {
   font-variant: small-caps;
   padding: 0.5em;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.4);
+  -moz-border-radius: 0.5em;
+  -webkit-border-radius: 0.5em;
 }
 #logo {
   float: left;
@@ -121,7 +139,6 @@ p { margin: 0.4em 0; }
   padding: 0.5em 1em 0.5em 1em;
   font-variant: small-caps;
   -moz-border-radius: 0 0 0.5em 0.5em;
-  background-color: #efefef;
   -webkit-border-bottom-left-radius: 0.5em;
   -webkit-border-bottom-right-radius: 0.5em;
 }
@@ -132,10 +149,10 @@ p { margin: 0.4em 0; }
   padding: 0.5em 1em 0.5em 1em;
   font-variant: small-caps;
   -moz-border-radius: 0 0 0.5em 0.5em;
-  background-color: #efefef;
   -webkit-border-bottom-left-radius: 0.5em;
   -webkit-border-bottom-right-radius: 0.5em;
 }
+#navigation a { background-color: #efefef; }
 #navigation span { color: white; }
 #navigation a:hover { background-color: #dfffcf; }
 .content { padding: 1em 2em; }
