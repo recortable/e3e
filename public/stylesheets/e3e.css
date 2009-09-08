@@ -6,8 +6,47 @@
 */
 
 html {
+  color: #000000;
+  background: #ffffff;
+}
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {
+  margin: 0;
+  padding: 0;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+fieldset, img { border: 0; }
+address, caption, cite, code, dfn, em, strong, th, var {
+  font-style: normal;
+  font-weight: normal;
+}
+li { list-style: none; }
+caption, th { text-align: left; }
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+q:before { content: ''; }
+q:after { content: ''; }
+abbr, acronym {
+  border: 0;
+  font-variant: normal;
+}
+sup { vertical-align: text-top; }
+sub { vertical-align: text-bottom; }
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+input, textarea, select { *font-size: 100%; }
+legend { color: #000000; }
+del, ins { text-decoration: none; }
+html {
   font-size: 80%;
-  background-color: #efefef;
+  background-color: #ffffdf;
   color: black;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -20,11 +59,11 @@ html {
   -webkit-border-bottom-left-radius: 0.5em;
   -webkit-border-bottom-right-radius: 0.5em;
 }
-.aboutcontroller { background-color: #df0dc7; }
-.electricidadcontroller { background-color: #2daebf; }
-.gascontroller { background-color: #fc9200; }
+.aboutcontroller { background-color: #a726cf; }
+.electricidadcontroller { background-color: #2ba2af; }
+.gascontroller { background-color: #ef8c00; }
 .surveyscontroller { background-color: #a9014b; }
-.reportscontroller { background-color: #0ccf5d; }
+.reportscontroller { background-color: #0aaf4f; }
 .usersessionscontroller { background-color: #00cc00; }
 .adminsessionscontroller { background-color: #000000; }
 .userscontroller { background-color: #00cc00; }
@@ -33,7 +72,11 @@ html {
   overflow: hidden;
 }
 h1, h2, h3 { color: #333333; }
-h1 { font-size: 250%; }
+h1 {
+  font-size: 220%;
+  font-weight: bold;
+  letter-spacing: -0.08em;
+}
 h2 { font-size: 150%; }
 h3 {
   font-size: 125%;
@@ -63,30 +106,47 @@ a:hover {
 p { margin: 0.4em 0; }
 .help {
   margin: 1em 0;
-  background-color: #efefef;
+  background-color: rgba(0, 0, 0, 0.05);
   padding: 1em;
   -moz-border-radius: 0.3em;
   -webkit-border-radius: 0.3em;
 }
 #top {
   width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+#bar {
+  width: 100%;
   overflow: hidden;
-  height: 40px;
+  height: 64px;
 }
 #header {
   width: 900px;
   margin: auto;
+  color: white;
+}
+#header h1 {
+  float: left;
+  width: 89px;
+  height: 35px;
+  opacity: 0.95;
+  margin-top: 15px;
+  text-indent: -1000px;
+  background-image: url(../images/e3e.gif);
+  background-repeat: none;
 }
 .session {
   float: right;
-  margin-top: 1em;
+  margin-top: 25px;
   margin-right: -1em;
 }
 .session a {
   font-variant: small-caps;
   padding: 0.5em;
   color: white;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.2);
   -moz-border-radius: 0.5em;
   -webkit-border-radius: 0.5em;
 }
@@ -97,9 +157,9 @@ p { margin: 0.4em 0; }
 }
 #page {
   width: 900px;
-  margin: 0 auto 2em auto;
-  background-color: white;
-  padding: 0 1em;
+  margin: 0em auto 5em auto;
+  background-color: #ffffef;
+  padding: 12em 1em 0 1em;
   -moz-border-radius: 0 0 1em 1em;
   -webkit-border-bottom-left-radius: 1em;
   -webkit-border-bottom-right-radius: 1em;
@@ -127,9 +187,11 @@ p { margin: 0.4em 0; }
   margin-top: -1em;
 }
 #navigation {
-  width: 100%;
+  width: 900px;
+  margin: 0 auto;
   overflow: hidden;
-  margin-bottom: 2em;
+  background-color: #ffffef;
+  padding: 0 1em 1em 1em;
 }
 #navigation .sections { float: left; }
 #navigation a {
@@ -138,6 +200,7 @@ p { margin: 0.4em 0; }
   margin-right: 0.5em;
   padding: 0.5em 1em 0.5em 1em;
   font-variant: small-caps;
+  font-size: 110%;
   -moz-border-radius: 0 0 0.5em 0.5em;
   -webkit-border-bottom-left-radius: 0.5em;
   -webkit-border-bottom-right-radius: 0.5em;
@@ -148,13 +211,14 @@ p { margin: 0.4em 0; }
   margin-right: 0.5em;
   padding: 0.5em 1em 0.5em 1em;
   font-variant: small-caps;
+  font-size: 110%;
   -moz-border-radius: 0 0 0.5em 0.5em;
   -webkit-border-bottom-left-radius: 0.5em;
   -webkit-border-bottom-right-radius: 0.5em;
 }
-#navigation a { background-color: #efefef; }
+#navigation a { background-color: rgba(0, 0, 0, 0.05); }
 #navigation span { color: white; }
-#navigation a:hover { background-color: #dfffcf; }
+#navigation a:hover { background-color: rgba(0, 0, 0, 0.2); }
 .content { padding: 1em 2em; }
 .flash_notice {
   background-color: #7f7f7f;
@@ -167,10 +231,36 @@ p { margin: 0.4em 0; }
   -moz-border-radius: 0.2em;
   -webkit-border-radius: 0.2em;
 }
+.col3 {
+  float: left;
+  width: 30%;
+  margin: 2em 3% 2em 0;
+}
+.col3 h2 { margin-left: 8px; }
+.col3 h1 {
+  margin-left: 8px;
+  font-size: 180%;
+  font-style: normal;
+}
+.col3 img {
+  background-color: rgba(0, 0, 0, 0.05);
+  width: 250px;
+  height: 150px;
+  margin-bottom: 1em;
+  border: 8px solid rgba(0, 0, 0, 0.05);
+  -moz-border-radius: 0.5em;
+  -webkit-border-radius: 0.5em;
+}
+.col3 p { margin-left: 8px; }
+p.about {
+  font-size: 120%;
+  font-style: italic;
+  line-height: 1.5em;
+}
 .dialog {
   width: 70%;
   margin: 3em auto;
-  border: 0.5em solid #efefef;
+  border: 0.5em solid rgba(0, 0, 0, 0.05);
   padding: 1em;
 }
 .dialog h2 {
@@ -184,11 +274,11 @@ p { margin: 0.4em 0; }
   margin-top: 0.2em;
 }
 form input[type=text] {
-  border: 1px solid #efefef;
+  border: 1px solid rgba(0, 0, 0, 0.05);
   padding: 2px;
 }
 form input[type=password] {
-  border: 1px solid #efefef;
+  border: 1px solid rgba(0, 0, 0, 0.05);
   padding: 2px;
 }
 form input[type=radio] {
@@ -221,9 +311,9 @@ form p.info {
   color: #4f4f4f;
 }
 form p.save {
-  background-color: #efefef;
+  background-color: rgba(0, 0, 0, 0.05);
   padding: 0.5em 2em;
-  margin-left: 6em;
+  margin: 1em 6em 1em 6em;
   width: auto;
   -moz-border-radius: 1em;
   -webkit-border-radius: 1em;
@@ -261,7 +351,7 @@ form .disabled span { color: gray; }
   height: 10em;
 }
 form table { margin: 1em 0 2em 8em; }
-form tr.even { background-color: #efefef; }
+form tr.even { background-color: rgba(0, 0, 0, 0.05); }
 form table td {
   padding: 0.2em 1em;
   text-align: center;
@@ -273,7 +363,9 @@ form table td.name {
 }
 #chart_panel {
   margin: 1em 0;
-  border: 1em solid #efefef;
+  border: 1em solid rgba(0, 0, 0, 0.05);
+  -moz-border-radius: 0.5em;
+  -webkit-border-radius: 0.5em;
 }
 #chart {
   width: 100%;
@@ -311,7 +403,7 @@ table.dataset span {
 }
 .chartfields input {
   font-size: 80%;
-  border: 1px solid #efefef;
+  border: 1px solid rgba(0, 0, 0, 0.05);
   padding: 1px;
   width: 27px;
   float: left;
