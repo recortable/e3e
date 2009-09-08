@@ -46,7 +46,7 @@ legend { color: #000000; }
 del, ins { text-decoration: none; }
 html {
   font-size: 80%;
-  background-color: #ffffdf;
+  background-color: #fafadb;
   color: black;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -67,6 +67,7 @@ html {
 .usersessionscontroller { background-color: #00cc00; }
 .adminsessionscontroller { background-color: #000000; }
 .userscontroller { background-color: #00cc00; }
+.passwordreminderscontroller { background-color: #efefef; }
 .container {
   width: 100%;
   overflow: hidden;
@@ -135,11 +136,21 @@ p { margin: 0.4em 0; }
   margin-top: 15px;
   text-indent: -1000px;
   background-image: url(../images/e3e.gif);
-  background-repeat: none;
+  background-repeat: no-repeat;
+}
+#header h2 {
+  float: left;
+  margin-top: 34px;
+  font-variant: small-caps;
+  margin-left: 3px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 15px;
+  letter-spacing: 0.05em;
+  font-family: Verdana;
 }
 .session {
   float: right;
-  margin-top: 25px;
+  margin-top: 34px;
   margin-right: -1em;
 }
 .session a {
@@ -150,6 +161,7 @@ p { margin: 0.4em 0; }
   -moz-border-radius: 0.5em;
   -webkit-border-radius: 0.5em;
 }
+.session a:hover { background: rgba(0, 0, 0, 0.5); }
 #logo {
   float: left;
   margin-right: 2em;
@@ -158,7 +170,7 @@ p { margin: 0.4em 0; }
 #page {
   width: 900px;
   margin: 0em auto 5em auto;
-  background-color: #ffffef;
+  background-color: white;
   padding: 12em 1em 0 1em;
   -moz-border-radius: 0 0 1em 1em;
   -webkit-border-bottom-left-radius: 1em;
@@ -190,7 +202,7 @@ p { margin: 0.4em 0; }
   width: 900px;
   margin: 0 auto;
   overflow: hidden;
-  background-color: #ffffef;
+  background-color: white;
   padding: 0 1em 1em 1em;
 }
 #navigation .sections { float: left; }
@@ -221,7 +233,7 @@ p { margin: 0.4em 0; }
 #navigation a:hover { background-color: rgba(0, 0, 0, 0.2); }
 .content { padding: 1em 2em; }
 .flash_notice {
-  background-color: #7f7f7f;
+  background-color: #9f9f9f;
   font-size: 120%;
   color: white;
   width: 100%;
@@ -260,14 +272,21 @@ p.about {
 .dialog {
   width: 70%;
   margin: 3em auto;
-  border: 0.5em solid rgba(0, 0, 0, 0.05);
+  border: 8px solid rgba(0, 0, 0, 0.05);
   padding: 1em;
+  -moz-border-radius: 0.5em;
+  -webkit-border-radius: 0.5em;
 }
 .dialog h2 {
-  margin-left: 5.3em;
+  margin-left: 6em;
   margin-bottom: 0.2em;
 }
-.dialog ul { margin: 1em 0 0.5em 8em; }
+.dialog p.info {
+  margin-left: 6em;
+  font-style: italic;
+  color: gray;
+}
+.dialog ul { margin: 1em 0 0.5em 9em; }
 .dialog ul li {
   list-style-type: none;
   margin-left: 0;
@@ -334,9 +353,11 @@ form p.error_message {
   margin-bottom: 1em;
 }
 form p.error {
-  background-color: #ffafaf;
-  padding-top: 5px;
+  background-color: #ffbfbf;
+  padding: 5px 0;
   text-align: center;
+  -moz-border-radius: 0.5em;
+  -webkit-border-radius: 0.5em;
 }
 form .disabled { -moz-opacity: 0.5; }
 form .disabled span { color: gray; }

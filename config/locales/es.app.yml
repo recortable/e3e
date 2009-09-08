@@ -43,11 +43,19 @@ es:
       not_completed: "Faltan algunas preguntas por responder."
       
   users:
-    edit: "Cambiar tu perfil"
+    profile: "Cambiar tu perfil"
     password_confirmation: "Confirma contraseña"
     question: "Pregunta"
     answer: "Respuesta"
     create: "Dar de alta"
+    update: "Modificar"
+    created: "Te has dado de alta en E3E. Muchas gracias."
+    updated: "Los datos de tu perfil se han modificado con éxito."
+    info:
+      qa: "La pregunta y respuesta es necesaria por si olvidas la contraseña"
+      newpass: "La contraseña y su confirmación deben coincidir"
+      editpass: "La contraseña cambiará sólo si introduces una contraseña y su confirmación"
+      username: "Le pediremos el nombre de usuario para acceder a sus datos"
     index:
       title: "Listado de usuarios registrados"
       username: "Nombre de usuario"
@@ -57,6 +65,8 @@ es:
       show_xml: "Ver encuesta en xml"
     new:
       title: "Darse de alta como nuevo usuario"
+    edit:
+      title: "Cambiar tu perfil"
 
   gas:
     edit:
@@ -88,6 +98,7 @@ es:
       fail: "Ese nombre de usuario no está registrado"
     create:
       fail: "Lo siento, el usuario y la respuesta no coinciden."
+      created: "Por favor, introduce una nueva contraseña"
       
   user_sessions:
     username: "Nombre"

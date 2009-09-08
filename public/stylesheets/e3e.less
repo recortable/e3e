@@ -9,10 +9,11 @@ html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pr
 
 @medio: rgba(0,0,0,0.05);
 @oscuro: rgba(0,0,0,0.2);
+@masoscuro: rgba(0,0,0,0.5);
 
 html {
     font-size: 80%;
-    background-color: #FFFFDF;
+    background-color: #FAFADB;
     color: black;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
@@ -35,6 +36,7 @@ html {
 .usersessionscontroller {background-color: #0c0; }
 .adminsessionscontroller {background-color: #000;}
 .userscontroller {background-color: #0c0; }
+.passwordreminderscontroller {background-color: #efefef;}
 
 .container {width: 100%; overflow: hidden;}
 
@@ -56,13 +58,16 @@ p {margin: 0.4em 0;}
 #bar {width: 100%; overflow: hidden; height: 64px;}
 #header {width: 900px; margin: auto; color: white; }
 #header h1 {float: left; width: 89px; height: 35px; opacity: 0.95; margin-top: 15px;
-    text-indent: -1000px; background-image:url(../images/e3e.gif); background-repeat: none;}
-.session {float: right; margin-top: 25px; margin-right: -1em;}
+    text-indent: -1000px; background-image:url(../images/e3e.gif); background-repeat: no-repeat;}
+#header h2 {float: left; margin-top: 34px;  font-variant: small-caps; margin-left: 3px;
+    color: rgba(255,255,255,0.9); font-size: 15px; letter-spacing: 0.05em; font-family: Verdana}
+.session {float: right; margin-top: 34px; margin-right: -1em;}
 .session a {font-variant: small-caps; padding: 0.5em; color: white;
     background-color: @oscuro; .round;}
+.session a:hover {background: @masoscuro;}
 #logo {float: left; margin-right: 2em; margin-bottom: 1em;}
 
-#page {width: 900px; margin: 0em auto 5em auto; background-color: #FFFFEF; padding: 12em 1em 0 1em;
+#page {width: 900px; margin: 0em auto 5em auto; background-color: white; padding: 12em 1em 0 1em;
     -moz-border-radius: 0 0 1em 1em;
     -webkit-border-bottom-left-radius: 1em; -webkit-border-bottom-right-radius: 1em;}
 
@@ -75,7 +80,7 @@ p {margin: 0.4em 0;}
 #head h1 a {color: #222222;}
 #head p {font-variant: small-caps; margin-top: -1em; }
 
-#navigation {width: 900px; margin: 0 auto; overflow: hidden; background-color: #FFFFEF; padding: 0 1em 1em 1em;}
+#navigation {width: 900px; margin: 0 auto; overflow: hidden; background-color: white; padding: 0 1em 1em 1em;}
 #navigation .sections {float: left; }
 #navigation  a, #navigation span {display: block; float: left; margin-right: 0.5em;
     padding: 0.5em 1em 0.5em 1em; font-variant: small-caps; font-size: 110%;
@@ -86,7 +91,7 @@ p {margin: 0.4em 0;}
 
 .content {padding: 1em 2em;}
 
-.flash_notice {background-color: #7F7F7F; font-size: 120%;
+.flash_notice {background-color: #9F9F9F; font-size: 120%;
     color: white; width: 100%; margin: 0 auto; padding: 5px 2px; text-align: center;
     -moz-border-radius: 0.2em; -webkit-border-radius: 0.2em; }
 
@@ -98,9 +103,10 @@ p {margin: 0.4em 0;}
 .col3 p {margin-left: 8px;}
 p.about {font-size: 120%; font-style: italic; line-height: 1.5em;}
 
-.dialog {width: 70%; margin: 3em auto; border: 0.5em solid @medio; padding: 1em;}
-.dialog h2 {margin-left: 5.3em; margin-bottom: 0.2em;}
-.dialog ul {margin: 1em 0 0.5em 8em;}
+.dialog {width: 70%; margin: 3em auto; border: 8px solid @medio; padding: 1em; .round;}
+.dialog h2 {margin-left: 6em; margin-bottom: 0.2em;}
+.dialog p.info {margin-left: 6em; font-style: italic; color: gray;}
+.dialog ul {margin: 1em 0 0.5em 9em;}
 .dialog ul li {list-style-type: none; margin-left: 0; margin-top: 0.2em;}
 form input[type=text], form input[type=password] {border: 1px solid @medio; padding: 2px;}
 form input[type=radio] {margin-right: 0.3em; display: block; float: left; margin-top: 0.15em;}
@@ -116,7 +122,7 @@ form p.save {background-color: @medio; padding: 0.5em 2em; margin: 1em 6em 1em 6
 form label {float: left; display: block; width: 6em; text-align: right; padding-top: 0.2em;
     margin-right: 0.5em; margin-left: 2.5em; color: gray;}
 form p.error_message {color: #c00; margin-left: 9em; margin-bottom: 1em;}
-form p.error {background-color: #FFAFAF; padding-top: 5px; text-align: center;}
+form p.error {background-color: #FFBFBF; padding: 5px 0; text-align: center; .round;}
 
 form .disabled {-moz-opacity: 0.5;}
 form .disabled span {color: gray;}

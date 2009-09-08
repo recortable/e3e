@@ -19,6 +19,11 @@ class PasswordRemindersController < ApplicationController
     elsif !@password_reminder.valid?
       flash[:notice] = t(:fail)
       redirect_to :action => 'show'
+    else
+      flash[:notice] = t(:created)
+      user = @password_reminder.user
+      UserSession.create(user)
+      redirect_to edit_user_path(user)
     end
   end
 end
