@@ -53,12 +53,15 @@ html {
 .round {
   -moz-border-radius: 0.5em;
   -webkit-border-radius: 0.5em;
+  -ms-border-radius: 0.5em;
 }
 .tab-borders {
   -moz-border-radius: 0 0 0.5em 0.5em;
   -webkit-border-bottom-left-radius: 0.5em;
   -webkit-border-bottom-right-radius: 0.5em;
+  -ms-border-radius: 10px;
 }
+.dada { behavior: url(/stylesheets/border-radius.htc); }
 .aboutcontroller { background-color: #a726cf; }
 .electricidadcontroller { background-color: #2ba2af; }
 .gascontroller { background-color: #ef8c00; }
@@ -160,6 +163,7 @@ p { margin: 0.4em 0; }
   background-color: rgba(0, 0, 0, 0.2);
   -moz-border-radius: 0.5em;
   -webkit-border-radius: 0.5em;
+  -ms-border-radius: 0.5em;
 }
 .session a:hover { background: rgba(0, 0, 0, 0.5); }
 #logo {
@@ -216,6 +220,7 @@ p { margin: 0.4em 0; }
   -moz-border-radius: 0 0 0.5em 0.5em;
   -webkit-border-bottom-left-radius: 0.5em;
   -webkit-border-bottom-right-radius: 0.5em;
+  -ms-border-radius: 10px;
 }
 #navigation span {
   display: block;
@@ -227,6 +232,7 @@ p { margin: 0.4em 0; }
   -moz-border-radius: 0 0 0.5em 0.5em;
   -webkit-border-bottom-left-radius: 0.5em;
   -webkit-border-bottom-right-radius: 0.5em;
+  -ms-border-radius: 10px;
 }
 #navigation a { background-color: rgba(0, 0, 0, 0.05); }
 #navigation span { color: white; }
@@ -262,6 +268,7 @@ p { margin: 0.4em 0; }
   border: 8px solid rgba(0, 0, 0, 0.05);
   -moz-border-radius: 0.5em;
   -webkit-border-radius: 0.5em;
+  -ms-border-radius: 0.5em;
 }
 .col3 p { margin-left: 8px; }
 p.about {
@@ -276,6 +283,7 @@ p.about {
   padding: 1em;
   -moz-border-radius: 0.5em;
   -webkit-border-radius: 0.5em;
+  -ms-border-radius: 0.5em;
 }
 .dialog h2 {
   margin-left: 6em;
@@ -358,6 +366,7 @@ form p.error {
   text-align: center;
   -moz-border-radius: 0.5em;
   -webkit-border-radius: 0.5em;
+  -ms-border-radius: 0.5em;
 }
 form .disabled { -moz-opacity: 0.5; }
 form .disabled span { color: gray; }
@@ -387,6 +396,7 @@ form table td.name {
   border: 1em solid rgba(0, 0, 0, 0.05);
   -moz-border-radius: 0.5em;
   -webkit-border-radius: 0.5em;
+  -ms-border-radius: 0.5em;
 }
 #chart {
   width: 100%;
