@@ -209,7 +209,7 @@ p { margin: 0.4em 0; }
   -webkit-border-bottom-left-radius: 2px;
   -webkit-border-bottom-right-radius: 2px;
   -ms-border-radius: 2px;
-  color: #333333;
+  color: black;
 }
 #navigation span {
   display: block;
@@ -224,7 +224,7 @@ p { margin: 0.4em 0; }
   -webkit-border-bottom-left-radius: 2px;
   -webkit-border-bottom-right-radius: 2px;
   -ms-border-radius: 2px;
-  color: #333333;
+  color: black;
 }
 #navigation span {
   color: white;
