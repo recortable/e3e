@@ -1,12 +1,3 @@
-<% title "Survey" %>
+<%= title("Encuesta del usuario '#{@user.username}'") %>
 
-<p>
-  <strong>User:</strong>
-  <%=h @survey.user %>
-</p>
-
-<p>
-  <%= link_to "Edit", edit_survey_path(@survey) %> |
-  <%= link_to "Destroy", @survey, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", surveys_path %>
-</p>
+<div class="help">En construcción...</div>

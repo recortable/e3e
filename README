@@ -6,3 +6,9 @@ CAMBIOS
 - añadir sessión para administradores (HECHO)
 - provincia y municipio con javascript (HECHO)
 
+
+TAREAS
+
+- revisar texto de las url: /, /entrar, /cuestionario
+- añadir + y - a campos numéricos
+- IE: revisar posición de los radio buttons

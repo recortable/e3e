@@ -3,7 +3,7 @@ class CreateConsumptions < ActiveRecord::Migration
     create_table :consumptions do |t|
       t.string :service
       t.integer :ammount
-      t.string :month
+      t.string :period
       t.references :user
       t.timestamps
     end
@@ -15,6 +15,6 @@ class CreateConsumptions < ActiveRecord::Migration
   def self.down
     drop_table :consumptions
     remove_index :consumptions, :service
-    remove_index :consumptions, :user_id
+   remove_index :consumptions, :user_id
   end
 end

@@ -10,6 +10,10 @@ class User < ActiveRecord::Base
     Invoice.new(type, self)
   end
 
+  def consumptions(service)
+        Consumption.find(:all, :conditions => {:user_id => self.id, :service => service})
+  end
+  
   private
   def create_survey
     Survey.create!(:user_id => self.id)

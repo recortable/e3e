@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      flash[:notice] = t(:create, :scope => [:controllers, :users])
+      flash[:notice] = t(:created)
       redirect_to survey_path
     else
       render :action => 'new'
@@ -23,12 +23,13 @@ class UsersController < ApplicationController
   
   def edit
     @user = current_user
+    @user.password = ''
   end
   
   def update
     @user = current_user
     if @user.update_attributes(params[:user])
-      flash[:notice] = t(:update, :scope => [:controllers, :users])
+      flash[:notice] = t(:updated)
       redirect_to root_url
     else
       render :action => 'edit'

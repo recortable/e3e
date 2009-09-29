@@ -2,38 +2,38 @@
 class Invoice
   GAS = 'gas'
   ELEC = 'elec'
+  MONTHS = 18
+
+  UNITS = {:gas => 'm3', :elec => 'kW/h'}
 
   attr_accessor :service
-
-  def self.gas(user)
-    Invoice.new(GAS, user)
-  end
-
-  def self.elec(user)
-    Invoice.new(ELEC, user)
-  end
 
   def initialize(service, user)
     @user = user
     @service = service
+    @consumptions = @user.consumptions(service)
+    initialize_consumptions if @consumptions.size == 0
   end
-
-    MESES = %w(Enero Febrero Marzo Abril Mayo Junio Julio Agosto Septiembre Octubre Noviembre Diciembre)
-  MSS = MESES.map{|m| m[0..2]}
 
   def months(&block)
-    0.upto(11, &block)
+    index = 0
+    @consumptions.each do |consumption|
+      block.call(consumption, index)
+      index += 1
+    end
   end
 
-  def name(month)
-    "#{MESES[month]} del 2009"
+  def units
+    UNITS[@service.to_sym]
   end
 
-  def label(month)
-    "#{MSS[month]} 09"
-  end
-
-  def value(month)
-    1300
+  private
+  def initialize_consumptions
+    year_ago = Date.today << MONTHS
+    max = MONTHS - 1
+    0.upto(max) do |offset|
+      date = year_ago >> offset
+      @consumptions << Consumption.new(:period => date.strftime("%Y%m"))
+    end
   end
 end

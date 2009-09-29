@@ -1,3 +1,4 @@
+
 (function ($) {
     if (typeof console == "undefined" || typeof console.log == "undefined") {
         console = {
@@ -82,6 +83,22 @@
         ctx.errors++;
     };
 
+})(jQuery);
+
+(function ($) {
+    $.prevent = function() {
+        window.onbeforeunload = function() {
+            return "Los datos no han sido guardados.";
+        };
+        $("form").submit(function() {
+            var submit = $(this).find("input[type=submit]");
+            submit.val("Un momento por favor...");
+            submit.attr("disabled", "true");
+            window.onbeforeunload = null;
+            return true;
+        });
+
+    }
 })(jQuery);
 
 

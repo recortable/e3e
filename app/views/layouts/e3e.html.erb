@@ -2,54 +2,53 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title>E3E - <%= yield(:title) || 'Prototipo' %></title>
+    <title>E3E - <%= yield(:title) || 'E3E' %></title>
     <!-- link rel="icon" href="images/e3e.ico" type="image/x-icon" / -->
-    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.6.0/build/reset/reset-min.css" />
-    <%= stylesheet_link_tag 'wecex.css' %>
+    <%= stylesheet_link_tag 'e3e' %>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
     <%= javascript_include_tag 'jquery.validator.js'  %>
+    <%= javascript_include_tag 'DD_roundies.js'  %>
+    <script type="text/javascript">
+      DD_roundies.addRule('.flash_notice', '5px');
+    </script>
     <%= yield :header %>
   </head>
   <body>
-    <div class="top <%= @controller.class %>" ></div>
-    <div id="page">
-      <div id="head">
-        <div id="logo">
-          <h1><%= link_to 'wecex', root_path %></h1>
-          <p>Mejorar el consumo energético</p>
-        </div>
-
-        <div id="navigation">
-          <div class="sections">
-            <% if signed_in? %>
-              <%= section t(:survey), survey_path, :SurveysController %>
-              <%= section t(:invoices), {:action => 'spike', :controller => 'about' } %>
-              <%= section t(:report), root_path, :NotImplemented, :class => 'report' %>
-            <% else -%>
-              <%= section 'Qué es wecex', about_path %>
-              <%= section 'Quiénes somos', who_path %>
-              <%= section 'Para qué sirve', mission_path %>
-            <% end %>
-          </div>
+    <div id="top">
+      <div id="bar" class="<%= @controller.class.to_s.downcase %>">
+      </div>
+      <div id="navigation">
+        <div class="sections">
+          <%= section t(:about), root_path, :AboutController %>
+          <%= section t(:survey), survey_path, :SurveysController %>
+          <%= section t(:gas), gas_path, :GasController %>
+          <%= section t(:elec), electricidad_path, :ElectricidadController %>
+          <%= section t(:report), report_path, :ReportsController %>
         </div>
         <div class="session">
           <% if signed_in? %>
-            Hola <%= current_user.username %>
+            <span class="welcome" style="display: none">Hola <%= current_user.username %></span>
+            <%= link_to t('users.profile'), edit_user_path(current_user) %>
             <%= link_to t(:user_session_close), logout_path, :method => 'delete' %>
-          <% else -%>
-            <%= link_to 'Entrar', new_user_sessions_path %>
-            <%= link_to 'Darse de alta', new_user_path %>
           <% end -%>
+          <% if current_admin %>
+            <%= link_to t(:admin_zone), current_admin %>
+          <% end %>
         </div>
-
       </div>
+    </div>
+
+    <div id="page">
       <% if flash[:notice] %>
         <div class="flash_notice"><%= flash[:notice] %></div>
       <% end %>
       <div class="content">
         <%= yield %>
       </div>
-      <div class="bottom">E3E versión 0.2.0 - hecho a mano por <%= link_to 'c a l c', 'http://calcaxy.com' %></div>
+    </div>
+
+    <div class="bottom">
+      <%= link_to 'Hecho a mano por c a l c', 'http://calclab.com' %>
     </div>
   </body>
 </html>

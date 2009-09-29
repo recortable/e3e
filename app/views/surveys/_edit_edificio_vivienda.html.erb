@@ -1,16 +1,18 @@
+
+<!-- EDIFICIO -->
 <h3><%=  t(:titulo, :scope => [:encuesta, :edificio]) %></h3>
-
-
 
 <p class="info"><%=  t(:periodo, :scope => [:encuesta, :edificio]) %></p>
 <% Survey::EDIFICIO_PERIODO.each do |periodo| %>
   <p><%= f.radio_answer :edificio_periodo, periodo, :edificio %></p>
 <% end %>
 
-<p class="info"><%=  t(:tipo, :scope => [:encuesta, :edificio]) %></p>
-<% Survey::VIVIENDA_TIPO_EDIFICIO.each do |tipo| %>
-  <p><%= f.radio_answer :vivienda_tipo_edificio, tipo, :vivienda %></p>
-<% end %>
+<div id="vivienda_tipo_edificio">
+  <p class="info"><%=  t(:tipo, :scope => [:encuesta, :edificio]) %></p>
+  <% Survey::VIVIENDA_TIPO_EDIFICIO.each do |tipo| %>
+    <p><%= f.radio_answer :vivienda_tipo_edificio, tipo, :vivienda %></p>
+  <% end %>
+</div>
 
 <p class="info"><%=  t(:plantas, :scope => [:encuesta, :edificio]) %></p>
 <p><label>&nbsp;</label><%= f.text_field :vivienda_num_plantas %></p>
@@ -20,16 +22,24 @@
   <p><%= f.radio_answer :edificio_tejado, option, :edificio %></p>
 <% end -%>
 
+
+<!-- VIVIENDA -->
 <h3><%=  t(:titulo, :scope => [:encuesta, :vivienda]) %></h3>
-
-
-<p class="info"><%=  t(:planta, :scope => [:encuesta, :vivienda]) %></p>
-<% Survey::VIVIENDA_PLANTA.each do |planta| %>
-  <p><%= f.radio_answer :vivienda_planta, planta, :vivienda %></p>
-<%  end -%>
+<div id="vivienda_planta">
+  <p class="info"><%=  t(:planta, :scope => [:encuesta, :vivienda]) %></p>
+  <% Survey::VIVIENDA_PLANTA.each do |planta| %>
+    <p><%= f.radio_answer :vivienda_planta, planta, :vivienda %></p>
+  <%  end -%>
+</div>
 
 <p class="info"><%=  t(:superficie, :scope => [:encuesta, :vivienda]) %></p>
-<p><label>&nbsp;</label><%= f.text_field :vivienda_superficie %></p>
+<p><label>&nbsp;</label><%= f.text_field :vivienda_superficie %><span>m<sup>2</sup></span></p>
+
+<p class="info"><%=  t(:fachada, :scope => [:encuesta, :vivienda]) %></p>
+<p><label>&nbsp;</label><%= text_field_tag :vivienda_fachada %><span>m<sup>2</sup></span></p>
+
+<p class="info"><%=  t(:acristalado, :scope => [:encuesta, :vivienda]) %></p>
+<p><label>&nbsp;</label><%= text_field_tag :vivienda_acristalado %><span>% de la fachada</span></p>
 
 
 <p class="info"><%=  t(:estancias, :scope => [:encuesta, :vivienda]) %></p>
@@ -38,16 +48,36 @@
 <p class="info"><%=  t(:aseos, :scope => [:encuesta, :vivienda]) %></p>
 <p><label>&nbsp;</label><%= f.text_field :vivienda_servicios %></p>
 
-<p class="info"><%=  t(:reformas, :scope => [:encuesta, :vivienda]) %></p>
-<% Survey::VIVIENDA_REFORMAS.each do |reforma| %>
-  <p><label>&nbsp;</label><%= f.check_box "vivienda_#{reforma}" %>
-    <span><%= t("reforma_#{reforma}", :scope => [:encuesta, :vivienda]) %></span>
-  </p>
-<%  end -%>
 
-<p class="info"><%=  t(:cuando_reformas, :scope => [:encuesta, :vivienda]) %></p>
-<% Survey::VIVIENDA_REFORMA_ULTIMA.each do |option| %>
-  <p><%= f.radio_answer :vivienda_reforma_ultima, option, :vivienda %></p>
-<%  end -%>
+
+<div id="vivienda_reformas">
+  <p class="info"><%=  t(:reformas, :scope => [:encuesta, :vivienda]) %></p>
+  <% Survey::VIVIENDA_REFORMAS.each do |reforma| %>
+    <p ><label>&nbsp;</label><%= f.check_box "vivienda_#{reforma}" %>
+      <span><%= t("reforma_#{reforma}", :scope => [:encuesta, :vivienda]) %></span>
+    </p>
+  <%  end -%>
+</div>
+
+<div id="vivienda_reforma_ultima">
+  <p  class="info"><%=  t(:cuando_reformas, :scope => [:encuesta, :vivienda]) %></p>
+  <% Survey::VIVIENDA_REFORMA_ULTIMA.each do |option| %>
+    <p ><%= f.radio_answer :vivienda_reforma_ultima, option, :vivienda %></p>
+  <%  end -%>
+</div>
+
+<script type="text/javascript">
+  $(function() {
+    $.rule("reformas", $.disable("#vivienda_reforma_ultima"), function() {
+      return $("#vivienda_reformas input:checked").length == 0;
+    });
+
+    $.rule("bloque", $.enable("#vivienda_planta"), $.checked("#survey_vivienda_tipo_edificio_bloque"))
+
+    $("#vivienda_reformas input").fires("reformas");
+    $("#vivienda_tipo_edificio").fires("bloque");
+  });
+</script>
+
 
 

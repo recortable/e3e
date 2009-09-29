@@ -1,0 +1,22 @@
+
+<% title t(:title) %>
+
+<div class="dialog">
+
+<% form_for @password_reminder do |f| %>
+  <h2><%= t(:title) %></h2>
+  <p>
+    <%= f.label t(:username) %>
+    <span class="fake_field"><%= @password_reminder.username %></span>
+  </p>
+    <p>
+    <%= f.label t(:password) %>
+    <span class="fake_field"><%= @password_reminder.password %></span>
+  </p>
+
+<% end %>
+
+</div>
+<script type="text/javascript">
+  $('form').validate('<%= t(:disable_with) %>');
+</script>

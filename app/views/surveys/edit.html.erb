@@ -1,37 +1,49 @@
 <% content_for :header do %>
+  <%= javascript_include_tag 'activeforms' %>
+
   <script type="text/javascript">
     jQuery(function($) {
+      $("#encuesta").slideUp(0);
       var spinner = $('#municipio_spinner');
       spinner.hide();
 
       $('#survey_provincia_id').change(function() {
         spinner.show();
         var provinciaId = $(this).val();
-        $.getJSON('/provincias/show/' + provinciaId, function(data) {
+        $.getJSON('/provincias/' + provinciaId, function(data) {
           var list = $('#survey_municipio_id');
           list.empty();
           $.each(data, function(index) {
             var m = data[index];
-            list.append('<option value="' + m.id + '">' + m.name +  '</option>');
+            list.append('<' + 'option value="' + m.id + '">' + m.name +  '</' + 'option>');
           });
           spinner.hide();
         });
       });
+
+      $("#javascript").hide();
+      $("#encuesta").show();
+      $.applyRules();
+
     });
   </script>
 <% end %>
 
 
 <h1><%=  t(:title) %></h1>
+<p class="about">Los datos de esta encuesta nos permitirán saber las características energéticas
+de su vivienda y sus hábitos de consumo.</p>
+<p class="about">Le rogamos nos conteste a estos datos aunque sea de forma aproximada y
+por favor, pulse <a href="#guardar">"Guardar"</a>  cuando complete el cuestionario. Gracias.</p>
 
-<div id="encuesta">
+
+<div id="javascript">
+  Debes tener javascript para poder ver el formulario.
+</div>
+
+<div id="encuesta" style="display: none;">
   <% form_for(@survey, :url => survey_path) do |f| %>
     <%= f.error_messages %>
-
-    <p class="info"><%= t(:subtitulo, :scope => [:encuesta]) %></p>
-    <p class="save">
-      <%= f.submit 'Guardar' %> Pulse "Guardar" cuando complete el cuestionario.
-    </p>
 
     <h3><%=  t(:titulo, :scope => [:encuesta, :ciudad]) %></h3>
     <p class="info"><%=  t(:localidad, :scope => [:encuesta, :ciudad]) %></p>
@@ -63,12 +75,11 @@
     <p class="info"><%=  t(:opina, :scope => [:encuesta, :opinion]) %></p>
     <p><label>&nbsp;</label><%= f.text_area :opinion %></p>
     <br/>
-    <p class="save">
-      <%= f.submit 'Guardar' %> Pulse "Guardar" cuando complete el cuestionario.
+    <p>
+      <%= f.submit 'Guardar' %>
+      <a name="guardar" />
     </p>
   <% end %>
 </div>
 
-<script type="text/javascript">
 
-</script>

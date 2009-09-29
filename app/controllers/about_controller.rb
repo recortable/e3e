@@ -1,13 +1,20 @@
 class AboutController < ApplicationController
 
+  CACHED = [:welcome, :who, :mission]
+
+  CACHED.each {|action| caches_page action}
+    
   def index
-    if admin?
-      redirect_to current_admin
-    elsif current_user
+    if current_user
       redirect_to survey_path
     else
-      render :action => 'about'
+      redirect_to what_path
     end
+  end
+
+
+  def clear_cache
+    CACHED.each {|action| expire_action action}
   end
 
   def development

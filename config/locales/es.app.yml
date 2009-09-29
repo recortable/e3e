@@ -4,23 +4,33 @@ es:
   username: "Nombre"
   password: "Contraseña"
   email: "Email"
+  submit: "Guardar"
   
   require_user: "Necesitas estar dado de alta como usuario para acceder a esta zona"
   require_admin: "Necesitas ser un administrador para acceder a esta zona"
     
   layouts:
     e3e:
+      about: "Qué es E3E"
       survey: "Paso 1: Encuesta"
       invoices: "Paso 2: Facturas"
-      report: "Paso 3: Consumo"
+      gas: "Paso 2: Gas"
+      elec: "Paso 3: Electricidad"
+      report: "Informe"
       user_session_close: "Salir"
+      what: "Qué es wecex"
+      who: "Quiénes somos"
+      mission: "Para qué sirve wecex"
+      admin_zone: "Eres administrador"
     admin:
       users: "Usuarios"
       statistics: "Estadísticas"
       development: "Desarrollo"
-      session_close: "Salir de la zona de administración"
+      session_close: "Cerrar sesión como administrador"
 
   about:
+    what:
+      title: "Qué es wecex"
     development:
       title: "Desarrollo"
     
@@ -30,35 +40,76 @@ es:
       subtitle: "Le rogamos nos conteste a los siguientes datos, aunque sea de forma aproximada"
     update:
       flash: "Encuesta guardada con éxito. Gracias"
+      not_completed: "Faltan algunas preguntas por responder."
       
   users:
-    password_confirmation: "Confirma contraseña"
+    profile: "Cambiar tu perfil"
+    password_confirmation: "Confirmación"
     question: "Pregunta"
     answer: "Respuesta"
     create: "Dar de alta"
+    update: "Modificar"
+    created: "Te has dado de alta en E3E. Muchas gracias."
+    updated: "Los datos de tu perfil se han modificado con éxito."
+    info:
+      qa: "La pregunta y respuesta es necesaria por si olvidas la contraseña"
+      newpass: "La contraseña y su confirmación deben coincidir"
+      editpass: "La contraseña cambiará sólo si introduces una contraseña y su confirmación"
+      username: "Le pediremos un nombre de usuario para acceder a sus datos"
     index:
       title: "Listado de usuarios registrados"
-    new:
+      username: "Nombre de usuario"
+      created_at: "Fecha de alta"
+      updated_at: "Último acceso"
+      show_survey: "Ver encuesta"
+      show_xml: "Ver encuesta en xml"
+    form:
       title: "Darse de alta como nuevo usuario"
-
-  invoices:
-    show:
-      title: "Facturas de su vivienda"
-      gas: "Consumo de gas"
-      elec: "Consumo eléctrico"
-      edit_gas: "Editar factura de gas"
-      edit_elec: "Editar factura de electricidad"
     edit:
-      title_gas: "Editar consumo de gas"
-      submit: "Guardar"
+      title: "Cambiar tu perfil"
 
+  gas:
+    edit:
+      title: "Evolución del consumo de gas"
+    update:
+      updated: "Los datos de la factura de gas han sido guardados. Gracias."
+  electricidad:
+    edit:
+      title: "Evolución del consumo eléctrico"
+    update:
+      updated: "Los datos de la factura de electricidad han sido guardados. Gracias."
+
+
+  reports:
+    show:
+      title: "Informe"
+
+
+  password_reminders:
+    answer: "Respuesta"
+    title: "Recordar contraseña"
+    show:
+      info: "Paso 1: Introduce el nombre de tu usuario"
+      create: "Ir a Paso 2"
+    new:
+      info: "Paso 2: Responde a la pregunta"
+      question: "Pregunta"
+      create: "Responder"
+      fail: "Ese nombre de usuario no está registrado"
+    create:
+      fail: "Lo siento, el usuario y la respuesta no coinciden."
+      created: "Por favor, introduce una nueva contraseña"
+      
   user_sessions:
     username: "Nombre"
     password: "Contraseña"
     new:
-      title: "Entrar en la zona de usuarios"
+      title: "Entrar"
+    form:
+      title: "¿Te registraste previamente?"
       submit: "Entrar"
       sign_up: "Darse de alta"
+      forgot_password: "Olvidé la contraseña"
     create:
       notice: "Bienvenido a E3E"
     destroy:
