@@ -4,32 +4,33 @@
     var barColor = "<%= @bar_color %>";
     (function($) {
       $(function() {
-        $("#dataset input.data").change(function() {      $.chart('#dataset', 'chart');      });
-        $.chart('#dataset', 'chart');
+        var vals = []
+        $("#dataset .data").each(function() {
+          vals.push(parseInt($(this).val()));
+        });
+
+        $("#chart").ichart({data : {values: vals}});
       });
     })(jQuery);
   </script>
 
-  <%= javascript_include_tag 'jscharts', 'charteditor' %>
+  <%= javascript_include_tag 'jquery.ichart' %>
 
 <% end %>
 
-<% form_tag({:action => 'update'}, :id => 'dataset', :method => 'PUT') do %>
-  <div id="chart_panel">
-    <div id="chart">
-      Generando gráfico...
-    </div>
-    <div class="chartfields">
-      <% @invoice.months do |consumo, index| %>
-        <% fields_for("consumption[]", consumo) do |f| %>
-          <%= f.text_field  :ammount , :class => 'data', :id => consumo.label %>
-          <%= f.hidden_field :id %>
-          <%= f.hidden_field :period %>
-        <% end %>
-      <% end %>
-    </div>
+<div id="chart_panel">
+  <div id="chart">
+    Generando gráfico...
   </div>
-
+</div>
+<% form_tag({:action => 'update'}, :id => 'dataset', :method => 'PUT') do %>
+  <% @invoice.months do |consumo, index| %>
+    <% fields_for("consumption[]", consumo) do |f| %>
+      <%= f.text_field  :ammount , :id => consumo.label, :class => 'data' %>
+      <%= f.hidden_field :id %>
+      <%= f.hidden_field :period %>
+    <% end %>
+  <% end %>
   <p class="save">
     <%= submit_tag t(:submit) %> Pulse "Guardar" cuando acabe de introducir los datos
   </p>

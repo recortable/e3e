@@ -9,6 +9,6 @@ class GasController < InvoicesController
   end
 
   def next_step
-    electricidad_path
+    gas_path
   end
 end
