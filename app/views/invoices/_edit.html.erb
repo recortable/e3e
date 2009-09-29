@@ -1,22 +1,35 @@
 
 <% content_for :header do %>
   <script type="text/javascript">
-    var barColor = "<%= @bar_color %>";
     (function($) {
       $(function() {
-        var vals = []
+        var barColor = $("#bar").css("background-color");
+        var vals = [];
+        var labels = [];
         $("#dataset .data").each(function() {
           vals.push(parseInt($(this).val()));
+          labels.push($(this).attr("id"));
         });
 
-        $("#chart").ichart({data : {values: vals}});
+        $("#chart").ichart({bars: {color: barColor}, yaxis: {zero: "N/D"},
+          data : {values: vals, names: labels}});
+        $("#chart").bind("ichart.changed", function(evt, name, value) {
+          value = (value == null) ? "" : value;
+          $("#" + name).val(value);
+        })
       });
     })(jQuery);
   </script>
 
   <%= javascript_include_tag 'jquery.ichart' %>
-
 <% end %>
+
+
+<p class="about">Para ello coja la última factura que tenga a su disposición e intente representar el mismo dibujo
+que aparece en la misma.</p>
+<p class="about">Pinchando sobre el gráfico puede cambiar el valor del consumo según el mes. De aquellos meses
+que no disponga datos (N/D), déjelo en blanco (puede poner en blanco un mes pulsando sobre el nombre del mismo).</p>
+<p class="about">Por favor, no olvide pulsar el botón <a href=""#guardar">Guardar</a> cuando haya completado el gráfico.</p>
 
 <div id="chart_panel">
   <div id="chart">
@@ -26,13 +39,14 @@
 <% form_tag({:action => 'update'}, :id => 'dataset', :method => 'PUT') do %>
   <% @invoice.months do |consumo, index| %>
     <% fields_for("consumption[]", consumo) do |f| %>
-      <%= f.text_field  :ammount , :id => consumo.label, :class => 'data' %>
+      <%= f.hidden_field  :ammount , :id => consumo.label, :class => 'data' %>
       <%= f.hidden_field :id %>
       <%= f.hidden_field :period %>
     <% end %>
   <% end %>
-  <p class="save">
-    <%= submit_tag t(:submit) %> Pulse "Guardar" cuando acabe de introducir los datos
+  <p>
+    <%= submit_tag t(:submit) %>
+    <a name="guardar" />
   </p>
 <% end %>
 

@@ -4,7 +4,6 @@ class InvoicesController  < ApplicationController
     if current_admin && params[:user_id]
     elsif current_user
       @invoice = current_user.invoice(service)
-      @bar_color = bar_color
       respond_to do |format|
         format.html { render :action => 'edit'}
         format.xml { render :xml => @invoices}

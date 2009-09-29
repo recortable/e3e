@@ -72,7 +72,7 @@ html {
   width: 100%;
   overflow: hidden;
 }
-h1, h2, h3 { color: #868686; }
+h1, h2 { color: #868686; }
 h1 {
   font-size: 260%;
   font-weight: bold;
@@ -81,12 +81,14 @@ h1 {
 h2 { font-size: 150%; }
 h3 {
   font-size: 125%;
+  color: #333333;
   border-bottom: 1px solid #9f9f9f;
   margin: 2em 0 1em 0;
   padding-left: 6.5em;
 }
 h4 {
   font-size: 100%;
+  color: #333333;
   border-bottom: 1px solid #9f9f9f;
   margin-top: 2em;
   margin-left: 7em;
@@ -164,12 +166,13 @@ p { margin: 0.4em 0; }
   margin-top: 2em;
   text-align: center;
   font-size: 90%;
-  color: white;
+  color: #868686;
   padding: 1em 0;
   background-color: #252525;
   border-top: 2em solid #e2e2dd;
   clear: both;
 }
+.bottom a:hover { color: white; }
 #head {
   width: 100%;
   overflow: hidden;
@@ -328,6 +331,7 @@ form input[type=radio] {
   float: left;
   margin-top: 0.15em;
 }
+form input[type=submit] { margin-top: 0.5em; }
 form p {
   width: 100%;
   overflow: hidden;
@@ -458,3 +462,8 @@ table.users thead {
   color: white;
 }
 table.users td { padding: 0.2em 1em; }
+.calc {
+  font-family: monospace;
+  letter-spacing: 0.5em;
+  font-size: 1.3em;
+}
