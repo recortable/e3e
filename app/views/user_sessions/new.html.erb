@@ -1,29 +1,13 @@
-<% title t(:title) %>
+<%= title t(:title) %>
 
-<div class="dialog">
-  <h2><%= t(:title) %></h2>
-  <% form_for @user_session do |f| %>
-    <%= f.error_messages %>
-    <p>
-      <%= f.label t(:username) %>
-      <%= f.text_field :username %>
-    </p>
-    <p>
-      <%= f.label t(:password) %>
-      <%= f.password_field :password %>
-    </p>
-    <p>
-      <%= f.label ' ' %>
-      <%= f.submit t(:submit), :disable_with => t(:disable_with) %>
-    </p>
-  <% end %>
-  <ul>
-    <li>
-      <%= link_to t(:sign_up), new_user_path %>
-    </li>
-    <li>
-      <%= link_to t(:forgot_password), password_reminders_path %>
-    </li>
-  </ul>
+<p class="about">Para preservar la privacidad de los datos, es necesario registrarse antes de poder
+usar esta herramienta. Aún así, el anonimato está garantizado, ya que nunca se le pedirá ningun dato
+que pueda relacionarle con una persona (nunca se pedirá correo, dirección, teléfono, etcétera).</p>
+<p class="about">Así mismo, los datos recopilados tanto en la encuesta como en la evolución de consumo
+sólo se utilizarán con fines estadísticos dentro del Instituto +++</p>
+<p class="about"></p>
+
+<div class="divided">
+  <%= render :partial => '/user_sessions/form' %>
+  <%= render :partial => '/users/form' %>
 </div>
-

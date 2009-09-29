@@ -44,7 +44,7 @@ es:
       
   users:
     profile: "Cambiar tu perfil"
-    password_confirmation: "Confirma contraseña"
+    password_confirmation: "Confirmación"
     question: "Pregunta"
     answer: "Respuesta"
     create: "Dar de alta"
@@ -55,7 +55,7 @@ es:
       qa: "La pregunta y respuesta es necesaria por si olvidas la contraseña"
       newpass: "La contraseña y su confirmación deben coincidir"
       editpass: "La contraseña cambiará sólo si introduces una contraseña y su confirmación"
-      username: "Le pediremos el nombre de usuario para acceder a sus datos"
+      username: "Le pediremos un nombre de usuario para acceder a sus datos"
     index:
       title: "Listado de usuarios registrados"
       username: "Nombre de usuario"
@@ -63,7 +63,7 @@ es:
       updated_at: "Último acceso"
       show_survey: "Ver encuesta"
       show_xml: "Ver encuesta en xml"
-    new:
+    form:
       title: "Darse de alta como nuevo usuario"
     edit:
       title: "Cambiar tu perfil"
@@ -104,7 +104,9 @@ es:
     username: "Nombre"
     password: "Contraseña"
     new:
-      title: "Entrar en la zona de usuarios"
+      title: "Entrar"
+    form:
+      title: "¿Te registraste previamente?"
       submit: "Entrar"
       sign_up: "Darse de alta"
       forgot_password: "Olvidé la contraseña"

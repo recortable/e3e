@@ -13,12 +13,12 @@ module ApplicationHelper
     content_tag(options[:tag], page_title) if options[:show]
   end
 
-  def section(label, path, expected = nil, options = {})
-    condition = expected ? (controller.class.to_s == expected.to_s) : (path == request.fullpath)
+  def section(label, path, expected_controller = nil)
+    condition = expected_controller ? (controller.class.to_s == expected_controller.to_s) : (path == request.fullpath)
     if condition
       content_tag :span,  label, :class => "active #{controller.class.to_s.downcase}"
     else
-      link_to label, path, options
+      link_to label, path, :class => expected_controller.to_s.downcase
     end
   end
 end

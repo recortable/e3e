@@ -24,8 +24,7 @@ module AuthenticationMethods
   def require_user
     unless current_user
       store_location
-      flash[:notice] = t(:require_user)
-      redirect_to new_user_sessions_url
+      redirect_to login_path
       return false
     end
   end

@@ -1,6 +1,7 @@
 class UserSessionsController < ApplicationController
   def new
     @user_session = UserSession.new
+    @user = User.new
   end
   
   def create
@@ -9,6 +10,7 @@ class UserSessionsController < ApplicationController
       flash[:notice] = t(:notice)
       redirect_to survey_path
     else
+      @user = User.new
       render :action => 'new'
     end
   end

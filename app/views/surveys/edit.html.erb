@@ -31,6 +31,11 @@
 
 
 <h1><%=  t(:title) %></h1>
+<p class="about">Los datos de esta encuesta nos permitirán saber las características energéticas
+de su vivienda y sus hábitos de consumo.</p>
+<p class="about">Le rogamos nos conteste a estos datos aunque sea de forma aproximada y
+por favor, pulse <a href="#guardar">"Guardar"</a>  cuando complete el cuestionario. Gracias.</p>
+
 
 <div id="javascript">
   Debes tener javascript para poder ver el formulario.
@@ -39,11 +44,6 @@
 <div id="encuesta" style="display: none;">
   <% form_for(@survey, :url => survey_path) do |f| %>
     <%= f.error_messages %>
-
-    <p class="info"><%= t(:subtitulo, :scope => [:encuesta]) %></p>
-    <p class="save">
-      <%= f.submit 'Guardar', :id => 'survey_submit_pre' %> Pulse "Guardar" cuando complete el cuestionario.
-    </p>
 
     <h3><%=  t(:titulo, :scope => [:encuesta, :ciudad]) %></h3>
     <p class="info"><%=  t(:localidad, :scope => [:encuesta, :ciudad]) %></p>
@@ -75,8 +75,9 @@
     <p class="info"><%=  t(:opina, :scope => [:encuesta, :opinion]) %></p>
     <p><label>&nbsp;</label><%= f.text_area :opinion %></p>
     <br/>
-    <p class="save">
-      <%= f.submit 'Guardar' %> Pulse "Guardar" cuando complete el cuestionario.
+    <p>
+      <%= f.submit 'Guardar' %>
+      <a name="guardar" />
     </p>
   <% end %>
 </div>

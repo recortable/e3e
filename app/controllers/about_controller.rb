@@ -1,6 +1,6 @@
 class AboutController < ApplicationController
 
-  CACHED = [:what, :who, :mission]
+  CACHED = [:welcome, :who, :mission]
 
   CACHED.each {|action| caches_page action}
     

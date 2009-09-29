@@ -1,14 +1,14 @@
 
-
 <% form_for @user do |f| %>
+  <h2><%= @user.new_record? ? t(:title) : t('edit.title') %></h2>
   <%= f.error_messages %>
   <p class="info"><%= t('info.username') %></p>
   <p>
     <%= f.label t(:username) %>
-    <%= f.text_field :username, :class => 'not_empty length_more_than_4' %>
+    <%= f.text_field :username, :class => '_not_empty length_more_than_4' %>
   </p>
   <p class="info"><%= t(@user.new_record? ? 'info.newpass' : 'info.editpass') %></p>
-  <% validation = @user.new_record? ? 'not_empty length_more_than_4'  : 'length_more_than_4'  %>
+  <% validation = @user.new_record? ? '_not_empty length_more_than_4'  : '_length_more_than_4'  %>
   <p>
     <%= f.label :password, t(:password) %>
     <%= f.password_field :password, :class => validation %>
@@ -20,11 +20,11 @@
   <p class="info"><%= t('info.qa') %></p>
   <p>
     <%= f.label t(:question) %>
-    <%= f.text_field :question, :class => 'not_empty length_more_than_4' %>
+    <%= f.text_field :question, :class => '_not_empty length_more_than_4' %>
   </p>
   <p>
     <%= f.label t(:answer) %>
-    <%= f.text_field :answer, :class => 'not_empty length_more_than_4' %>
+    <%= f.text_field :answer, :class => '_not_empty length_more_than_4' %>
   </p>
   <p>
     <%= f.label ' ' %>
