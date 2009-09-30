@@ -24,12 +24,33 @@ html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pr
 @acolor4: #F8CA00;
 @acolor5: #8A9B0F;
 
+* {
+    margin: 0;
+}
+html, body {
+    height: 100%;
+}
+.wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -5em;
+}
+.footer, .push { height: 5em; }
+.footer {background-color: #252525; }
+.bottom {text-align: center; font-size: 90%; padding-top: 1em; color: @gris; border-top: 2em solid @border; }
+.bottom a:hover {color: white;}
+
+
 html {
     font-size: 80%;
-    background-color: @fondo;
     color: black;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    height: 100%;
+    background-color: @fondo;
 }
+
+body {height: 100%;}
 
 .round {}
 
@@ -42,9 +63,6 @@ html {
     -moz-border-radius:  0 0 2px 2px;
     -webkit-border-bottom-left-radius: 2px; -webkit-border-bottom-right-radius: 2px;
     -ms-border-radius: 2px;
-}
-.dada {
-    behavior:url(/stylesheets/border-radius.htc);
 }
 
 
@@ -90,10 +108,7 @@ p {margin: 0.4em 0;}
        height:500px;
 }
 
-.bottom {width: 100%; margin-top: 2em; text-align: center; font-size: 90%; color: @gris; padding: 1em 0;
-         background-color: #252525; border-top: 2em solid @border; clear: both;
-}
-.bottom a:hover {color: white;}
+
 
 
 #head {width: 100%; overflow: hidden; }
@@ -142,7 +157,7 @@ p.about {font-size: 120%; font-style: italic; line-height: 1.5em;}
 .dialog .fieldWithErrors input, .divided .fieldWithErrors input {
     border-color: #c00;
 }
-.dialog {width: 70%; margin: 5em auto 15em auto; }
+.dialog {width: 70%; margin: 5em auto 5em auto; }
 .dialog form {    background-color: @fondo; border: 1px solid @border; padding: 1em;}
 
 .divided p.info, .dialog p.info {margin-left: 1em;}
@@ -186,7 +201,7 @@ form table td.name {text-align: right; padding-right: 0.5em; width: 12em;}
 #chart {width: 100%; margin: 0; border: 0; padding: 0;}
 .chart_controls {width: 100%; overflow: hidden; margin-left: 4em; margin-top: 0.5em;}
 .chart_controls a {display: block; float: left; padding: 0.1em 0.4em; font-size: 2em;
-  background-color: @fondo; color: white; margin-right: 0.5em; font-weight: bolder;}
+                   background-color: @fondo; color: white; margin-right: 0.5em; font-weight: bolder;}
 
 
 table.dataset {margin-left: auto; margin-right: auto;}

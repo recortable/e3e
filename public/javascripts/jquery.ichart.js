@@ -17,6 +17,7 @@
         var chart = target.data("chart");
         if (chart == null) {
             chart = $.extend(true, {
+                ctx : null,
                 panel : {
                     width: 0,
                     height: 0
@@ -84,15 +85,28 @@
 
 
     function createCanvas(target, chart) {
-        target.html("").css("position", "relative");
+        function makeCanvas(width, height) {
+            var c = document.createElement('canvas');
+            c.width = width;
+            c.height = height;
+            if ($.browser.msie) // excanvas hack
+                c = window.G_vmlCanvasManager.initElement(c);
+            return c;
+        }
+
+        if ($.browser.msie) {
+            window.G_vmlCanvasManager.init_(document); // make sure everything is setup
+        }
+
+
+        target.html("");
         chart.panel.width = chart.grid.width + chart.grid.padding.left + chart.grid.padding.right;
         chart.panel.height = chart.grid.height + chart.grid.padding.top + chart.grid.padding.bottom;
-        var canvas = $('<canvas width="' + chart.panel.width + '" height="' + chart.panel.height + '"></canvas>').appendTo(target).get(0);
-        if ($.browser.msie) // excanvas hack
-            canvas = window.G_vmlCanvasManager.initElement(canvas);
-        chart.ctx = canvas.getContext("2d");
+        
+        var canvas = $(makeCanvas(chart.panel.width, chart.panel.height)).appendTo(target).get(0);
+        var context = canvas.getContext("2d");
+        chart.ctx = context;
         addListeners(target, canvas, chart);
-
     }
 
     function addListeners(target, canvas, chart) {
@@ -140,7 +154,7 @@
             chart.yaxis.max += chart.yaxis.division;
         }
         redraw(chart);
-        return normalized;
+        return chart.data.values[column];
     }
 
 
@@ -180,7 +194,6 @@
         var left = chart.grid.padding.left;
         var top = chart.grid.padding.top;
         //ctx.strokeRect(left, top, chart.grid.width, chart.grid.height);
-
         var division = chart.yaxis.division;
         var width = chart.grid.width;
         var bottom = top + chart.grid.height;
