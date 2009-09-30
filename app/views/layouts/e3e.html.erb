@@ -1,15 +1,18 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <title>E3E - <%= yield(:title) || 'E3E' %></title>
     <!-- link rel="icon" href="images/e3e.ico" type="image/x-icon" / -->
     <%= stylesheet_link_tag 'e3e' %>
+    <%= stylesheet_link_tag 'jquery.jgrowl'  %>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+    <%= javascript_include_tag 'jquery.ichart', 'jquery.jgrowl.min' %>
     <%= javascript_include_tag 'jquery.validator.js'  %>
-    <%= javascript_include_tag 'DD_roundies.js'  %>
     <script type="text/javascript">
-      DD_roundies.addRule('.flash_notice', '5px');
+      jQuery(function($) {
+        $(".flash").each(function() {$.jGrowl($(this).html(), {closer:false});})
+      });
     </script>
     <%= yield :header %>
   </head>
@@ -40,7 +43,7 @@
 
     <div id="page">
       <% if flash[:notice] %>
-        <div class="flash_notice"><%= flash[:notice] %></div>
+        <div class="flash" style="display:none"><%= flash[:notice] %></div>
       <% end %>
       <div class="content">
         <%= yield %>

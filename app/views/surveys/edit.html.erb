@@ -25,6 +25,16 @@
       $("#encuesta").show();
       $.applyRules();
 
+      $("#navigation a").click(function() {
+        $("#next_url").val($(this).attr("href"));
+        $("form.edit_survey").submit();
+        return false;
+      });
+
+      $("form.edit_survey").bind("submit", function() {
+        $.jGrowl("Guardando los datos. Espere un momento, por favor.", {closer:false});
+      });
+
     });
   </script>
 <% end %>
@@ -32,9 +42,9 @@
 
 <h1><%=  t(:title) %></h1>
 <p class="about">Los datos de esta encuesta nos permitirán saber las características energéticas
-de su vivienda y sus hábitos de consumo.</p>
+  de su vivienda y sus hábitos de consumo.</p>
 <p class="about">Le rogamos nos conteste a estos datos aunque sea de forma aproximada y
-por favor, pulse el botón <a href="#guardar">Guardar</a>  cuando complete el cuestionario. Gracias.</p>
+  por favor, pulse el botón <a href="#guardar">Guardar</a>  cuando complete el cuestionario. Gracias.</p>
 
 
 <div id="javascript">
@@ -43,6 +53,7 @@ por favor, pulse el botón <a href="#guardar">Guardar</a>  cuando complete el cu
 
 <div id="encuesta" style="display: none;">
   <% form_for(@survey, :url => survey_path) do |f| %>
+    <%= hidden_field_tag :next_url, '' %>
     <%= f.error_messages %>
 
     <h3><%=  t(:titulo, :scope => [:encuesta, :ciudad]) %></h3>

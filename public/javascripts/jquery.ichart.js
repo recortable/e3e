@@ -5,6 +5,13 @@
         };
     }
 
+    Array.prototype.max = function() {
+        var max = 0;
+        var len = this.length;
+        for (var i = 0; i < len; i++) if (this[i] > max) max = this[i];
+        return max;
+    }
+
     $.fn.ichart = function(options) {
         var target = $(this);
         var chart = target.data("chart");
@@ -84,6 +91,11 @@
         if ($.browser.msie) // excanvas hack
             canvas = window.G_vmlCanvasManager.initElement(canvas);
         chart.ctx = canvas.getContext("2d");
+        addListeners(target, canvas, chart);
+
+    }
+
+    function addListeners(target, canvas, chart) {
         $(canvas).click(function (evt) {
             if (chart.grid.editable) {
                 var offset = $(this).offset();
@@ -91,20 +103,44 @@
                 var y = evt.pageY - offset.top - chart.grid.padding.top;
                 var col = toColumn(chart, x);
                 if (col != null) {
-                    var step = chart.grid.stepSize;
-                    var val = toValue(chart, y);
-                    var normalized = Math.floor(val / step) * step;
-                    normalized = (normalized > 0 && normalized < chart.yaxis.max) ? normalized : null;
-                    changeColumn(chart, col, normalized);
-                    target.trigger("ichart.changed", [chart.data.names[col], normalized]);
+                    target.trigger("ichart.changed", [chart.data.names[col], changeColumn(chart, col, y)]);
                 }
+            }
+        });
+        $(target).bind("ichart.max_up", function() {
+            chart.yaxis.max += chart.yaxis.division;
+            redraw(chart);
+        });
+        $(target).bind("ichart.max_down", function() {
+            var maxValue = chart.data.values.max();
+            chart.yaxis.max -= chart.yaxis.division;
+            if (chart.yaxis.max < maxValue) {
+                chart.yaxis.max += chart.yaxis.division;
+            } else {
+                redraw(chart);
             }
         });
     }
 
-    function changeColumn(chart, column, value) {
-        chart.data.values[column] = value;
+    /**
+     * Change the column value given the y position in pixels relative to the target.
+     * If the value is greater than the max value for the axis, this max value is changed
+     *
+     * @returns The new value of the column
+     */
+    function changeColumn(chart, column, y) {
+        var step = chart.grid.stepSize;
+        var val = toValue(chart, y);
+        var normalized = Math.floor(val / step) * step;
+        if (normalized < 0) {
+            chart.data.values[column] = null;
+        } else if (normalized < chart.yaxis.max) {
+            chart.data.values[column] = normalized;
+        } else {
+            chart.yaxis.max += chart.yaxis.division;
+        }
         redraw(chart);
+        return normalized;
     }
 
 
@@ -119,6 +155,13 @@
     }
 
     function reset(chart, ctx) {
+        var maxValue = chart.data.values.max();
+        var max = chart.yaxis.max;
+        if (max < maxValue) {
+            var division = chart.yaxis.division;
+            max = maxValue + division;
+            chart.yaxis.max = max - (max % division);
+        }
         chart.grid.ratio = chart.grid.height / chart.yaxis.max;
         chart.grid.stepSize = 50; // TODO: calcuate this from steps property
         chart.bars.count = chart.data.values.length;

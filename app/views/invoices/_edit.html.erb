@@ -17,26 +17,43 @@
           value = (value == null) ? "" : value;
           $("#" + name).val(value);
         })
+
+        $("#max_up").click(function() {$("#chart").trigger("ichart.max_up")});
+        $("#max_down").click(function() {$("#chart").trigger("ichart.max_down")});
+
+        $("#navigation a").click(function(evt) {
+          $("#next_url").val($(this).attr("href"));
+          $("#dataset").submit();
+          return false;
+        });
+
+        $("#dataset").bind("submit", function() {
+          $.jGrowl("Guardando los datos. Espere un momento, por favor.", {closer:false});
+        });
+        
       });
+
     })(jQuery);
   </script>
-
-  <%= javascript_include_tag 'jquery.ichart' %>
 <% end %>
 
 
 <p class="about">Para ello coja la última factura que tenga a su disposición e intente representar el mismo dibujo
-que aparece en la misma.</p>
+  que aparece en la misma.</p>
 <p class="about">Pinchando sobre el gráfico puede cambiar el valor del consumo según el mes. De aquellos meses
-que no disponga datos (N/D), déjelo en blanco (puede poner en blanco un mes pulsando sobre el nombre del mismo).</p>
-<p class="about">Por favor, no olvide pulsar el botón <a href=""#guardar">Guardar</a> cuando haya completado el gráfico.</p>
+  que no disponga datos (N/D), déjelo en blanco (puede poner en blanco un mes pulsando sobre el nombre del mismo).</p>
 
 <div id="chart_panel">
+  <div class="chart_controls">
+    <a id="max_up" href="#" onclick="return false;">+</a>
+    <a id="max_down" href="#" onclick="return false;">-</a>
+  </div>
   <div id="chart">
     Generando gráfico...
   </div>
 </div>
-<% form_tag({:action => 'update'}, :id => 'dataset', :method => 'PUT') do %>
+<% form_tag({:action => 'update'}, {:id => 'dataset', :method => 'PUT'}) do %>
+  <%= hidden_field_tag :next_url, '' %>
   <% @invoice.months do |consumo, index| %>
     <% fields_for("consumption[]", consumo) do |f| %>
       <%= f.hidden_field  :ammount , :id => consumo.label, :class => 'data' %>

@@ -29,7 +29,6 @@ class SurveysController < ApplicationController
 
       if @survey.completed?
         flash[:notice] = t(:flash)
-        redirect_to next_step
       else
         flash[:notice] = t(:not_completed)
         redirect_to survey_path
@@ -37,8 +36,8 @@ class SurveysController < ApplicationController
 
     else
       load_municipios_provincias
-      render :action => 'edit'
     end
+    redirect_to params[:next_url].empty? ? {:action => 'edit'} : params[:next_url]
   end
 
   private

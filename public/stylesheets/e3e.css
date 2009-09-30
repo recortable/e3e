@@ -419,6 +419,22 @@ form table td.name {
   border: 0;
   padding: 0;
 }
+.chart_controls {
+  width: 100%;
+  overflow: hidden;
+  margin-left: 4em;
+  margin-top: 0.5em;
+}
+.chart_controls a {
+  display: block;
+  float: left;
+  padding: 0.1em 0.4em;
+  font-size: 2em;
+  background-color: #efefea;
+  color: white;
+  margin-right: 0.5em;
+  font-weight: bolder;
+}
 table.dataset {
   margin-left: auto;
   margin-right: auto;
