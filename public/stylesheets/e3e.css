@@ -308,7 +308,7 @@ p.about {
 .divided .fieldWithErrors input { border-color: #cc0000; }
 .dialog {
   width: 70%;
-  margin: 3em auto;
+  margin: 5em auto 15em auto;
 }
 .dialog form {
   background-color: #efefea;
