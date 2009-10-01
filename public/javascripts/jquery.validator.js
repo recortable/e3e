@@ -21,7 +21,7 @@
             }
         },
         length_more_than_4 : function(ctx, text) {
-            if (text.length > 0 && text.length < 4) {
+            if (text.length > 0 && text.length < 3) {
                 addError("debería tener al menos 4 caracteres", this, ctx)
             }
         }

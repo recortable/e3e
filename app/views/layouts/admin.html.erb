@@ -1,56 +1,24 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
   <head>
     <title>E3E Administración - <%= yield(:title) || ''%></title>
     <!-- link rel="icon" href="images/e3e.ico" type="image/x-icon" / -->
-    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.6.0/build/reset/reset-min.css" />
-    <%= stylesheet_link_tag 'wecex.css' %>
+    <%= stylesheet_link_tag 'admin.css' %>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
     <%= yield :header %>
-
-    <style type="text/css">html {background-color: gray;}</style>
   </head>
   <body>
-    <div class="top <%= @controller.class %>" ></div>
-    <div id="page">
-      <div id="head">
-        <div id="logo">
-          <h1><%= link_to 'wecex', root_path %></h1>
-          <p>Mejorar el consumo energético</p>
-        </div>
-
-        <div id="navigation">
-          <div class="sections">
-            <% if admin? %>
-              <%= section t(:users), users_path %>
-              <%= section t(:statistics), statistics_path %>
-
-            <% else -%>
-              <%= section 'Qué es wecex', what_path %>
-              <%= section 'Quiénes somos', who_path %>
-              <%= section 'Para qué sirve', mission_path %>
-            <% end %>
-          </div>
-        </div>
+    <div class="wrapper">
+      <div class="page"><%= yield %></div>
+      <div class="push"></div>
+    </div>
+    <div class="footer">
+      <div class="bottom">
+        E3E v0.0929 -
+        <%= link_to 'Software hecho a mano por &nbsp;<span class="calc">calc</span>', 'http://calclab.com' %>
       </div>
-
-      <div class="session">
-        <% if current_admin %>
-          Hola <%= current_admin.email %>
-          <%= link_to t(:session_close), admin_logout_path %>
-        <% else %>
-          <%= link_to 'Volver', root_path %>
-        <% end %>
-      </div>
-
-      <% if flash[:notice] %>
-        <div class="flash_notice"><%= flash[:notice] %></div>
-      <% end %>
-      <div class="content">
-        <%= yield %>
-      </div>
-      <div class="bottom">E3E versión 0.2.0 - hecho a mano por <%= link_to 'c a l c', 'http://calcaxy.com' %></div>
     </div>
   </body>
 </html>

@@ -1,0 +1,32 @@
+<h1>Editing question</h1>
+
+<% form_for(@question) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :human_name %><br />
+    <%= f.text_field :human_name %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.label :properties %><br />
+    <%= f.text_field :properties %>
+  </p>
+  <p>
+    <%= f.label :group %><br />
+    <%= f.text_field :group %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @question %> |
+<%= link_to 'Back', questions_path %>
