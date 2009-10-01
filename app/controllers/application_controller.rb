@@ -13,6 +13,12 @@ class ApplicationController < ActionController::Base
   include AuthenticationMethods
 
   private
+
+  def next_or(default)
+    puts "NEXT: '#{params[:next_url]}'"
+    params[:next_url].blank? ? default : params[:next_url]
+  end
+
   def qt(*symbols)
     last = symbols.pop
     I18n.t(last, :scope => symbols)

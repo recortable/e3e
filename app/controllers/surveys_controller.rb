@@ -26,18 +26,17 @@ class SurveysController < ApplicationController
     require_user
     @survey = @current_user.survey
     if @survey.update_attributes(params[:survey])
-
       if @survey.completed?
         flash[:notice] = t(:flash)
       else
         flash[:notice] = t(:not_completed)
-        redirect_to survey_path
+        params[:next_url] = survey_path
       end
-
     else
+      flash[:notice] = t(:update_error)
       load_municipios_provincias
     end
-    redirect_to params[:next_url].empty? ? {:action => 'edit'} : params[:next_url]
+    redirect_to next_or(:action => 'show')
   end
 
   private
