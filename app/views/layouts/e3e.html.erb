@@ -42,9 +42,6 @@
               <%= link_to t('users.profile'), edit_user_path(current_user) %>
               <%= link_to t(:user_session_close), logout_path, :method => 'delete' %>
             <% end -%>
-            <% if current_admin %>
-              <%= link_to t(:admin_zone), current_admin %>
-            <% end %>
           </div>
         </div>
       </div>
