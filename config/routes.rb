@@ -1,7 +1,4 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :answers, :as => 'respuestas', :path_prefix => '/admin'
-  map.resources :questions, :as => 'preguntas', :path_prefix => '/admin'
-
 
   map.root :controller => 'about', :action => 'welcome'
 
@@ -25,9 +22,9 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :electricidad, :as => 'electricidad', :controller => 'electricidad'
   map.resource :password_reminders, :as => 'recordar', :only => [:new, :create, :show], :collection => {:new => :post}
   map.resources(:users, :as => 'usuarios') do |user|
-    user.resource :user_survey, :as => 'encuesta'
+    user.resource :survey, :as => 'encuesta'
   end
-  map.resource :user_survey, :as => 'encuesta'
+  map.resource :survey, :as => 'encuesta'
   map.resource :invoice, :as => 'factura'
   map.resource :report, :as => 'informe'
   map.resources :admins

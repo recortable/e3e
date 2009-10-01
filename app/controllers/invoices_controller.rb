@@ -30,7 +30,7 @@ class InvoicesController  < ApplicationController
       end
     end
 
-    redirect_to next_or({:action => 'show'})
+    redirect_to params[:next_url].empty? ? {:action => 'show'} : params[:next_url]
   end
 
 end

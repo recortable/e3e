@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091001094005) do
+ActiveRecord::Schema.define(:version => 20090714085951) do
 
   create_table "admins", :force => true do |t|
     t.string   "email"
@@ -25,14 +25,6 @@ ActiveRecord::Schema.define(:version => 20091001094005) do
     t.datetime "last_login_at"
     t.string   "current_login_ip"
     t.string   "last_login_ip"
-  end
-
-  create_table "answers", :force => true do |t|
-    t.string   "value"
-    t.integer  "question_id"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "consumptions", :force => true do |t|
@@ -54,16 +46,6 @@ ActiveRecord::Schema.define(:version => 20091001094005) do
 
   create_table "provincias", :force => true do |t|
     t.string "name"
-  end
-
-  create_table "questions", :force => true do |t|
-    t.string   "name"
-    t.string   "human_name"
-    t.string   "description"
-    t.string   "properties"
-    t.string   "group"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "surveys", :force => true do |t|
@@ -139,10 +121,10 @@ ActiveRecord::Schema.define(:version => 20091001094005) do
     t.integer  "equip_ilum_tiene_incan"
     t.integer  "equip_ilum_tiene_bajocon"
     t.integer  "equip_ilum_tiene_fluor"
+    t.integer  "equip_ilum_tiene_leds"
     t.integer  "costumbres_personas"
     t.integer  "costumbres_horas"
     t.text     "opinion"
-    t.integer  "equip_ilum_tiene_leds"
     t.string   "equip_ac_individual_tipo"
     t.string   "equip_ac_indepe_tipo"
   end

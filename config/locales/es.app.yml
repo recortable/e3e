@@ -34,7 +34,7 @@ es:
     development:
       title: "Desarrollo"
     
-  user_surveys:
+  surveys:
     edit:
       title: "Datos sobre el consumo energético de su vivienda"
       subtitle: "Le rogamos nos conteste a los siguientes datos, aunque sea de forma aproximada"
