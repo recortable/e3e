@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>E3E - <%= yield(:title) || 'E3E' %></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=7" />
     <!-- link rel="icon" href="images/e3e.ico" type="image/x-icon" / -->
     <%= stylesheet_link_tag 'e3e' %>
     <%= stylesheet_link_tag 'jquery.jgrowl'  %>
@@ -11,6 +12,10 @@
     <script type="text/javascript">
       jQuery(function($) {
         $(".flash").each(function() {$.jGrowl($(this).html(), {closer:false});})
+        $("form").submit(function() {
+          $("input[type=submit]").attr("disabled", true);
+          $(this).find("input[type=submit]").val("Enviando. Espere un momento...");
+        });
       });
     </script>
     <%= yield :header %>

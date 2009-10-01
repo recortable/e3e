@@ -1,7 +1,7 @@
 (function($) {
     if (typeof console == "undefined" || typeof console.log == "undefined") {
         console = {
-            log : function() {}
+            log : function(text) {alert("text");}
         };
     }
 
@@ -203,7 +203,7 @@
             var y = bottom - (value * chart.grid.ratio);
             ctx.strokeRect(left, y, width, 0.1);
             var textWidth = ctx.measureText(text).width;
-            ctx.fillText(text, left - textWidth, y + yFont);
+            ctx.fillText(text, left - textWidth, y + yFont, 10000);
         }
       
     }
