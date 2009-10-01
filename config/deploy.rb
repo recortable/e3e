@@ -23,6 +23,7 @@ role :web, "toami.net"
 role :db,  "toami.net", :primary => true
 
 after "deploy:update_code", "config:copy_shared_configurations"
+after "deploy", "deploy:cleanup"
 
 # Configuration Tasks
 namespace :config do

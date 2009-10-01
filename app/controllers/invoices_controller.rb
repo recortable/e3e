@@ -4,7 +4,6 @@ class InvoicesController  < ApplicationController
     if current_admin && params[:user_id]
     elsif current_user
       @invoice = current_user.invoice(service)
-      @bar_color = bar_color
       respond_to do |format|
         format.html { render :action => 'edit'}
         format.xml { render :xml => @invoices}
@@ -19,8 +18,11 @@ class InvoicesController  < ApplicationController
     flash[:notice] = t(:updated)
 
     params[:consumption].each do |param|
-      if !param[0].blank?
-        Consumption.find(param[0]).update_attributes(param[1])
+      id = param[0]
+      if !id.blank?
+        attrs = param[1]
+        attrs.delete("id");
+        Consumption.find(id).update_attributes(param[1])
       else
         param[:user_id] = current_user.id
         param[:service] = service
@@ -28,7 +30,7 @@ class InvoicesController  < ApplicationController
       end
     end
 
-    redirect_to next_step
+    redirect_to params[:next_url].empty? ? {:action => 'show'} : params[:next_url]
   end
 
 end

@@ -1,54 +1,61 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
   <head>
     <title>E3E - <%= yield(:title) || 'E3E' %></title>
     <!-- link rel="icon" href="images/e3e.ico" type="image/x-icon" / -->
     <%= stylesheet_link_tag 'e3e' %>
+    <%= stylesheet_link_tag 'jquery.jgrowl'  %>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+    <%= javascript_include_tag 'jquery.ichart', 'jquery.jgrowl.min' %>
     <%= javascript_include_tag 'jquery.validator.js'  %>
-    <%= javascript_include_tag 'DD_roundies.js'  %>
     <script type="text/javascript">
-      DD_roundies.addRule('.flash_notice', '5px');
+      jQuery(function($) {
+        $(".flash").each(function() {$.jGrowl($(this).html(), {closer:false});})
+      });
     </script>
     <%= yield :header %>
   </head>
   <body>
-    <div id="top">
-      <div id="bar" class="<%= @controller.class.to_s.downcase %>">
-      </div>
-      <div id="navigation">
-        <div class="sections">
-          <%= section t(:about), root_path, :AboutController %>
-          <%= section t(:survey), survey_path, :SurveysController %>
-          <%= section t(:gas), gas_path, :GasController %>
-          <%= section t(:elec), electricidad_path, :ElectricidadController %>
-          <%= section t(:report), report_path, :ReportsController %>
+    <div class="wrapper">
+      <div id="top">
+        <div id="bar" class="<%= @controller.class.to_s.downcase %>">
         </div>
-        <div class="session">
-          <% if signed_in? %>
-            <span class="welcome" style="display: none">Hola <%= current_user.username %></span>
-            <%= link_to t('users.profile'), edit_user_path(current_user) %>
-            <%= link_to t(:user_session_close), logout_path, :method => 'delete' %>
-          <% end -%>
-          <% if current_admin %>
-            <%= link_to t(:admin_zone), current_admin %>
-          <% end %>
+        <div id="navigation">
+          <div class="sections">
+            <%= section t(:about), root_path, :AboutController %>
+            <%= section t(:survey), survey_path, :SurveysController %>
+            <%= section t(:gas), gas_path, :GasController %>
+            <%= section t(:elec), electricidad_path, :ElectricidadController %>
+            <%= section t(:report), report_path, :ReportsController %>
+          </div>
+          <div class="session">
+            <% if signed_in? %>
+              <span class="welcome" style="display: none">Hola <%= current_user.username %></span>
+              <%= link_to t('users.profile'), edit_user_path(current_user) %>
+              <%= link_to t(:user_session_close), logout_path, :method => 'delete' %>
+            <% end -%>
+            <% if current_admin %>
+              <%= link_to t(:admin_zone), current_admin %>
+            <% end %>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div id="page">
-      <% if flash[:notice] %>
-        <div class="flash_notice"><%= flash[:notice] %></div>
-      <% end %>
-      <div class="content">
-        <%= yield %>
+      <div id="page">
+        <% if flash[:notice] %>
+          <div class="flash" style="display:none"><%= flash[:notice] %></div>
+        <% end %>
+        <div class="content">
+          <%= yield %>
+        </div>
       </div>
+      <div class="push"></div>
     </div>
-
-    <div class="bottom">
-      <%= link_to 'Hecho a mano por c a l c', 'http://calclab.com' %>
+    <div class="footer">
+      <div class="bottom">
+        E3E v0.0929 -
+        <%= link_to 'Software hecho a mano por &nbsp;<span class="calc">calc</span>', 'http://calclab.com' %>
+      </div>
     </div>
   </body>
 </html>

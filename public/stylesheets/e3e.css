@@ -44,12 +44,32 @@ input, textarea, select {
 input, textarea, select { *font-size: 100%; }
 legend { color: #000000; }
 del, ins { text-decoration: none; }
+* { margin: 0; }
+html, body { height: 100%; }
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -5em;
+}
+.footer, .push { height: 5em; }
+.footer { background-color: #252525; }
+.bottom {
+  text-align: center;
+  font-size: 90%;
+  padding-top: 1em;
+  color: #868686;
+  border-top: 2em solid #e2e2dd;
+}
+.bottom a:hover { color: white; }
 html {
   font-size: 80%;
-  background-color: #efefea;
   color: black;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  height: 100%;
+  background-color: #efefea;
 }
+body { height: 100%; }
 .no-round {
   -moz-border-radius: 0.5em;
   -webkit-border-radius: 0.5em;
@@ -61,7 +81,6 @@ html {
   -webkit-border-bottom-right-radius: 2px;
   -ms-border-radius: 2px;
 }
-.dada { behavior: url(/stylesheets/border-radius.htc); }
 .aboutcontroller { background-color: #548c65; }
 .surveyscontroller { background-color: #5cbb7a; }
 .gascontroller { background-color: #33cfab; }
@@ -72,7 +91,7 @@ html {
   width: 100%;
   overflow: hidden;
 }
-h1, h2, h3 { color: #868686; }
+h1, h2 { color: #868686; }
 h1 {
   font-size: 260%;
   font-weight: bold;
@@ -81,12 +100,14 @@ h1 {
 h2 { font-size: 150%; }
 h3 {
   font-size: 125%;
+  color: #333333;
   border-bottom: 1px solid #9f9f9f;
   margin: 2em 0 1em 0;
   padding-left: 6.5em;
 }
 h4 {
   font-size: 100%;
+  color: #333333;
   border-bottom: 1px solid #9f9f9f;
   margin-top: 2em;
   margin-left: 7em;
@@ -159,17 +180,6 @@ p { margin: 0.4em 0; }
   height: auto !important;
   height: 500px;
 }
-.bottom {
-  width: 100%;
-  margin-top: 2em;
-  text-align: center;
-  font-size: 90%;
-  color: white;
-  padding: 1em 0;
-  background-color: #252525;
-  border-top: 2em solid #e2e2dd;
-  clear: both;
-}
 #head {
   width: 100%;
   overflow: hidden;
@@ -206,7 +216,7 @@ p { margin: 0.4em 0; }
   -webkit-border-bottom-left-radius: 2px;
   -webkit-border-bottom-right-radius: 2px;
   -ms-border-radius: 2px;
-  color: #333333;
+  color: black;
 }
 #navigation span {
   display: block;
@@ -221,7 +231,7 @@ p { margin: 0.4em 0; }
   -webkit-border-bottom-left-radius: 2px;
   -webkit-border-bottom-right-radius: 2px;
   -ms-border-radius: 2px;
-  color: #333333;
+  color: black;
 }
 #navigation span {
   color: white;
@@ -305,7 +315,7 @@ p.about {
 .divided .fieldWithErrors input { border-color: #cc0000; }
 .dialog {
   width: 70%;
-  margin: 3em auto;
+  margin: 5em auto 5em auto;
 }
 .dialog form {
   background-color: #efefea;
@@ -328,6 +338,7 @@ form input[type=radio] {
   float: left;
   margin-top: 0.15em;
 }
+form input[type=submit] { margin-top: 0.5em; }
 form p {
   width: 100%;
   overflow: hidden;
@@ -416,6 +427,22 @@ form table td.name {
   border: 0;
   padding: 0;
 }
+.chart_controls {
+  width: 100%;
+  overflow: hidden;
+  margin-left: 4em;
+  margin-top: 0.5em;
+}
+.chart_controls a {
+  display: block;
+  float: left;
+  padding: 0.1em 0.4em;
+  font-size: 2em;
+  background-color: #efefea;
+  color: white;
+  margin-right: 0.5em;
+  font-weight: bolder;
+}
 table.dataset {
   margin-left: auto;
   margin-right: auto;
@@ -459,3 +486,8 @@ table.users thead {
   color: white;
 }
 table.users td { padding: 0.2em 1em; }
+.calc {
+  font-family: monospace;
+  letter-spacing: 0.5em;
+  font-size: 1.3em;
+}

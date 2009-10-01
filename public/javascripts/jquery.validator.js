@@ -34,7 +34,7 @@
             var original = button.val();
             button.val(msg);
             button.attr('disabled', true);
-            if (valida() != 0) {
+            if (valida($(this)) != 0) {
                 button.val(original);
                 button.attr('disabled', false);
                 return false;

@@ -1,6 +1,6 @@
 
 <% form_for @user do |f| %>
-  <h2><%= @user.new_record? ? t(:title) : t('edit.title') %></h2>
+  <h2><%=  t(:title) if @user.new_record? %></h2>
   <%= f.error_messages %>
   <p class="info"><%= t('info.username') %></p>
   <p>
