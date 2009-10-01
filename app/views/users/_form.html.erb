@@ -4,7 +4,7 @@
   <%= f.error_messages %>
   <p class="info"><%= t('info.username') %></p>
   <p>
-    <%= f.label t(:username) %>
+    <%= f.label :username, t(:username) %>
     <%= f.text_field :username, :class => '_not_empty length_more_than_4' %>
   </p>
   <p class="info"><%= t(@user.new_record? ? 'info.newpass' : 'info.editpass') %></p>
@@ -19,15 +19,14 @@
   </p>
   <p class="info"><%= t('info.qa') %></p>
   <p>
-    <%= f.label t(:question) %>
+    <%= f.label :question, t(:question) %>
     <%= f.text_field :question, :class => '_not_empty length_more_than_4' %>
   </p>
   <p>
-    <%= f.label t(:answer) %>
+    <%= f.label :answer, t(:answer) %>
     <%= f.text_field :answer, :class => '_not_empty length_more_than_4' %>
   </p>
   <p>
-    <%= f.label ' ' %>
     <%= f.submit submit_label_for(@user) %>
   </p>
 <% end %>

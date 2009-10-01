@@ -2,15 +2,14 @@
   <h2><%= t(:title) %></h2>
   <%= f.error_messages %>
   <p>
-    <%= f.label t(:username) %>
+    <%= f.label :username, t(:username) %>
     <%= f.text_field :username %>
   </p>
   <p>
-    <%= f.label t(:password) %>
+    <%= f.label :password, t(:password) %>
     <%= f.password_field :password %>
   </p>
   <p>
-    <%= f.label ' ' %>
     <%= f.submit t(:submit), :disable_with => t(:disable_with) %>
   </p>
     <%= link_to t(:forgot_password), password_reminders_path %>

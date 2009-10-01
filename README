@@ -5,10 +5,10 @@ CAMBIOS
 - lista de usuarios para administradores (HECHO)
 - añadir sessión para administradores (HECHO)
 - provincia y municipio con javascript (HECHO)
-
+- añadir + y - a campos numéricos
 
 TAREAS
 
 - revisar texto de las url: /, /entrar, /cuestionario
-- añadir + y - a campos numéricos
+- username debería ser único
 - IE: revisar posición de los radio buttons

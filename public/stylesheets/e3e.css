@@ -383,6 +383,7 @@ form a {
 }
 form .disabled { -moz-opacity: 0.5; }
 form .disabled span { color: gray; }
+form p input[type=submit] { margin-left: 9em; }
 .errorExplanation { margin-left: 2em; }
 .errorExplanation h2 {
   font-size: 100%;
