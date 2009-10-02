@@ -15,7 +15,9 @@
           labels.push($(this).attr("id"));
         });
 
-        $("#chart").ichart({bars: {color: barColor}, yaxis: {zero: "N/D"},
+        $("#chart").ichart({bars: {color: barColor}, 
+          xaxis: {label: 'consumo mensual (en <%= @invoice.units %>)'},
+          yaxis: {zero: "N/D"},
           data : {values: vals, names: labels}});
         $("#chart").bind("ichart.changed", function(evt, name, value) {
           value = (value == null) ? "" : value;
