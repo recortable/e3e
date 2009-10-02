@@ -202,14 +202,16 @@
         var width = chart.grid.width;
         var bottom = top + chart.grid.height;
         var yFont = chart.grid.fontSize / 3;
+        var maxWidth = 0;
         for (var value = chart.yaxis.max; value >= 0; value -= division) {
             var text = ((value == 0) ? chart.yaxis.zero : "" + value) + " ";
             var y = bottom - (value * chart.grid.ratio);
             ctx.strokeRect(left, y, width, 0.1);
             var textWidth = ctx.measureText(text).width;
+            maxWidth = (maxWidth > textWidth) ? maxWidth : textWidth;
             ctx.fillText(text, left - textWidth, y + yFont, 10000);
         }
-      
+        chart.yaxis.maxTextWidth = maxWidth;
     }
 
     function drawBars(chart, ctx) {
@@ -242,14 +244,20 @@
     }
 
     function drawLabels(chart, ctx) {
+        ctx.fillStyle = "#000000";
         ctx.font = chart.xaxis.fontSize + "px sans-serif";
         ctx.textAlign = "center";
         var y= chart.grid.height + chart.grid.padding.top + chart.grid.padding.bottom - chart.xaxis.fontSize;
         var x = chart.grid.padding.left + (chart.grid.width / 2);
         ctx.fillText(chart.xaxis.label, x, y);
+        
         ctx.save();
         ctx.rotate(- Math.PI*2 / 4);
-        ctx.fillText(chart.yaxis.label, -120, 30);
+        ctx.textAlign = "center";
+        ctx.font = chart.yaxis.fontSize + "px sans-serif";
+        x = chart.grid.padding.left - chart.yaxis.fontSize - chart.yaxis.maxTextWidth;
+        y = chart.grid.padding.top + (chart.grid.height / 2);
+        ctx.fillText(chart.yaxis.label, -y,x);
         ctx.restore();
     }
 

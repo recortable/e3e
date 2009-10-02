@@ -16,8 +16,8 @@
         });
 
         $("#chart").ichart({bars: {color: barColor}, 
-          xaxis: {label: 'consumo mensual (en <%= @invoice.units %>)'},
-          yaxis: {zero: "N/D"},
+          xaxis: {label: 'mes en el que se produce el consumo'},
+          yaxis: {zero: "N/D", label: 'consumo mensual (en <%= @invoice.units %>)'},
           data : {values: vals, names: labels}});
         $("#chart").bind("ichart.changed", function(evt, name, value) {
           value = (value == null) ? "" : value;
