@@ -58,6 +58,7 @@
   </div>
 </div>
 <% form_tag({:action => 'update'}, {:id => 'dataset', :method => 'PUT'}) do %>
+  <div>
   <%= hidden_field_tag :next_url, '' %>
   <% @invoice.months do |consumo, index| %>
     <% fields_for("consumption[]", consumo) do |f| %>
@@ -66,6 +67,7 @@
       <%= f.hidden_field :period %>
     <% end %>
   <% end %>
+</div>
   <p>
     <%= submit_tag t(:submit) %>
     <a name="guardar"></a>

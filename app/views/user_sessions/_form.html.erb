@@ -1,6 +1,6 @@
 <% form_for @user_session do |f| %>
   <h2><%= t(:title) %></h2>
-  <%= f.error_messages %>
+  <%= f.error_messages %><%= f.hidden_field :remember_me %>
   <p>
     <%= f.label :username, t(:username) %>
     <%= f.text_field :username %>
@@ -11,7 +11,9 @@
   </p>
   <p>
     <%= f.submit t(:submit) %>
-  </p>
+    </p>
+    <p>
     <%= link_to t(:forgot_password), password_reminders_path %>
+    </p>
 <% end %>
 
