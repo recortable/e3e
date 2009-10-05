@@ -72,6 +72,17 @@
     }
 
     // PRIVATE
+    function redraw(chart) {
+        var ctx = chart.ctx;
+        console.debug(ctx);
+        ctx.save();
+        reset(chart, ctx);
+        drawGrid(chart, ctx);
+        drawBars(chart, ctx);
+//        drawLabels(chart, ctx);
+        ctx.restore();
+    }
+
     function toColumn(chart, x) {
         var col = Math.floor(x / chart.bars.space);
         var offset = x - (col * chart.bars.space);
@@ -161,16 +172,6 @@
         return chart.data.values[column];
     }
 
-
-    function redraw(chart) {
-        var ctx = chart.ctx;
-        ctx.save();
-        reset(chart, ctx);
-        drawGrid(chart, ctx);
-        drawBars(chart, ctx);
-        drawLabels(chart, ctx);
-        ctx.restore();
-    }
 
     function reset(chart, ctx) {
         var maxValue = chart.data.values.max();
