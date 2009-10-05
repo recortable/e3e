@@ -52,7 +52,9 @@
 
 <div id="encuesta" style="display: none;">
   <% form_for(@survey, :url => survey_path) do |f| %>
-    <%= hidden_field_tag :next_url, '' %>
+    <div>
+      <%= hidden_field_tag :next_url, '' %>
+    </div>
     <%= f.error_messages %>
 
     <h3><%=  t(:titulo, :scope => [:encuesta, :ciudad]) %></h3>
@@ -72,19 +74,16 @@
     <%= render :partial => 'edit_edificio_equipamiento', :locals => {:f => f} %>
 
 
-    <br/>
     <h3>Mis costumbres</h3>
     <p class="info"><%=  t(:personas, :scope => [:encuesta, :costumbres]) %></p>
     <p><label>&nbsp;</label><%= f.text_field :costumbres_personas %></p>
 
     <p class="info"><%=  t(:horas, :scope => [:encuesta, :costumbres]) %></p>
     <p><label>&nbsp;</label><%= f.text_field :costumbres_horas %></p>
-    <br/>
 
     <h3>Mi opinión</h3>
     <p class="info"><%=  t(:opina, :scope => [:encuesta, :opinion]) %></p>
     <p><label>&nbsp;</label><%= f.text_area :opinion %></p>
-    <br/>
     <p>
       <%= f.submit 'Guardar' %>
       <a name="guardar"></a>

@@ -4,7 +4,4 @@ class GasController < InvoicesController
     Invoice::GAS
   end
 
-  def next_step
-    gas_path
-  end
 end

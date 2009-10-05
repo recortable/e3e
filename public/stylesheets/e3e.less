@@ -11,6 +11,7 @@ html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pr
 @gris: #868686;
 @darkgris: #333333;
 @medio: #efefea;
+@error: #c00;
 
 @color1: #548C65;
 @color2: #5CBB7A;
@@ -120,12 +121,14 @@ p {margin: 0.4em 0;}
 #navigation { font-family: "Lucida-Grande","Verdana",sans-serif;
               width: 900px; margin: 0 auto; overflow: hidden; background-color: white; padding: 0 1em 1em 1em;}
 #navigation .sections {float: left; }
+
+/* background-image: url(../images/cellshade.png); background-repeat: repeat-x; background-position: 0 0px; */
 #navigation  a, #navigation span {display: block; float: left; margin-right: 0.5em;
-                                  padding: 0.5em 1em 0.5em 1em; font-size: 110%;
-                                  background-image: url(../images/cellshade.png); background-repeat: repeat-x; background-position: 0 0px;
+                                  padding: 0.3em 1em; font-size: 110%;
                                   .tab-borders; color: black;}
-#navigation span {color: white; background-image: none;}
-#navigation a:hover {background-position: 0px -4px; }
+#navigation span {color: white; background-image: none;
+    padding: 0.7em 1em;}
+#navigation a:hover { padding: 0.7em 1em;}
 
 #navigation .session {float: right;  margin-right: -1em;}
 #navigation .session a {padding: 0.3em; color: white; margin-top: 0.2em;
@@ -156,7 +159,7 @@ p.about {font-size: 120%; font-style: italic; line-height: 1.5em;}
 {border-style: solid; border-width: 1px; width: 220px;
  border-color: #D4D4D4 #EBEBEB #EBEBEB #D4D4D4;}
 .dialog .fieldWithErrors input, .divided .fieldWithErrors input {
-    border-color: #c00;
+    border-color: @error;
 }
 .dialog {width: 70%; margin: 5em auto 5em auto; }
 .dialog form {    background-color: @fondo; border: 1px solid @border; padding: 1em;}
@@ -186,8 +189,9 @@ form .disabled {-moz-opacity: 0.5;}
 form .disabled span {color: gray;}
 form p input[type=submit] {margin-left: 9em;}
 
-.errorExplanation {margin-left: 2em;}
-.errorExplanation h2 {font-size: 100%; margin-left: 0; color: #c00;}
+.errorExplanation {margin-left: 2em; color: @error;}
+.errorExplanation li {list-style-type: none;}
+.errorExplanation h2 {font-size: 1px; display: none; width: 0;}
 
 
 #encuesta input[type=text] {width: 6em;}

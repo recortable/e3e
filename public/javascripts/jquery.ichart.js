@@ -1,7 +1,9 @@
 (function($) {
     if (typeof console == "undefined" || typeof console.log == "undefined") {
         console = {
-            log : function(text) {alert("text");}
+            log : function(text) {
+                alert("text");
+            }
         };
     }
 
@@ -46,7 +48,7 @@
             width: 740, // width of the grid
             height: 260, // height of the grid
             steps: 100, // number of steps when normalizing the event value
-            fontHeight: 11, // size of the font in pixels
+            fontSize: 11, // size of the font in pixels
             padding: {
                 top: 20,
                 bottom: 50,
@@ -56,18 +58,30 @@
             editable : true
         },
         yaxis : {
-            name: 'Yaxis',
+            label: 'Yaxis',
             min: 0,
             max: 4000,
             division: 500,
-            zero: 0 // value to display at 0
+            zero: 0, // value to display at 0
+            fontSize: 13
         },
         xaxis : {
-            name: 'Xaxis'
+            label: 'Xaxis',
+            fontSize: 13
         }
     }
 
     // PRIVATE
+    function redraw(chart) {
+        var ctx = chart.ctx;
+        ctx.save();
+        reset(chart, ctx);
+        drawGrid(chart, ctx);
+        drawBars(chart, ctx);
+//        drawLabels(chart, ctx);
+        ctx.restore();
+    }
+
     function toColumn(chart, x) {
         var col = Math.floor(x / chart.bars.space);
         var offset = x - (col * chart.bars.space);
@@ -158,16 +172,6 @@
     }
 
 
-    function redraw(chart) {
-        var ctx = chart.ctx;
-        ctx.save();
-        reset(chart, ctx);
-        drawGrid(chart, ctx);
-        drawBars(chart, ctx);
-        drawLabels(chart, ctx);
-        ctx.restore();
-    }
-
     function reset(chart, ctx) {
         var maxValue = chart.data.values.max();
         var max = chart.yaxis.max;
@@ -182,7 +186,7 @@
         chart.bars.space = chart.bars.width + chart.bars.margin.left + chart.bars.margin.right;
         
         ctx.clearRect(0, 0, chart.panel.width, chart.panel.height);
-        ctx.font = chart.grid.fontHeight + "px sans-serif";
+        ctx.font = chart.grid.fontSize + "px sans-serif";
         ctx.shadowOffsetX = 0;
         ctx.shadowOffsetY = 0;
         ctx.lineWidth = 0.2;
@@ -197,15 +201,17 @@
         var division = chart.yaxis.division;
         var width = chart.grid.width;
         var bottom = top + chart.grid.height;
-        var yFont = chart.grid.fontHeight / 3;
+        var yFont = chart.grid.fontSize / 3;
+        var maxWidth = 0;
         for (var value = chart.yaxis.max; value >= 0; value -= division) {
             var text = ((value == 0) ? chart.yaxis.zero : "" + value) + " ";
             var y = bottom - (value * chart.grid.ratio);
             ctx.strokeRect(left, y, width, 0.1);
             var textWidth = ctx.measureText(text).width;
+            maxWidth = (maxWidth > textWidth) ? maxWidth : textWidth;
             ctx.fillText(text, left - textWidth, y + yFont, 10000);
         }
-      
+        chart.yaxis.maxTextWidth = maxWidth;
     }
 
     function drawBars(chart, ctx) {
@@ -231,17 +237,27 @@
             ctx.fillText(display, x + middle, yOffset - 2, xOffset);
             ctx.fillStyle = chart.bars.color;
             var label = labels[index];
-            ctx.fillText(label, x + middle, yOffset + chart.grid.fontHeight, xOffset);
+            ctx.fillText(label, x + middle, yOffset + chart.grid.fontSize, xOffset);
 
             x += xOffset;
         }
     }
 
     function drawLabels(chart, ctx) {
-        ctx.fillText(chart.xaxis.name, 120, 30);
+        ctx.fillStyle = "#000000";
+        ctx.font = chart.xaxis.fontSize + "px sans-serif";
+        ctx.textAlign = "center";
+        var y= chart.grid.height + chart.grid.padding.top + chart.grid.padding.bottom - chart.xaxis.fontSize;
+        var x = chart.grid.padding.left + (chart.grid.width / 2);
+        ctx.fillText(chart.xaxis.label, x, y);
+        
         ctx.save();
         ctx.rotate(- Math.PI*2 / 4);
-        ctx.fillText(chart.yaxis.name, -120, 30);
+        ctx.textAlign = "center";
+        ctx.font = chart.yaxis.fontSize + "px sans-serif";
+        x = chart.grid.padding.left - chart.yaxis.fontSize - chart.yaxis.maxTextWidth;
+        y = chart.grid.padding.top + (chart.grid.height / 2);
+        ctx.fillText(chart.yaxis.label, -y,x);
         ctx.restore();
     }
 

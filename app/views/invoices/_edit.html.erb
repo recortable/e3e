@@ -2,7 +2,7 @@
 <% content_for :header do %>
   <!-- CANVAS PARA IE -->
   <!--[if IE]><script type="text/javascript" src="/javascripts/excanvas.trunk.js"></script><![endif]-->
-
+  <script type="text/javascript" src="/javascripts/canvas.text.js"></script>
 
   <script type="text/javascript">
     (function($) {
@@ -15,7 +15,9 @@
           labels.push($(this).attr("id"));
         });
 
-        $("#chart").ichart({bars: {color: barColor}, yaxis: {zero: "N/D"},
+        $("#chart").ichart({bars: {color: barColor},
+          xaxis: {label: 'mes en el que se produce el consumo'},
+          yaxis: {zero: "N/D", label: 'consumo mensual (en <%= @invoice.units %>)'},
           data : {values: vals, names: labels}});
         $("#chart").bind("ichart.changed", function(evt, name, value) {
           value = (value == null) ? "" : value;
@@ -35,7 +37,7 @@
           $(this).find("input[type=submit]").val("Guardando...").attr("disabled", true);
           $.jGrowl("Guardando los datos. Espere un momento, por favor.", {closer:false});
         });
-        
+
       });
 
     })(jQuery);
@@ -44,9 +46,9 @@
 
 
 <p class="about">Para ello coja la última factura que tenga a su disposición e intente representar el mismo dibujo
-  que aparece en la misma.</p>
+que aparece en la misma.</p>
 <p class="about">Pinchando sobre el gráfico puede cambiar el valor del consumo según el mes. De aquellos meses
-  que no disponga datos (N/D), déjelo en blanco (puede poner en blanco un mes pulsando sobre el nombre del mismo).</p>
+que no disponga datos (N/D), déjelo en blanco (puede poner en blanco un mes pulsando sobre el nombre del mismo).</p>
 
 <div id="chart_panel">
   <div class="chart_controls">
@@ -58,14 +60,16 @@
   </div>
 </div>
 <% form_tag({:action => 'update'}, {:id => 'dataset', :method => 'PUT'}) do %>
-  <%= hidden_field_tag :next_url, '' %>
-  <% @invoice.months do |consumo, index| %>
-    <% fields_for("consumption[]", consumo) do |f| %>
-      <%= f.hidden_field  :ammount , :id => consumo.label, :class => 'data' %>
-      <%= f.hidden_field :id %>
-      <%= f.hidden_field :period %>
+  <div>
+    <%= hidden_field_tag :next_url, '' %>
+    <% @invoice.months do |consumo, index| %>
+      <% fields_for("consumption[]", consumo) do |f| %>
+        <%= f.hidden_field  :ammount , :id => consumo.label, :class => 'data' %>
+        <%= f.hidden_field :id %>
+        <%= f.hidden_field :period %>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
   <p>
     <%= submit_tag t(:submit) %>
     <a name="guardar"></a>
