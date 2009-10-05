@@ -120,12 +120,14 @@ p {margin: 0.4em 0;}
 #navigation { font-family: "Lucida-Grande","Verdana",sans-serif;
               width: 900px; margin: 0 auto; overflow: hidden; background-color: white; padding: 0 1em 1em 1em;}
 #navigation .sections {float: left; }
+
+/* background-image: url(../images/cellshade.png); background-repeat: repeat-x; background-position: 0 0px; */
 #navigation  a, #navigation span {display: block; float: left; margin-right: 0.5em;
-                                  padding: 0.5em 1em 0.5em 1em; font-size: 110%;
-                                  background-image: url(../images/cellshade.png); background-repeat: repeat-x; background-position: 0 0px;
+                                  padding: 0.3em 1em; font-size: 110%;
                                   .tab-borders; color: black;}
-#navigation span {color: white; background-image: none;}
-#navigation a:hover {background-position: 0px -4px; }
+#navigation span {color: white; background-image: none;
+    padding: 0.7em 1em;}
+#navigation a:hover { padding: 0.7em 1em;}
 
 #navigation .session {float: right;  margin-right: -1em;}
 #navigation .session a {padding: 0.3em; color: white; margin-top: 0.2em;

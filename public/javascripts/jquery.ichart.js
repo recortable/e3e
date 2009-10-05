@@ -74,7 +74,6 @@
     // PRIVATE
     function redraw(chart) {
         var ctx = chart.ctx;
-        console.debug(ctx);
         ctx.save();
         reset(chart, ctx);
         drawGrid(chart, ctx);

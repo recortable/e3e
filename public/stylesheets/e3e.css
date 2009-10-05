@@ -208,11 +208,8 @@ p { margin: 0.4em 0; }
   display: block;
   float: left;
   margin-right: 0.5em;
-  padding: 0.5em 1em 0.5em 1em;
+  padding: 0.3em 1em;
   font-size: 110%;
-  background-image: url(../images/cellshade.png);
-  background-repeat: repeat-x;
-  background-position: 0 0px;
   -moz-border-radius: 0 0 2px 2px;
   -webkit-border-bottom-left-radius: 2px;
   -webkit-border-bottom-right-radius: 2px;
@@ -223,11 +220,8 @@ p { margin: 0.4em 0; }
   display: block;
   float: left;
   margin-right: 0.5em;
-  padding: 0.5em 1em 0.5em 1em;
+  padding: 0.3em 1em;
   font-size: 110%;
-  background-image: url(../images/cellshade.png);
-  background-repeat: repeat-x;
-  background-position: 0 0px;
   -moz-border-radius: 0 0 2px 2px;
   -webkit-border-bottom-left-radius: 2px;
   -webkit-border-bottom-right-radius: 2px;
@@ -237,8 +231,9 @@ p { margin: 0.4em 0; }
 #navigation span {
   color: white;
   background-image: none;
+  padding: 0.7em 1em;
 }
-#navigation a:hover { background-position: 0px -4px; }
+#navigation a:hover { padding: 0.7em 1em; }
 #navigation .session {
   float: right;
   margin-right: -1em;
