@@ -81,12 +81,12 @@ body { height: 100%; }
   -webkit-border-bottom-right-radius: 2px;
   -ms-border-radius: 2px;
 }
-.aboutcontroller { background-color: #548c65; }
-.surveyscontroller { background-color: #5cbb7a; }
-.gascontroller { background-color: #33cfab; }
-.electricidadcontroller { background-color: #00ffb4; }
-.reportscontroller, .usersessionscontroller, .userscontroller, .passwordreminderscontroller { background-color: #468f9b; }
-.adminsessionscontroller { background-color: #548c65; }
+.aboutcontroller { background-color: #a5c941; }
+.surveyscontroller { background-color: #a9014b; }
+.gascontroller { background-color: #fc9200; }
+.electricidadcontroller { background-color: #2daebf; }
+.reportscontroller, .usersessionscontroller, .userscontroller, .passwordreminderscontroller { background-color: #00cc00; }
+.adminsessionscontroller { background-color: #a5c941; }
 .container {
   width: 100%;
   overflow: hidden;
