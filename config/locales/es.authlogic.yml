@@ -1,5 +1,15 @@
 
 es:
+  activerecord:
+    models:
+      user: "Cuenta de usuario"
+    attributes:
+      user:
+        username: "El nombre"
+        password: "La contraseña"
+        question: "La pregunta"
+        answer: "La respuesta"
+        password_confirmation: "La confirmación de la contraseña"
   authlogic:
     error_messages:
       login_blank: "no puede estar vacío."
@@ -21,8 +31,3 @@ es:
         email: "Email"
         password: "La contraseña"
         remember_me: "Recuérdame en este ordenador"
-      user:
-        username: "El nombre"
-        password: "La contraseña"
-        question: "La pregunta"
-        answer: "La respuesta"

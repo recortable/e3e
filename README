@@ -6,10 +6,10 @@ CAMBIOS
 - añadir sessión para administradores (HECHO)
 - provincia y municipio con javascript (HECHO)
 - añadir + y - a campos numéricos
+- username debería ser único (hecho)
+- traducir authlogic (hecho)
 
 TAREAS
 
 - revisar texto de las url: /, /entrar, /cuestionario
-- username debería ser único
 - IE: revisar posición de los radio buttons
-- traducir authlogic

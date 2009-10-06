@@ -349,6 +349,7 @@ form p span.fake_field {
   padding: 2px;
 }
 form span { margin-left: 0.2em; }
+form p.checkbox { padding-left: 9em; }
 form span.fieldWithErrors input { border-color: #cc0000; }
 form p.info {
   margin: 1em 0 0.5em 8em;

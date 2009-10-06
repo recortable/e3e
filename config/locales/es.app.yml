@@ -55,7 +55,7 @@ es:
       qa: "La pregunta y respuesta es necesaria por si olvidas la contraseña"
       newpass: "La contraseña y su confirmación deben coincidir"
       editpass: "La contraseña cambiará sólo si introduces una contraseña y su confirmación"
-      username: "Le pediremos un nombre de usuario para acceder a sus datos"
+      username: "Le pediremos un nombre de usuario para acceder a sus datos. Si lo pierde, no podrá volver a acceder."
     index:
       title: "Listado de usuarios registrados"
       username: "Nombre de usuario"
@@ -103,6 +103,7 @@ es:
   user_sessions:
     username: "Nombre"
     password: "Contraseña"
+    remember_me: "Recordarme en este ordenador"
     new:
       title: "Entrar"
     form:
