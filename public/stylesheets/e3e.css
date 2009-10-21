@@ -392,6 +392,10 @@ form a {
 form .disabled { -moz-opacity: 0.5; }
 form .disabled span { color: gray; }
 form p input[type=submit] { margin-left: 9em; }
+form p.feedback textarea {
+  width: 80%;
+  height: 10em;
+}
 .errorExplanation {
   margin-left: 2em;
   color: #cc0000;

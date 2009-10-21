@@ -1,0 +1,13 @@
+<%= title t(:title) %>
+
+<p class="about">
+  En este momento E3E está en fase de pruebas por lo que su opinión sobre esta herramienta es muy importante para nosotros.<br/>
+  Por favor, escríbanos informando de cualquier error o sugerencia. Gracias
+</p>
+
+<% form_tag(feedback_path) do %>
+<p class="feedback">
+<%= text_area_tag :body %>
+</p>
+  <%= submit_tag 'Enviar' %>
+<% end %>

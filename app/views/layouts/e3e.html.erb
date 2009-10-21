@@ -37,6 +37,7 @@
             <%= section t(:report), report_path, :ReportsController %>
           </div>
           <div class="session">
+            <%= link_to t(:feedback), feedback_path %>
             <% if signed_in? %>
               <span class="welcome" style="display: none">Hola <%= current_user.username %></span>
               <%= link_to t('users.profile'), edit_user_path(current_user) %>
@@ -58,7 +59,7 @@
     </div>
     <div class="footer">
       <div class="bottom">
-        E3E v0.1005 -
+        E3E v0.1021 -
         <%= link_to 'Software hecho a mano por &nbsp;<span class="calc">calc</span>', 'http://calclab.com' %>
       </div>
     </div>

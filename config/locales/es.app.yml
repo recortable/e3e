@@ -22,6 +22,7 @@ es:
       who: "Quiénes somos"
       mission: "Para qué sirve wecex"
       admin_zone: "Eres administrador"
+      feedback: "Opinión"
     admin:
       users: "Usuarios"
       statistics: "Estadísticas"
@@ -29,6 +30,9 @@ es:
       session_close: "Cerrar sesión como administrador"
 
   about:
+    feedback:
+      title: "Contáctanos"
+      received: "Gracias por su opinión"
     what:
       title: "Qué es wecex"
     development:
@@ -43,7 +47,7 @@ es:
       not_completed: "Faltan algunas preguntas por responder."
       
   users:
-    profile: "Cambiar tu perfil"
+    profile: "Perfil"
     password_confirmation: "Confirmación"
     question: "Pregunta"
     answer: "Respuesta"

@@ -5,9 +5,10 @@ ActionController::Routing::Routes.draw do |map|
   map.login "/entrar", :controller => "user_sessions", :action => "new"
   map.logout "/salir", :controller => "user_sessions", :action => "destroy"
 
-  map.what '/que_es', :controller => 'about', :action => 'what'
-  map.who '/quienes', :controller => 'about', :action => 'who'
-  map.mission '/paraque', :controller => 'about', :action => 'mission'
+  map.feedback "/opinion", :controller => 'about', :action => 'feedback'
+#  map.what '/que_es', :controller => 'about', :action => 'what'
+#  map.who '/quienes', :controller => 'about', :action => 'who'
+#  map.mission '/paraque', :controller => 'about', :action => 'mission'
 
   map.admin_login "/admin", :controller => 'admin_sessions', :action => 'new'
   map.admin_logout "admin/cerrar", :controller => 'admin_sessions', :action => 'destroy'
