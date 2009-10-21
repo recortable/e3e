@@ -6,8 +6,8 @@ es:
   email: "Email"
   submit: "Guardar"
   
-  require_user: "Necesitas estar dado de alta como usuario para acceder a esta zona"
-  require_admin: "Necesitas ser un administrador para acceder a esta zona"
+  require_user: "Necesita estar dado de alta como usuario para acceder a esa página"
+  require_admin: "Necesita ser un administrador para acceder a esa página"
     
   layouts:
     e3e:
@@ -21,8 +21,8 @@ es:
       what: "Qué es wecex"
       who: "Quiénes somos"
       mission: "Para qué sirve wecex"
-      admin_zone: "Eres administrador"
-      feedback: "Opinión"
+      admin_zone: "Bienvenido a la zona de administración"
+      feedback: "Contáctenos"
     admin:
       users: "Usuarios"
       statistics: "Estadísticas"
@@ -31,7 +31,7 @@ es:
 
   about:
     feedback:
-      title: "Contáctanos"
+      title: "Contáctenos"
       received: "Gracias por su opinión"
     what:
       title: "Qué es wecex"
@@ -53,10 +53,10 @@ es:
     answer: "Respuesta"
     create: "Dar de alta"
     update: "Modificar"
-    created: "Te has dado de alta en E3E. Muchas gracias."
-    updated: "Los datos de tu perfil se han modificado con éxito."
+    created: "Se ha dado de alta en E3E. Muchas gracias."
+    updated: "Los datos de su perfil se han sido modificados."
     info:
-      qa: "La pregunta y respuesta es necesaria por si olvidas la contraseña"
+      qa: "La pregunta y respuesta es necesaria por si olvida la contraseña"
       newpass: "La contraseña y su confirmación deben coincidir"
       editpass: "La contraseña cambiará sólo si introduces una contraseña y su confirmación"
       username: "Le pediremos un nombre de usuario para acceder a sus datos. Si lo pierde, no podrá volver a acceder."
@@ -93,16 +93,16 @@ es:
     answer: "Respuesta"
     title: "Recordar contraseña"
     show:
-      info: "Paso 1: Introduce el nombre de tu usuario"
+      info: "Paso 1: Introduzca el nombre de su usuario"
       create: "Ir a Paso 2"
     new:
-      info: "Paso 2: Responde a la pregunta"
+      info: "Paso 2: Responda a la pregunta"
       question: "Pregunta"
       create: "Responder"
       fail: "Ese nombre de usuario no está registrado"
     create:
       fail: "Lo siento, el usuario y la respuesta no coinciden."
-      created: "Por favor, introduce una nueva contraseña"
+      created: "Por favor, introduzca una nueva contraseña"
       
   user_sessions:
     username: "Nombre"
@@ -111,21 +111,21 @@ es:
     new:
       title: "Entrar"
     form:
-      title: "¿Te registraste previamente?"
+      title: "¿Se registró previamente?"
       submit: "Entrar"
       sign_up: "Darse de alta"
       forgot_password: "Olvidé la contraseña"
     create:
-      notice: "Bienvenido a E3E"
+      notice: "Bienvenido a E3E."
     destroy:
-      notice: "Cerrada la sessión"
+      notice: "Cerrada la sessión."
 
   admin_sessions:
     new:
       title: "Entrar a la zona de administración"
       submit: "Entrar"
     create:
-      flash: "Eres administrador en E3E. Bienvenido"
+      flash: "Es administrador en E3E. Bienvenido"
     destroy:
       flash: "Cerrada la sessión como administrador"
   

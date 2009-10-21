@@ -31,6 +31,12 @@
         return false;
       });
 
+      $(".numeric").each(function() {
+        if ($(this).val().trim() == '') {
+          $(this).val("0");
+        }
+      });
+
       $("form.edit_survey").bind("submit", function() {
         $.jGrowl("Guardando los datos. Espere un momento, por favor.", {closer:false});
       });
@@ -76,10 +82,10 @@
 
     <h3>Mis costumbres</h3>
     <p class="info"><%=  t(:personas, :scope => [:encuesta, :costumbres]) %></p>
-    <p><label>&nbsp;</label><%= f.text_field :costumbres_personas %></p>
+    <p><label>&nbsp;</label><%= f.text_field :costumbres_personas, :class => 'numeric'  %></p>
 
     <p class="info"><%=  t(:horas, :scope => [:encuesta, :costumbres]) %></p>
-    <p><label>&nbsp;</label><%= f.text_field :costumbres_horas %></p>
+    <p><label>&nbsp;</label><%= f.text_field :costumbres_horas, :class => 'numeric'  %></p>
 
     <h3>Mi opinión</h3>
     <p class="info"><%=  t(:opina, :scope => [:encuesta, :opinion]) %></p>

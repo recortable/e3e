@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090714085951) do
+ActiveRecord::Schema.define(:version => 20091021145554) do
 
   create_table "admins", :force => true do |t|
     t.string   "email"
@@ -127,6 +127,8 @@ ActiveRecord::Schema.define(:version => 20090714085951) do
     t.text     "opinion"
     t.string   "equip_ac_individual_tipo"
     t.string   "equip_ac_indepe_tipo"
+    t.string   "vivienda_fachada"
+    t.string   "vivienda_acristalado"
   end
 
   create_table "users", :force => true do |t|

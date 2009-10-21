@@ -43,7 +43,7 @@
 
 <div id="si_paneles" class="agua">
   <p class="info"><%=  t(:edad, :scope => [:encuesta, :equipo, :agua]) %></p>
-  <p><label>&nbsp;</label><%= f.text_field :equip_agua_edad %><span>años</span></p>
+  <p><label>&nbsp;</label><%= f.text_field :equip_agua_edad, :class => 'numeric' %><span>años</span></p>
 </div>
 
 <div id="equip_agua_caldera_acumulacion" class="agua">
@@ -103,7 +103,7 @@
 
 <div class="calefaccion">
   <p class="info"><%=  t(:edad, :scope => [:encuesta, :equipo, :calefaccion]) %></p>
-  <p><label>&nbsp;</label><%= f.text_field :equip_calefaccion_edad %></p>
+  <p><label>&nbsp;</label><%= f.text_field :equip_calefaccion_edad, :class => 'numeric' %><span> años</span></p>
 </div>
 
 <!-- AIRE ACONDICIONADO -->
@@ -139,7 +139,7 @@
   </div>
 
   <p class="info"><%=  t(:edad, :scope => [:encuesta, :equipo, :aire]) %></p>
-  <p><label>&nbsp;</label><%= f.text_field :equip_ac_edad %></p>
+  <p><label>&nbsp;</label><%= f.text_field :equip_ac_edad, :class => 'numeric' %><span> años</span></p>
 
 
   <div id="aire_si_individual">
@@ -164,7 +164,7 @@
   <% Survey::EQUIP_DISPOSITIVOS.each do |disp| %>
     <tr class="<%= cycle :odd, :even %> "><td class="name">
       <%= t(disp, :scope => [:encuesta, :equipo, :dispositivos]) %></td>
-    <td><%= f.text_field "equip_disp_tiene_#{disp}"  %></td></tr>
+    <td><%= f.text_field "equip_disp_tiene_#{disp}", :class => 'numeric'  %></td></tr>
   <% end %>
 </table>
 
@@ -173,7 +173,7 @@
   <% Survey::EQUIP_ILUMINACION.each do |disp| %>
     <tr class="<%= cycle :odd, :even %> ">
       <td class="name"><%= t(disp, :scope => [:encuesta, :equipo, :dispositivos]) %></td>
-    <td><%= f.text_field "equip_ilum_tiene_#{disp}"  %></td></tr>
+    <td><%= f.text_field "equip_ilum_tiene_#{disp}", :class => 'numeric' %></td></tr>
   <% end %>
 </table>
 

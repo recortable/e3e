@@ -16,7 +16,7 @@ class AboutController < ApplicationController
     config = APP_CONFIG['mail']
     unless params[:body].blank?
       Pony.mail(:to => config['to'],
-          :subject => 'e3e feedback',
+          :subject => "e3e feedback - #{Time.now.fecha}",
           :body => params[:body],
           :via => :smtp, :smtp => {
           :host     => 'smtp.gmail.com',

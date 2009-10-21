@@ -8,7 +8,7 @@
         };
     };
 
-    var logger = console.log;
+    var logger = function() {};
 
     var rules = {};
 

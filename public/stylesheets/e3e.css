@@ -245,7 +245,7 @@ p { margin: 0.4em 0; }
   background-color: #e2e2dd;
   background-image: none;
 }
-#navigation .session a:hover { background: #e2e2dd; }
+#navigation .session a:hover { color: #333333; }
 .content { padding: 1em 2em; }
 .flash_notice {
   background-color: #9f9f9f;
@@ -279,8 +279,13 @@ p { margin: 0.4em 0; }
 .col3 p { margin-left: 8px; }
 p.about {
   font-size: 120%;
-  font-style: italic;
+  font-style: normal;
   line-height: 1.5em;
+}
+p.about b {
+  display: block;
+  margin: 0.2em 1em;
+  padding: 0;
 }
 .divided {
   width: 100%;
@@ -440,14 +445,16 @@ form table td.name {
 }
 .chart_controls a {
   display: block;
+  margin-right: 3px;
   float: left;
-  padding: 0.1em 0.4em;
-  font-size: 2em;
-  background-color: #efefea;
-  color: white;
-  margin-right: 0.5em;
-  font-weight: bolder;
+  width: 38px;
+  height: 38px;
+  text-indent: -10000px;
 }
+#max_up { background: transparent url(../images/botones.gif) -2px -2px no-repeat; }
+#max_up:hover { background: transparent url(../images/botones.gif) -42px -2px no-repeat; }
+#max_down { background: transparent url(../images/botones.gif) -2px -42px no-repeat; }
+#max_down:hover { background: transparent url(../images/botones.gif) -42px -42px no-repeat; }
 table.dataset {
   margin-left: auto;
   margin-right: auto;

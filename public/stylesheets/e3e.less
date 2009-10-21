@@ -147,7 +147,7 @@ p {margin: 0.4em 0;}
 #navigation .session a {padding: 0.3em; color: white; margin-top: 0.2em;
                         background-color: @border; .round;
                         background-image: none;}
-#navigation .session a:hover {background: @border;}
+#navigation .session a:hover {color: @darkgris;}
 
 .content {padding: 1em 2em;}
 
@@ -161,7 +161,8 @@ p {margin: 0.4em 0;}
 .col3 img { background-color: @medio; width: 250px;height: 150px; margin-bottom: 1em;
             border: 8px solid @border;  .round; }
 .col3 p {margin-left: 8px;}
-p.about {font-size: 120%; font-style: italic; line-height: 1.5em;}
+p.about {font-size: 120%; font-style: normal; line-height: 1.5em; }
+p.about b {display: block; margin: 0.2em 1em; padding: 0;}
 
 .divided {width: 100%; overflow: hidden; margin: 2em 0;}
 .divided form {float: left; width: 45%;
@@ -220,8 +221,11 @@ form table td.name {text-align: right; padding-right: 0.5em; width: 12em;}
 #chart_panel {margin: 1em 0; border: 1em solid @fondo; .round;}
 #chart {width: 100%; margin: 0; border: 0; padding: 0;}
 .chart_controls {width: 100%; overflow: hidden; margin-left: 4em; margin-top: 0.5em;}
-.chart_controls a {display: block; float: left; padding: 0.1em 0.4em; font-size: 2em;
-                   background-color: @fondo; color: white; margin-right: 0.5em; font-weight: bolder;}
+.chart_controls a {display: block; margin-right: 3px; float: left; width: 38px; height: 38px; text-indent: -10000px;}
+#max_up {background: transparent url(../images/botones.gif) -2px -2px no-repeat;}
+#max_up:hover {background: transparent url(../images/botones.gif) -42px -2px no-repeat;}
+#max_down {background: transparent url(../images/botones.gif) -2px -42px no-repeat;}
+#max_down:hover {background: transparent url(../images/botones.gif) -42px -42px no-repeat;}
 
 
 table.dataset {margin-left: auto; margin-right: auto;}
