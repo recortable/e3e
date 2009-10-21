@@ -92,11 +92,10 @@ body { height: 100%; }
   overflow: hidden;
 }
 h1, h2, h3, h4 { display: block; }
-h1, h2 { color: #868686; }
+h1, h2 { color: #333333; }
 h1 {
   font-size: 260%;
-  font-weight: bold;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.06em;
 }
 h2 { font-size: 150%; }
 h3 {
@@ -171,6 +170,13 @@ p { margin: 0.4em 0; }
   margin-right: 2em;
   margin-bottom: 1em;
 }
+#e3elogo {
+  width: 166px;
+  height: 56px;
+  margin: 0 0 1em -5px;
+  background: transparent url(../images/e3elogo.png) 0 0 no-repeat;
+  text-indent: -1000px;
+}
 #page {
   width: 900px;
   margin: 0em auto 5em auto;
@@ -188,7 +194,6 @@ p { margin: 0.4em 0; }
 #head h1 {
   font-size: 500%;
   letter-spacing: -0.1em;
-  font-weight: bold;
 }
 #head h1 a { color: #222222; }
 #head p {
@@ -245,7 +250,7 @@ p { margin: 0.4em 0; }
   background-color: #e2e2dd;
   background-image: none;
 }
-#navigation .session a:hover { color: #333333; }
+#navigation .session a:hover { background-color: #868686; }
 .content { padding: 1em 2em; }
 .flash_notice {
   background-color: #9f9f9f;
@@ -276,8 +281,12 @@ p { margin: 0.4em 0; }
   margin-bottom: 1em;
   border: 8px solid #e2e2dd;
 }
-.col3 p { margin-left: 8px; }
+.col3 p {
+  color: #868686;
+  margin-left: 8px;
+}
 p.about {
+  color: #868686;
   font-size: 120%;
   font-style: normal;
   line-height: 1.5em;
@@ -514,4 +523,10 @@ table.users td { padding: 0.2em 1em; }
   border: 1px solid #868686;
   padding: 3px;
   background-color: white;
+}
+#feedback {
+  width: 81px;
+  height: 16px;
+  background: transparent url(../images/imagineria.gif) 0px 0px no-repeat;
+  text-indent: -1000px;
 }

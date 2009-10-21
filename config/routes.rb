@@ -5,7 +5,7 @@ ActionController::Routing::Routes.draw do |map|
   map.login "/entrar", :controller => "user_sessions", :action => "new"
   map.logout "/salir", :controller => "user_sessions", :action => "destroy"
 
-  map.feedback "/opinion", :controller => 'about', :action => 'feedback'
+  map.feedback "/contacto", :controller => 'about', :action => 'feedback'
 #  map.what '/que_es', :controller => 'about', :action => 'what'
 #  map.who '/quienes', :controller => 'about', :action => 'who'
 #  map.mission '/paraque', :controller => 'about', :action => 'mission'

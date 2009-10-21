@@ -93,8 +93,9 @@ body {height: 100%;}
 .container {width: 100%; overflow: hidden;}
 
 h1, h2, h3, h4 {display: block;}
-h1, h2 {color: @gris;}
-h1 {font-size: 260%; font-weight: bold; letter-spacing: -0.05em;}
+h1 {color: @darkgris;}
+h2 {color: @darkgris;}
+h1 {font-size: 260%; letter-spacing: -0.06em;}
 h2 {font-size: 150%;}
 h3 {font-size: 125%; color: @darkgris; border-bottom: 1px solid #9F9F9F; margin: 2em 0 1em 0; padding-left: 6.5em;}
 h4 {font-size: 100%; color: @darkgris; border-bottom: 1px solid #9F9F9F; margin-top: 2em ; margin-left: 7em; padding-left: 1em;  }
@@ -115,6 +116,9 @@ p {margin: 0.4em 0;}
             font-size: 15px; letter-spacing: 0.05em; font-family: Verdana}
 
 #logo {float: left; margin-right: 2em; margin-bottom: 1em;}
+#e3elogo {width: 166px; height: 56px; margin: 0 0 1em -5px;
+          background: transparent url(../images/e3elogo.png) 0 0 no-repeat; text-indent: -1000px;}
+
 
 #page {width: 900px; margin: 0em auto 5em auto; background-color: white; padding: 70px 1em 0 1em;
        border: 0px solid @border;
@@ -127,7 +131,7 @@ p {margin: 0.4em 0;}
 
 
 #head {width: 100%; overflow: hidden; }
-#head h1 {font-size: 500%; letter-spacing: -0.1em; font-weight: bold;}
+#head h1 {font-size: 500%; letter-spacing: -0.1em; }
 #head h1 a {color: #222222;}
 #head p {font-variant: small-caps; margin-top: -1em; }
 
@@ -147,7 +151,7 @@ p {margin: 0.4em 0;}
 #navigation .session a {padding: 0.3em; color: white; margin-top: 0.2em;
                         background-color: @border; .round;
                         background-image: none;}
-#navigation .session a:hover {color: @darkgris;}
+#navigation .session a:hover {background-color: @gris;}
 
 .content {padding: 1em 2em;}
 
@@ -160,8 +164,8 @@ p {margin: 0.4em 0;}
 .col3 h1 {margin-left: 8px; font-size: 180%; font-style: normal;}
 .col3 img { background-color: @medio; width: 250px;height: 150px; margin-bottom: 1em;
             border: 8px solid @border;  .round; }
-.col3 p {margin-left: 8px;}
-p.about {font-size: 120%; font-style: normal; line-height: 1.5em; }
+.col3 p {color: @gris; margin-left: 8px;}
+p.about {color: @gris; font-size: 120%; font-style: normal; line-height: 1.5em; }
 p.about b {display: block; margin: 0.2em 1em; padding: 0;}
 
 .divided {width: 100%; overflow: hidden; margin: 2em 0;}
@@ -248,3 +252,7 @@ table.users td {padding: 0.2em 1em;}
 #partners {background-color: @border; margin: 2em -3em -1em -3em; padding: 2em 4em; 
     text-align: center;}
 #partners img {margin: 0 1em; border: 1px solid @gris; padding: 3px; background-color: white;}
+
+/** IMAGINERIA */
+
+#feedback {width: 81px; height: 16px; background: transparent url(../images/imagineria.gif) 0px 0px no-repeat; text-indent: -1000px;}

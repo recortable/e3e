@@ -1,0 +1,79 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <title>E3E</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+        <style type="text/css">
+            html {
+                font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+            }
+
+            .buttons {width: 100%; overflow: hidden; margin-bottom: 1em;}
+
+            .buttons a {
+                font-size: 14px;
+                text-decoration: none;
+                display: block; float: left;
+                padding: 0.3em;
+                color: white;
+                background-color: #E2E2DD;
+                margin-right: 1em;
+                border-radius: 2px;
+                clear: both;
+            }
+
+            .buttons a.on {
+                background-color: #868686;
+            }
+
+            .buttons a.dark {
+                background-color: #868686;
+                border: 1px solid #868686;
+            }
+
+            .buttons a.dark.on {
+                color: #333333;
+                border: 1px solid #333333;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class="buttons">
+            <a href="#">Cont&aacute;ctenos</a>
+            <a href="#" class="on">Cont&aacute;ctenos</a>
+            <a href="#">Perfil</a>
+            <a href="#" class="on">Perfil</a>
+            <a href="#">Salir</a>
+            <a href="#" class="on">Salir</a>
+            <a href="#" class="dark">Guardar</a>
+            <a href="#" class="dark on">Guardar</a>
+            <a href="#" class="dark">Entrar</a>
+            <a href="#" class="dark on">Entrar</a>
+            <a href="#" class="dark">Dar de alta</a>
+            <a href="#" class="dark on">Dar de alta</a>
+            <a href="#">Enviando, espere un momento...</a>
+        </div>
+
+        <div id="output" class="clear: both">js</div>
+
+        <script type="text/javascript">
+          $(function() {
+            var out = "<p>";
+            $(".buttons a").each(function() {
+                out += "- " + $(this).html()
+                var pos = $(this).position();
+                pos.left -= 8;
+                pos.top -= 8;
+                out += ": " + pos.left + "," + pos.top;
+                out += "- " + $(this).width() + "," + $(this).height() + "<br/>";
+            });
+            out += "</p>";
+            $("#output").html(out);
+          });
+        </script>
+    </body>
+</html> 
