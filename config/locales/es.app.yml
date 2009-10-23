@@ -22,7 +22,7 @@ es:
       who: "Quiénes somos"
       mission: "Para qué sirve wecex"
       admin_zone: "Bienvenido a la zona de administración"
-      feedback: "Contáctenos"
+      feedback: "Comentarios"
     admin:
       users: "Usuarios"
       statistics: "Estadísticas"
@@ -31,7 +31,7 @@ es:
 
   about:
     feedback:
-      title: "Contáctenos"
+      title: "Comentarios"
       received: "Gracias por su opinión"
     what:
       title: "Qué es wecex"
