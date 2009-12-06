@@ -1,4 +1,6 @@
 class UserSessionsController < ApplicationController
+  caches_page :new
+  
   def new
     @user_session = UserSession.new(:remember_me => true)
     @user = User.new
