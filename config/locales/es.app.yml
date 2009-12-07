@@ -58,7 +58,7 @@ es:
     info:
       qa: "La pregunta y respuesta es necesaria por si olvida la contraseña"
       newpass: "La contraseña y su confirmación deben coincidir"
-      editpass: "La contraseña cambiará sólo si introduces una contraseña y su confirmación"
+      editpass: "La contraseña cambiará sólo si introduces una contraseña y su confirmación. La confirmación debe ser la contraseña repetida, para evitar errores."
       username: "Le pediremos un nombre de usuario para acceder a sus datos. Si lo pierde, no podrá volver a acceder."
     index:
       title: "Listado de usuarios registrados"
@@ -108,6 +108,8 @@ es:
     username: "Nombre"
     password: "Contraseña"
     remember_me: "Recordarme en este ordenador"
+    info:
+      casesensitive: "Recuerda que el el programa distingue entre mayúsculas y minúsculas, tanto en el nombre como en la contraseña"
     new:
       title: "Entrar"
     form:

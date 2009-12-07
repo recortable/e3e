@@ -1,0 +1,17 @@
+<VirtualHost *:80>
+    ServerName wecex.calclab.com
+    DocumentRoot /home/deploy/e3e/current/public
+    RailsEnv production
+
+    RewriteEngine On
+    RewriteRule ^/$ /cache/index.html [QSA]
+    RewriteRule ^([^.]+)$ /cache/$1.html [QSA]
+
+    <Directory /home/deploy/e3e/current/public/>
+        Options FollowSymLinks
+	Allow from all
+	AllowOverride None
+	Order allow,deny
+    </Directory>
+    ErrorLog e3e.log
+</VirtualHost>

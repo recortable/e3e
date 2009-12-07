@@ -1,6 +1,7 @@
 <% form_for @user_session do |f| %>
   <h2><%= t(:title) %></h2>
   <%= f.error_messages %>
+  <p class="info"><%= t('info.casesensitive') %></p>
   <p>
     <%= f.label :username, t(:username) %>
     <%= f.text_field :username %>
