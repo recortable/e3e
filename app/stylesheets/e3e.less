@@ -3,7 +3,7 @@
 
 @fondo: #EFEFEA;
 @border: #E2E2DD;
-@gris: #909090;
+@gris: #606060;
 @darkgris: #333333;
 @medio: #efefea;
 @error: #c00;
@@ -111,7 +111,7 @@ p {margin: 0.4em 0;}
             font-size: 15px; letter-spacing: 0.05em; font-family: Verdana}
 
 #logo {float: left; display: inline; margin-right: 2em; margin-bottom: 1em;}
-#e3elogo {width: 166px; height: 56px; margin: 0 0 1em -5px;
+#e3elogo {width: 166px; height: 56px; margin: 0 0 1em -5px; overflow: hidden;
           background: transparent url(../images/e3elogo.png) 0 0 no-repeat; text-indent: -1000px;}
 
 .ie6sucks {text-align: center; }
@@ -120,7 +120,7 @@ p {margin: 0.4em 0;}
        min-height:500px;
        height:auto !important;
        height:500px;
-       _width: 1000px; /* IE6 */
+       _width: 900px; /* IE6 */
 }
 
 
@@ -132,7 +132,7 @@ p {margin: 0.4em 0;}
 #head p {font-variant: small-caps; margin-top: -1em; }
 
 #navigation { font-family: "Lucida-Grande","Verdana",sans-serif;
-    width: 900px; _width: 1000px; /* IE6 */
+    width: 900px; _width: 900px; /* IE6 */
     margin: 0 auto; overflow: hidden; background-color: white; padding: 0 1em 1em 1em;}
 #navigation .sections {float: left; display: inline;}
 
@@ -144,7 +144,7 @@ p {margin: 0.4em 0;}
                   padding: 0.7em 1em;}
 #navigation a:hover { padding: 0.7em 1em;}
 
-#navigation .session {float: right;  margin-right: -1em; _margin-right: 0em;}
+#navigation .session {float: right;  margin-right: -1em; _margin-right: 0px;}
 #navigation .session a {padding: 0.3em; color: white; margin-top: 0.2em;
                         background-color: @border; .round;
                         background-image: none;}
@@ -156,7 +156,7 @@ p {margin: 0.4em 0;}
                color: white; width: 100%; margin: 0 auto; padding: 5px 2px; text-align: center;
                -moz-border-radius: 0.2em; -webkit-border-radius: 0.2em; }
 
-.col3 {float: left; display: inline;width: 30%; margin: 2em 3% 2em 0; _margin-right: 0px;}
+.col3 {float: left; display: inline;width: 30%; margin: 2em 3% 2em 0; _margin-right: 5px;}
 .col3 h2 {margin-left: 8px;}
 .col3 h1 {margin-left: 8px; font-size: 180%; font-style: normal;}
 .col3 img { background-color: @medio; width: 250px;height: 150px; margin-bottom: 1em;
@@ -221,7 +221,7 @@ form table td {padding: 0.2em 1em; text-align: center;}
 form table td.name {text-align: right; padding-right: 0.5em; width: 12em;}
 
 /* INVOICES */
-#chart_panel {margin: 1em 0; border: 1em solid @fondo; .round;}
+#chart_panel {margin: 1em 0; border: 1em solid @fondo; .round; }
 #chart {width: 100%; margin: 0; border: 0; padding: 0;}
 .chart_controls {width: 100%; overflow: hidden; margin-left: 4em; margin-top: 0.5em;}
 .chart_controls a {display: block; margin-right: 3px; float: left; display: inline;width: 38px; height: 38px; text-indent: -10000px;}

@@ -3,7 +3,6 @@
 
   <script type="text/javascript">
     jQuery(function($) {
-      $("#encuesta").slideUp(0);
       var spinner = $('#municipio_spinner');
       spinner.hide();
 
@@ -56,7 +55,7 @@
   Debes tener javascript para poder ver el formulario.
 </div>
 
-<div id="encuesta" style="display: none;">
+<div id="encuesta">
   <% form_for(@survey, :url => survey_path) do |f| %>
     <div>
       <%= hidden_field_tag :next_url, '' %>
