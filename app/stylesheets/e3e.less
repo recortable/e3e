@@ -1,14 +1,9 @@
-/*
-Copyright (c) 2008, Yahoo! Inc. All rights reserved.
-Code licensed under the BSD License:
-http://developer.yahoo.net/yui/license.txt
-version: 2.6.0
-*/
-html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}del,ins{text-decoration:none;}
+
+@import "reset-min.css";
 
 @fondo: #EFEFEA;
 @border: #E2E2DD;
-@gris: #868686;
+@gris: #909090;
 @darkgris: #333333;
 @medio: #efefea;
 @error: #c00;
@@ -166,6 +161,7 @@ p {margin: 0.4em 0;}
             border: 8px solid @border;  .round; }
 .col3 p {color: @gris; margin-left: 8px;}
 p.about {color: @gris; font-size: 120%; font-style: normal; line-height: 1.5em; }
+strong {font-weight: bold; }
 p.about b {display: block; margin: 0.2em 1em; padding: 0;}
 
 .divided {width: 100%; overflow: hidden; margin: 2em 0;}
@@ -212,7 +208,7 @@ form p.feedback textarea {width: 80%; height: 10em;}
 .errorExplanation li {list-style-type: none;}
 .errorExplanation h2 {font-size: 1px; display: none; width: 0;}
 
-
+#encuesta {font-size: 110%;}
 #encuesta input[type=text] {width: 6em;}
 #encuesta textarea {width: 40em; height: 10em;}
 
@@ -250,6 +246,8 @@ table.users td {padding: 0.2em 1em;}
 .calc {font-family: monospace; letter-spacing: 0.5em; font-size: 1.3em;}
 
 #partners {background-color: @border; margin: 2em -3em -1em -3em; padding: 2em 4em; 
+    text-align: center;}
+#pagefoot {background-color: @border; margin: 2em -3em -1em -3em; padding: 0em 4em;
     text-align: center;}
 #partners img {margin: 0 1em; border: 1px solid @gris; padding: 3px; background-color: white;}
 

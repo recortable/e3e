@@ -60,8 +60,8 @@
         yaxis : {
             label: 'Yaxis',
             min: 0,
-            max: 4000,
-            division: 500,
+            max: 1000,
+            division: 100,
             zero: 0, // value to display at 0
             fontSize: 13
         },

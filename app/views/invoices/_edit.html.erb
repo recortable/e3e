@@ -7,6 +7,9 @@
   <script type="text/javascript">
     (function($) {
       $(function() {
+        var isDirty = false;
+        $("form input[type=submit]").attr('disabled', true);
+
         var barColor = $("#bar").css("background-color");
         var vals = [];
         var labels = [];
@@ -20,6 +23,11 @@
           yaxis: {zero: "N/D", label: 'consumo mensual (en <%= @invoice.units %>)'},
           data : {values: vals, names: labels}});
         $("#chart").bind("ichart.changed", function(evt, name, value) {
+          if (!isDirty) {
+            isDirty = true;
+            $("form input[type=submit]").attr('disabled', false);
+          }
+          
           value = (value == null) ? "" : value;
           $("#" + name).val(value);
         })
@@ -28,9 +36,11 @@
         $("#max_down").click(function() {$("#chart").trigger("ichart.max_down")});
 
         $("#navigation a").click(function(evt) {
-          $("#next_url").val($(this).attr("href"));
-          $("#dataset").submit();
-          return false;
+          if (isDirty) {
+            $("#next_url").val($(this).attr("href"));
+            $("#dataset").submit();
+            return false;
+          }
         });
 
         $("#dataset").bind("submit", function() {
@@ -46,9 +56,9 @@
 
 
 <p class="about">Para ello coja la última factura que tenga a su disposición e intente representar el mismo dibujo
-que aparece en la misma.</p>
+  que aparece en la misma.</p>
 <p class="about">Pinchando sobre el gráfico puede cambiar el valor del consumo según el mes. De aquellos meses
-que no disponga datos (N/D), déjelo en blanco (puede poner en blanco un mes pulsando sobre el nombre del mismo).</p>
+  que no disponga datos (N/D), déjelo en blanco (puede poner en blanco un mes pulsando sobre el nombre del mismo).</p>
 
 <div id="chart_panel">
   <div class="chart_controls">
