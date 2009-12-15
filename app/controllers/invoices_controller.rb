@@ -29,6 +29,7 @@ class InvoicesController  < ApplicationController
         Consumption.create(param)
       end
     end
+    current_user.update_attribute(:invoice_scale_max, params[:scale_max_value])
 
     redirect_to params[:next_url].empty? ? {:action => 'show'} : params[:next_url]
   end

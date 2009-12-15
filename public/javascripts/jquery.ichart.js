@@ -78,10 +78,11 @@
         reset(chart, ctx);
         drawGrid(chart, ctx);
         drawBars(chart, ctx);
-//        drawLabels(chart, ctx);
+        //        drawLabels(chart, ctx);
         ctx.restore();
     }
 
+    // get Column from xOffset in px
     function toColumn(chart, x) {
         var col = Math.floor(x / chart.bars.space);
         var offset = x - (col * chart.bars.space);
@@ -137,6 +138,7 @@
         });
         $(target).bind("ichart.max_up", function() {
             chart.yaxis.max += chart.yaxis.division;
+            $(target).trigger("ichart.scaleChanged", [chart.yaxis.max]);
             redraw(chart);
         });
         $(target).bind("ichart.max_down", function() {
@@ -145,6 +147,7 @@
             if (chart.yaxis.max < maxValue) {
                 chart.yaxis.max += chart.yaxis.division;
             } else {
+                $(target).trigger("ichart.scaleChanged", chart.yaxis.max);
                 redraw(chart);
             }
         });
@@ -198,7 +201,7 @@
         var left = chart.grid.padding.left;
         var top = chart.grid.padding.top;
         //ctx.strokeRect(left, top, chart.grid.width, chart.grid.height);
-        var division = chart.yaxis.division;
+        var division = calculeDivisionSize(chart);
         var width = chart.grid.width;
         var bottom = top + chart.grid.height;
         var yFont = chart.grid.fontSize / 3;
@@ -212,6 +215,17 @@
             ctx.fillText(text, left - textWidth, y + yFont, 10000);
         }
         chart.yaxis.maxTextWidth = maxWidth;
+    }
+
+    /* ES CUTRE, PERO FUNCIONA */
+    function calculeDivisionSize(chart) {
+        var div = chart.yaxis.division;
+
+        var lines = chart.yaxis.max / div;
+        if (lines < 5) div = div / 2;
+        if (lines > 10) div = div * 2;
+
+        return div;
     }
 
     function drawBars(chart, ctx) {
@@ -245,7 +259,7 @@
 
     function drawLabels(chart, ctx) {
         ctx.fillStyle = "#000000";
-        ctx.font = chart.xaxis.fontSize + "px sans-serif";
+        ctx.font = chart.xaxis.fontSize + 'px "Helvetica Neue", Helvetica, Arial, sans-serif';
         ctx.textAlign = "center";
         var y= chart.grid.height + chart.grid.padding.top + chart.grid.padding.bottom - chart.xaxis.fontSize;
         var x = chart.grid.padding.left + (chart.grid.width / 2);

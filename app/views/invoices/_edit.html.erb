@@ -18,9 +18,14 @@
           labels.push($(this).attr("id"));
         });
 
+        var maxValue = parseInt($("#scale_max_value").val());
+        if (isNaN(maxValue)) maxValue = 1000;
+
+
         $("#chart").ichart({bars: {color: barColor},
           xaxis: {label: 'mes en el que se produce el consumo'},
-          yaxis: {zero: "N/D", label: 'consumo mensual (en <%= @invoice.units %>)'},
+          yaxis: {zero: "N/D", label: 'consumo mensual (en <%= @invoice.units %>)',
+            max: maxValue},
           data : {values: vals, names: labels}});
         $("#chart").bind("ichart.changed", function(evt, name, value) {
           if (!isDirty) {
@@ -30,7 +35,15 @@
           
           value = (value == null) ? "" : value;
           $("#" + name).val(value);
-        })
+        });
+        
+        $("#chart").bind("ichart.scaleChanged", function(evt, maxValue) {
+          $("#scale_max_value").val(maxValue);
+          if (!isDirty) {
+            isDirty = true;
+            $("form input[type=submit]").attr('disabled', false);
+          }
+        });
 
         $("#max_up").click(function() {$("#chart").trigger("ichart.max_up")});
         $("#max_down").click(function() {$("#chart").trigger("ichart.max_down")});
@@ -79,6 +92,7 @@
         <%= f.hidden_field :period %>
       <% end %>
     <% end %>
+    <%= hidden_field_tag :scale_max_value,  current_user.invoice_scale_max, :id => 'scale_max_value' %>
   </div>
   <p>
     <%= submit_tag t(:submit) %>
