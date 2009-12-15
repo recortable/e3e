@@ -31,9 +31,20 @@
       });
 
       $(".numeric").each(function() {
-        if ($(this).val().trim() == '') {
-          $(this).val("0");
+        var self = $(this);
+        if (self.val().trim() == '') {
+          self.val("0");
         }
+        self.focus(function() {
+          if (self.val().trim() == '0') {
+            self.val('')
+          }
+        });
+        self.blur(function() {
+          if (self.val().trim() == '') {
+            self.val("0");
+          }
+        });
       });
 
       $("form.edit_survey").bind("submit", function() {
