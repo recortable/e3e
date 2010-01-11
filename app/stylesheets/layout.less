@@ -1,0 +1,67 @@
+
+@import "colors";
+@import "sprites.css";
+
+/** LAYOUT ELEMENTS */
+#top {
+    padding-top: 5px;
+    border-bottom: 1px solid @grisclaro;
+    height: 70px;
+}
+#logo {
+    width: 44px; height: 55px; float: left;
+    padding-right: 10px;
+    border-right: 1px solid @grisclaro;
+    .sprites; .sprite-logo;
+}
+#navigation {
+    margin-left: 60px;
+    width: 830px;
+}
+.session {
+    width: 100%; overflow: hidden;
+    height: 35px;
+}
+.session a {
+    float: left; display: block; margin-right: 1em; margin-top: 5px;
+    font-size: 130%; font-style: italic;
+    color: @grisclaro;
+}
+
+.sections {width: 850px;}
+.sections > * {
+    float: left; height: 26px;
+    .sprites;
+}
+.sections .aboutcontroller {width: 122px; .sprite-home_que; }
+.sections .surveyscontroller {width: 180px; .sprite-encuesta_off;}
+.sections .surveyscontroller.active {.sprite-encuesta_on;}
+.sections .surveyscontroller:hover {.sprite-encuesta_on;}
+.sections .gascontroller {width: 160px; .sprite-gas_off;}
+.sections .gascontroller.active {.sprite-gas_on;}
+.sections .gascontroller:hover {.sprite-gas_on;}
+.sections .electricidadcontroller {width: 220px; .sprite-electricidad_off;}
+.sections .electricidadcontroller.active {.sprite-electricidad_on;}
+.sections .electricidadcontroller:hover {.sprite-electricidad_on;}
+.sections .reportscontroller {width: 157px; .sprite-informe_off;}
+.sections .reportscontroller.active { .sprite-informe_on;}
+.sections .reportscontroller:hover { .sprite-informe_on;}
+
+#partners {
+    margin: 6em 0 1em 0;
+    padding: 10px 0;
+    border-top: 1px solid @grisclaro;
+    border-bottom: 1px solid @grisclaro;
+}
+#partners > * { display: block; float: left; margin-right: 10px; border: 1px solid @grisclaro; height: 75px;}
+#partners #copyright {
+    margin-right: 0;
+    width: 272px; 
+    background-color: #F7F7F7;
+}
+#copyright p {
+    margin: 5px; color: gray;
+}
+.calc {
+    font-family: monospace; letter-spacing: 0.5em; font-size: 130%;
+}

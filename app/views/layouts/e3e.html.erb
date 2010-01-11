@@ -56,9 +56,22 @@
           <% end %>
           <div class="content">
             <%= yield %>
+
+            <div id="partners" class="block">
+              <%= link_to image_tag('partners/ministerio de vivienda.jpg'), 'http://www.mviv.es/'  %>
+              <%= link_to image_tag('partners/csic.gif'), 'http://www.csic.es/'  %>
+              <%= link_to image_tag('partners/torroja.png'), 'http://www.ietcc.csic.es/'  %>
+              <%= link_to image_tag('partners/aicia2.jpg'), 'http://www.aicia.es/'  %>
+              <div id="copyright">
+                <p>&copy; Instituto de Ciencias de la Construcción Eduardo Torroja.<br/>
+                  Software desarrollado por <a href="http://calclab.com" class="calc">calc</a><br/>
+                  Datos legales aquí (si hiciese falta).
+                  <p/>
+              </div>
+            </div>
+            <br/>
           </div>
         </div>
-        <div class="push"></div>
       </div>
     </div>
 
