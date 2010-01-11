@@ -1,0 +1,34 @@
+.sprites {
+       display: block; overflow: hidden; text-indent: -1000px;
+       background: url(/images/sprite.png) no-repeat top left;
+}
+
+.sprite-e_num1 { background-position: 0 0; }
+.sprite-e_num2 { background-position: 0 -18px; }
+.sprite-e_num3 { background-position: 0 -36px; }
+.sprite-e_num4 { background-position: 0 -54px; }
+.sprite-e_num5 { background-position: 0 -72px; }
+.sprite-e_num6 { background-position: 0 -90px; }
+.sprite-electricidad_less { background-position: 0 -108px; }
+.sprite-electricidad_more { background-position: 0 -152px; }
+.sprite-electricidad_off { background-position: 0 -196px; }
+.sprite-electricidad_on { background-position: 0 -227px; }
+.sprite-encuesta_off { background-position: 0 -258px; }
+.sprite-encuesta_on { background-position: 0 -289px; }
+.sprite-gas_less { background-position: 0 -320px; }
+.sprite-gas_more { background-position: 0 -364px; }
+.sprite-gas_off { background-position: 0 -408px; }
+.sprite-gas_on { background-position: 0 -439px; }
+.sprite-hazclick { background-position: 0 -470px; }
+.sprite-help_paso1 { background-position: 0 -546px; }
+.sprite-help_paso2 { background-position: 0 -777px; }
+.sprite-help_paso3 { background-position: 0 -1008px; }
+.sprite-help_paso4 { background-position: 0 -1239px; }
+.sprite-home_que { background-position: 0 -1470px; }
+.sprite-home_step1 { background-position: 0 -1501px; }
+.sprite-home_step2 { background-position: 0 -1519px; }
+.sprite-home_step3 { background-position: 0 -1537px; }
+.sprite-home_step4 { background-position: 0 -1555px; }
+.sprite-informe_off { background-position: 0 -1573px; }
+.sprite-informe_on { background-position: 0 -1604px; }
+.sprite-logo { background-position: 0 -1635px; }

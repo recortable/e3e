@@ -1,0 +1,151 @@
+
+@import "reset-min.css";
+@import "sprites.css";
+@import "colors";
+
+
+/** GENERAL **/
+html {
+    font-size: 80%;
+    color: black;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    height: 100%;
+    background-color: white;
+}
+
+a {text-decoration: none;}
+a:hover {text-decoration: underline;}
+strong {font-weight: bold;}
+h1 {display: block; font-size: 260%; letter-spacing: -0.06em; color: @darkgris; margin-top: 5em;}
+h2 {display: block; font-size: 175%; font-weight: bold; color: @darkgris;}
+
+/** LAYOUT **/
+html, body {
+    height: 100%;
+}
+.wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -5em;
+}
+.footer, .push { height: 5em; }
+.footer {background-color: #252525; }
+.bottom {text-align: center; font-size: 90%; padding-top: 1em; color: @gris; border-top: 2em solid @border; }
+.bottom a:hover {color: white;}
+.ie6sucks {text-align: center; }
+.container {width: 900px; margin: 0em auto 0em auto; background-color: white; 
+            border: 0px solid @border; text-align: left; }
+#page {
+    margin-bottom: 5em;
+    min-height:500px;
+    height:auto !important;
+    height:500px;
+    _width: 900px; /* IE6 */
+}
+
+/** LAYOUT ELEMENTS */
+#top {
+    padding-top: 5px;
+    border-bottom: 1px solid @grisclaro;
+    height: 70px;
+}
+#logo {
+    width: 44px; height: 55px; float: left;
+    padding-right: 10px; 
+    border-right: 1px solid @grisclaro;
+    .sprites; .sprite-logo;
+}
+#navigation {
+    margin-left: 60px;
+    width: 830px;
+}
+.session {
+    width: 100%; overflow: hidden;
+    height: 35px;
+}
+.session a {
+    float: left; display: block; margin-right: 1em; margin-top: 5px;
+    font-size: 130%; font-style: italic;
+    color: @grisclaro;
+}
+
+.sections {width: 850px;}
+.sections > * {
+    float: left; height: 26px; 
+    .sprites;
+}
+.sections .aboutcontroller {width: 122px; .sprite-home_que; }
+.sections .surveyscontroller {width: 180px; .sprite-encuesta_off;}
+.sections .surveyscontroller.active {.sprite-encuesta_on;}
+.sections .surveyscontroller:hover {.sprite-encuesta_on;}
+.sections .gascontroller {width: 160px; .sprite-gas_off;}
+.sections .gascontroller.active {.sprite-gas_on;}
+.sections .gascontroller:hover {.sprite-gas_on;}
+.sections .electricidadcontroller {width: 220px; .sprite-electricidad_off;}
+.sections .electricidadcontroller.active {.sprite-electricidad_on;}
+.sections .electricidadcontroller:hover {.sprite-electricidad_on;}
+.sections .reportscontroller {width: 157px; .sprite-informe_off;}
+.sections .reportscontroller.active { .sprite-informe_on;}
+.sections .reportscontroller:hover { .sprite-informe_on;}
+
+/** HOME **/
+.home {padding: 1em 0; margin: 0 0 20px -3px;
+       border-bottom: 1px solid @grisclaro;
+}
+p.about {margin: 0.5em 0; font-size: 120%; line-height: 1.4em;
+         color: @gris; }
+.block {width: 100%; overflow: hidden;}
+.col4 {width: 25%; float: left; display: block;}
+.col4 p {
+    width: 215px; line-height: 17px;
+    padding: 10px 0px 0 0; font-size: 100%; margin-top: 10px;
+    color: @gris; border-top: 1px solid @grisclaro;}
+h2.step {height: 226px; width: 216px;
+         .sprites;}
+h2#step1 {.sprite-help_paso1;}
+h2#step2 {.sprite-help_paso2;}
+h2#step3 {.sprite-help_paso3;}
+h2#step4 {.sprite-help_paso4;}
+span.num-step {float: left; width: 21px; height: 13px; margin-top: 1px;
+               .sprites; }
+span#num-step-1 {.sprite-home_step1;}
+span#num-step-2 {.sprite-home_step2;}
+span#num-step-3 {.sprite-home_step3;}
+span#num-step-4 {.sprite-home_step4;}
+
+.col2 {width: 450px; float: left;}
+#video {}
+#learn h2 {height: 30px; display: block;}
+#learn p {height: 290px;}
+#learn a#start_here {
+    width: 438px; height: 71px;
+    .sprites; .sprite-hazclick;}
+p.about.note {font-size: 100%; font-style: italic; }
+
+#partners {
+    padding: 10px 0;
+    border-top: 1px solid @grisclaro;
+    border-bottom: 1px solid @grisclaro;
+}
+#partners > * { display: block; float: left; margin-right: 10px; border: 1px solid @grisclaro; }
+#partners #copyright {
+    margin-right: 0;
+    width: 272px; height: 75px;
+    background-color: #F7F7F7;
+}
+#copyright p {
+    margin: 5px; color: gray;
+}
+.calc {
+    font-family: monospace; letter-spacing: 0.5em; font-size: 130%;
+}
+
+@import 'forms';
+
+
+#encuesta {font-size: 110%;}
+#encuesta input[type=text] {width: 6em; _width: 50px;}
+#encuesta textarea {width: 40em; height: 10em;}
+
+
