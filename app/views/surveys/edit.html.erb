@@ -73,7 +73,7 @@
     </div>
     <%= f.error_messages %>
 
-    <h3><%=  t(:titulo, :scope => [:encuesta, :ciudad]) %></h3>
+    <h3><span id="survey-num-1" class="number">1</span><%=  t(:titulo, :scope => [:encuesta, :ciudad]) %></h3>
     <p class="info"><%=  t(:localidad, :scope => [:encuesta, :ciudad]) %></p>
     <p>
       <label>&nbsp;</label>
@@ -97,11 +97,11 @@
     <p class="info"><%=  t(:horas, :scope => [:encuesta, :costumbres]) %></p>
     <p><label>&nbsp;</label><%= f.text_field :costumbres_horas, :class => 'numeric'  %></p>
 
-    <h3>Mi opinión</h3>
+    <h3><span id="survey-num-5" class="number">5</span>Mi opinión</h3>
     <p class="info"><%=  t(:opina, :scope => [:encuesta, :opinion]) %></p>
     <p><label>&nbsp;</label><%= f.text_area :opinion %></p>
     <p>
-      <%= f.submit 'Guardar' %>
+      <%= f.submit 'Guardar', :id => 'survey-submit' %>
       <a name="guardar"></a>
     </p>
   <% end %>

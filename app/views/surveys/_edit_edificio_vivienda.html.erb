@@ -1,6 +1,6 @@
 
 <!-- EDIFICIO -->
-<h3><%=  t(:titulo, :scope => [:encuesta, :edificio]) %></h3>
+<h3><span id="survey-num-2" class="number">2</span><%=  t(:titulo, :scope => [:encuesta, :edificio]) %></h3>
 
 <p class="info"><%=  t(:periodo, :scope => [:encuesta, :edificio]) %></p>
 <% Survey::EDIFICIO_PERIODO.each do |periodo| %>
@@ -24,7 +24,7 @@
 
 
 <!-- VIVIENDA -->
-<h3><%=  t(:titulo, :scope => [:encuesta, :vivienda]) %></h3>
+<h3><span id="survey-num-3" class="number">3</span><%=  t(:titulo, :scope => [:encuesta, :vivienda]) %></h3>
 <div id="vivienda_planta">
   <p class="info"><%=  t(:planta, :scope => [:encuesta, :vivienda]) %></p>
   <% Survey::VIVIENDA_PLANTA.each do |planta| %>
