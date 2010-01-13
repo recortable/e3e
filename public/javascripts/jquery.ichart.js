@@ -77,6 +77,10 @@
         var ctx = chart.ctx;
         ctx.save();
         reset(chart, ctx);
+        ctx.shadowBlur = 0;
+        ctx.shadowOffsetX = 0;
+        ctx.shadowOffsetY = 0;
+        ctx.shadowColor = "white";
         drawGrid(chart, ctx);
         drawBars(chart, ctx);
         //        drawLabels(chart, ctx);
@@ -260,7 +264,6 @@
             ctx.fillStyle = chart.bars.color;
             var label = labels[index];
             ctx.fillText(label, x + middle, yOffset + chart.grid.fontSize, xOffset);
-
             x += xOffset;
         }
     }

@@ -108,11 +108,11 @@ p.about.note {font-size: 100%; font-style: italic; }
 #chart {width: 100%; margin: 0; border: 0; padding: 0;}
 .chart_controls {width: 100%; overflow: hidden; margin-left: 4em; margin-top: 0.5em;}
 .chart_controls a {display: block; margin-right: 3px; float: left; display: inline;width: 38px; height: 38px; text-indent: -10000px;}
-#max_up {background: transparent url(../images/botones.gif) -2px -2px no-repeat;}
-#max_up:hover {background: transparent url(../images/botones.gif) -42px -2px no-repeat;}
-#max_down {background: transparent url(../images/botones.gif) -2px -42px no-repeat;}
-#max_down:hover {background: transparent url(../images/botones.gif) -42px -42px no-repeat;}
-
+#invoice .button {.sprites; width: 41px; height: 39px; margin-right: 5px;}
+#invoice.GasController #max_up {.sprite-gas_more;}
+#invoice.GasController  #max_down {.sprite-gas_less;}
+#invoice.ElectricidadController #max_up {.sprite-electricidad_more;}
+#invoice.ElectricidadController #max_down {.sprite-electricidad_less;}
 
 table.dataset {margin-left: auto; margin-right: auto;}
 table.dataset td {padding-left: 0; padding-right: 0.2em;}
@@ -124,8 +124,8 @@ table.dataset span {margin-left: 0; margin-right: 1em; color: gray;}
 .chartfields input { font-size: 80%; border: 1px solid @medio; padding: 1px;
                      width: 27px; float: left; display: inline;margin-left: 4.5px; margin-right: 3px;}
 
-#chart_panel {margin: 1em 0; border: 1px solid @gas; }
-#invoice.GasController #chart_panel {border-color: @gas;}
+#chart_panel {margin: 1em 0; border: 3px solid @gas; }
+#invoice.GasController #chart_panel {border-color: @gasoscuro;}
 #invoice.ElectricidadController #chart_panel {border-color: @electricidad;}
 
 #invoice #colors {display: none;}
