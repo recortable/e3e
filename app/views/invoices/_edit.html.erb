@@ -8,9 +8,10 @@
     (function($) {
       $(function() {
         var isDirty = false;
-        $("form input[type=submit]").attr('disabled', true);
+        $("form input[type=submit]").attr('disabled', false).hide();
 
         var barColor = $("#colors").css("background-color");
+        var darkColor = $("#colors").css("color");
         var vals = [];
         var labels = [];
         $("#dataset .data").each(function() {
@@ -22,7 +23,7 @@
         if (isNaN(maxValue)) maxValue = 1000;
 
 
-        $("#chart").ichart({bars: {color: barColor},
+        $("#chart").ichart({bars: {color: barColor, darkColor : darkColor},
           xaxis: {label: 'mes en el que se produce el consumo'},
           yaxis: {zero: "N/D", label: 'consumo mensual (en <%= @invoice.units %>)',
             max: maxValue},
@@ -30,7 +31,7 @@
         $("#chart").bind("ichart.changed", function(evt, name, value) {
           if (!isDirty) {
             isDirty = true;
-            $("form input[type=submit]").attr('disabled', false);
+            $("form input[type=submit]").fadeIn();
           }
           
           value = (value == null) ? "" : value;
@@ -41,7 +42,7 @@
           $("#scale_max_value").val(maxValue);
           if (!isDirty) {
             isDirty = true;
-            $("form input[type=submit]").attr('disabled', false);
+            $("form input[type=submit]").fadeIn();
           }
         });
 

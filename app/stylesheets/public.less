@@ -17,7 +17,7 @@ li {list-style-type: disc; margin-left: 2em;}
 a {text-decoration: none;}
 a:hover {text-decoration: underline;}
 strong {font-weight: bold;}
-h1 {display: block; font-size: 260%; letter-spacing: -0.06em; color: @darkgris; margin-top: 5em;}
+h1 {display: block; font-size: 260%; letter-spacing: -0.06em; color: @darkgris; margin-top: 1em;}
 h2 {display: block; font-size: 175%; font-weight: bold; color: @darkgris;}
 
 /** LAYOUT **/
@@ -129,8 +129,9 @@ table.dataset span {margin-left: 0; margin-right: 1em; color: gray;}
 #invoice.ElectricidadController #chart_panel {border-color: @electricidad;}
 
 #invoice #colors {display: none;}
-#invoice.GasController #colors {background-color: @gas;}
-#invoice.ElectricidadController #colors {background-color: @electricidad;}
+#invoice.GasController #colors {background-color: @gas; color: @gasoscuro;}
+#invoice.ElectricidadController #colors {background-color: @electricidad; color: @electricidadoscuro;}
+
 #invoice .invoice_submit {height: 26px; border: 0; cursor: pointer; .sprites;}
 #invoice.GasController .invoice_submit {width: 222px; .sprite-guardar_gas;}
 #invoice.ElectricidadController .invoice_submit {width: 231px; .sprite-guardar_electricidad;}

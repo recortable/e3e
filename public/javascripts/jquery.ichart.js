@@ -38,6 +38,7 @@
         },
         bars : {
             color: "#c00",
+            darkColor: "#000",
             width: 34,
             margin: {
                 left: 3,
@@ -197,7 +198,7 @@
     }
 
     function drawGrid(chart, ctx) {
-        ctx.strokeStyle = "gray";
+        ctx.strokeStyle = chart.bars.color;
         var left = chart.grid.padding.left;
         var top = chart.grid.padding.top;
         //ctx.strokeRect(left, top, chart.grid.width, chart.grid.height);
@@ -238,16 +239,23 @@
         var labels = chart.data.names;
         var max = chart.bars.count;
 
-        ctx.fillStyle = chart.bars.color;
+        //        ctx.fillStyle = chart.bars.color;
+        var width = chart.bars.width;
         for(var index = 0 ; index < max; index++) {
             var value = values[index];
-            if (!isNaN(value)) {
-                var height = value * chart.grid.ratio;
-                rect(ctx, x, yOffset - height, chart.bars.width, height);
+            var isNDValue = (value == null  || isNaN(value));
+            if (!isNDValue) {
+                var height = parseInt(value * chart.grid.ratio);
+                var y = parseInt(yOffset - height);
+                var gradient = ctx.createLinearGradient(x, y, x, y + height);
+                gradient.addColorStop(0, chart.bars.color);
+                gradient.addColorStop(1, chart.bars.darkColor);
+                ctx.fillStyle = gradient;
+                rect(ctx, x, y, width, height);
             }
             ctx.textAlign = "center";
-            ctx.fillStyle = "#000000";
-            var display = (isNaN(value) || value == null) ? chart.yaxis.zero : value;
+            ctx.fillStyle = isNDValue ? "#000" : "#FFF";
+            var display = isNDValue ? chart.yaxis.zero : value;
             ctx.fillText(display, x + middle, yOffset - 2, xOffset);
             ctx.fillStyle = chart.bars.color;
             var label = labels[index];
