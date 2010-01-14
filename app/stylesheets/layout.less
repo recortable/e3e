@@ -22,11 +22,16 @@
     width: 100%; overflow: hidden;
     height: 35px;
 }
-.session a {
-    float: left; display: block; margin-right: 1em; margin-top: 5px;
+.session a, .session span {
+    float: left; display: block; margin-top: 5px; padding: 3px 10px;
     font-size: 130%; font-style: italic;
-    color: @grisclaro;
+    color: @gris; -webkit-border-radius: 0.5em; -moz-border-radius: 0.5em;
 }
+.session a:hover {text-decoration: none; background-color: @grisclaro; }
+
+.session #feedback { margin-left: 5px;  width: 100px; margin-right: 8px; }
+.session #profile {margin-left: 5px; width: 45px;}
+.session #welcome {float: right; margin-right: 0; font-style: normal; font-size: 100%; padding-right: 0;}
 
 .sections {width: 850px;}
 .sections > * {

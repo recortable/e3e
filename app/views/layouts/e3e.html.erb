@@ -32,9 +32,9 @@
             <div class="session">
               <%= link_to t(:feedback), feedback_path, :id => 'feedback' %>
               <% if signed_in? %>
-                <span class="welcome" style="display: none">Hola <%= current_user.username %></span>
-                <%= link_to t('users.profile'), edit_user_path(current_user) %>
+                <%= link_to t('users.profile'), edit_user_path(current_user), :id => 'profile' %>
                 <%= link_to t(:user_session_close), logout_path, :method => 'delete' %>
+                <span id="welcome" style="">Está registrado/a como '<%= current_user.username %>'</span>
               <% end -%>
             </div>
 
