@@ -7,8 +7,7 @@
     <title>E3E - <%= yield(:title) || 'E3E' %></title>
     <meta http-equiv="X-UA-Compatible" content="IE=7" />
     <link rel="icon" href="/images/favicon-e3e.ico" type="image/x-icon" />
-    <%= stylesheet_link_tag 'public' %>
-    <%= stylesheet_link_tag 'jquery.jgrowl'  %>
+    <%= stylesheet_link_tag 'public', 'jquery.jgrowl.css' %>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
     <%= javascript_include_tag 'jquery.ichart', 'jquery.jgrowl.min' %>
     <%= javascript_include_tag 'jquery.validator.js'  %>
@@ -63,10 +62,8 @@
               <%= link_to image_tag('partners/torroja.png'), 'http://www.ietcc.csic.es/'  %>
               <%= link_to image_tag('partners/aicia2.jpg'), 'http://www.aicia.es/'  %>
               <div id="copyright">
-                <p>&copy; Instituto de Ciencias de la Construcción Eduardo Torroja.<br/>
-                  Software desarrollado por <a href="http://calclab.com" class="calc">calc</a><br/>
-                  Datos legales aquí (si hiciese falta).
-                  <p/>
+                <p>&copy; Instituto de Ciencias de la Construcción Eduardo Torroja.</p>
+                <p>Software desarrollado por <a href="http://calclab.com" class="calc">calc</a><p/>
               </div>
             </div>
             <br/>

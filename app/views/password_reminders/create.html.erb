@@ -1,7 +1,6 @@
-
+<div class="remind">
 <% title t(:title) %>
 
-<div class="dialog">
 
 <% form_for @password_reminder do |f| %>
   <h2><%= t(:title) %></h2>
@@ -17,6 +16,3 @@
 <% end %>
 
 </div>
-<script type="text/javascript">
-  $('form').validate('<%= t(:disable_with) %>');
-</script>

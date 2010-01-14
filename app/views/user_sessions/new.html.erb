@@ -1,13 +1,15 @@
-<%= title t(:title) %>
+<div class="login">
+  <%= title t(:title) %>
 
-<p class="about">Para preservar la privacidad de los datos, es necesario registrarse antes de poder
-usar esta herramienta. Aún así, el anonimato está garantizado, ya que nunca se le pedirá ningun dato
-que pueda relacionarle con una persona (nunca se pedirá correo, dirección, teléfono, etcétera).</p>
-<p class="about">Así mismo, los datos recopilados tanto en la encuesta como en la evolución de consumo
-sólo se utilizarán con fines estadísticos dentro del Instituto Eduardo Torroja.</p>
-<p class="about"></p>
+  <p class="about">Para preservar la privacidad de los datos, es necesario registrarse antes de poder
+    usar esta herramienta. Aún así, el anonimato está garantizado, ya que nunca se le pedirá ningun dato
+    que pueda relacionarle con una persona (nunca se pedirá correo, dirección, teléfono, etcétera).</p>
+  <p class="about">Así mismo, los datos recopilados tanto en la encuesta como en la evolución de consumo
+    sólo se utilizarán con fines estadísticos dentro del Instituto Eduardo Torroja.</p>
+  <p class="about"></p>
 
-<div class="divided">
-  <%= render :partial => '/user_sessions/form' %>
-  <%= render :partial => '/users/form' %>
+  <div class="divided">
+    <%= render :partial => '/user_sessions/form' %>
+    <%= render :partial => '/users/form' %>
+  </div>
 </div>

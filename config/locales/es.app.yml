@@ -71,6 +71,8 @@ es:
       title: "Darse de alta como nuevo usuario"
     edit:
       title: "Cambiar tu perfil"
+    new:
+      title: "Darse de alta como nuevo usuario"
 
   gas:
     edit:
@@ -101,7 +103,7 @@ es:
       create: "Responder"
       fail: "Ese nombre de usuario no está registrado"
     create:
-      fail: "Lo siento, el usuario y la respuesta no coinciden."
+      fail: "Lo sentimos pero el usuario y la respuesta no coinciden."
       created: "Por favor, introduzca una nueva contraseña"
       
   user_sessions:

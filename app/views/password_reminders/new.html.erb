@@ -1,6 +1,6 @@
+<div class="remind">
 <% title t(:title) %>
 
-<div class="dialog">
 
 <% form_for @password_reminder do |f| %>
   <h2><%= t(:title) %></h2>
@@ -19,12 +19,8 @@
     <%= f.text_field :answer, :class => 'not_empty length_more_than_4' %>
   </p>
   <p>
-    <%= f.label ' ' %>
     <%= f.submit submit_label_for(@password_reminder) %>
   </p>
 <% end %>
 
 </div>
-<script type="text/javascript">
-  $('form').validate('<%= t(:disable_with) %>');
-</script>
