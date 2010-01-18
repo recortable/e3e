@@ -1,3 +1,5 @@
+img, div, a, input { behavior: url(/iepngfix.htc); }
+
 .sprites {
        display: block; overflow: hidden; text-indent: -1000px;
        background: url(/images/sprites.png) no-repeat top left;
