@@ -16,7 +16,7 @@
         $(".flash").each(function() {$.jGrowl($(this).html(), {closer:false});})
         $("form").submit(function() {
           $("input[type=submit]").attr("disabled", true);
-          $(this).find("input[type=submit]").val("Enviando. Espere un momento...");
+          $(this).find("input[type=submit]").fadeOut();
         });
       });
     </script>

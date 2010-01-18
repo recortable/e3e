@@ -4,7 +4,7 @@ es:
   username: "Nombre"
   password: "Contraseña"
   email: "Email"
-  submit: "Guardar"
+  submit: ""
   
   require_user: "Necesita estar dado de alta como usuario para acceder a esa página"
   require_admin: "Necesita ser un administrador para acceder a esa página"
@@ -116,7 +116,7 @@ es:
       title: "Entrar"
     form:
       title: "¿Se registró previamente?"
-      submit: "Entrar"
+      submit: ""
       sign_up: "Darse de alta"
       forgot_password: "Olvidé la contraseña"
     create:
@@ -127,7 +127,7 @@ es:
   admin_sessions:
     new:
       title: "Entrar a la zona de administración"
-      submit: "Entrar"
+      submit: ""
     create:
       flash: "Es administrador en E3E. Bienvenido"
     destroy:

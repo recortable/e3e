@@ -27,7 +27,7 @@
     <%= f.text_field :answer, :class => '_not_empty length_more_than_4' %>
   </p>
   <p>
-    <%= f.submit submit_label_for(@user), :class => (@user.new_record? ? 'submit create' : 'submit update') %>
+    <%= f.submit '', :class => (@user.new_record? ? 'submit create' : 'submit update') %>
   </p>
 <% end %>
 
