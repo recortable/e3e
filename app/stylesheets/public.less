@@ -45,7 +45,10 @@ html, body {
     _width: 900px; /* IE6 */
 }
 
-
+.submit {
+    display: block; overflow: hidden; text-indent: -1000px;
+    border: 0; cursor: pointer;
+}
 
 /** HOME **/
 .home {padding: 1em 0; margin: 0 0 20px -3px;
@@ -59,12 +62,16 @@ p.about {margin: 0.5em 0; font-size: 120%; line-height: 1.4em;
     width: 215px; line-height: 17px;
     padding: 10px 0px 0 0; font-size: 100%; margin-top: 10px;
     color: @gris; border-top: 1px solid @grisclaro;}
+
+div.step_slide {
+    height: 226px; width: 216px; 
+}
+
 h2.step {height: 226px; width: 216px;
          .sprites;}
-h2#step1 {.sprite-help_paso1;}
-h2#step2 {.sprite-help_paso2;}
-h2#step3 {.sprite-help_paso3;}
-h2#step4 {.sprite-help_paso4;}
+
+
+
 span.num-step {float: left; width: 21px; height: 13px; margin-top: 1px;
                .sprites; }
 span#num-step-1 {.sprite-home_step1;}
@@ -92,6 +99,7 @@ p.about.note {font-size: 100%; font-style: italic; }
 #encuesta h4 {font-size: 100%; width: 75%; margin-left: 7em; padding-left: 1em;
     color: @gris; border-bottom: 1px solid @grisclaro; margin-top: 2em ;  }
 
+
 /* SURVEY */
 #encuesta .number {width: 18px; height: 13px; float: left; margin: 4px 3px 0 0;
     .sprites;}
@@ -100,18 +108,32 @@ p.about.note {font-size: 100%; font-style: italic; }
 #encuesta span#survey-num-3 {.sprite-e_num3;}
 #encuesta span#survey-num-4 {.sprite-e_num4;}
 #encuesta span#survey-num-5 {.sprite-e_num5;}
-#survey-submit { width: 165px; height: 26px; border: 0; cursor: pointer;
+#survey-submit { width: 165px; height: 26px; .submit;
     .sprites; .sprite-guardar_encuesta;}
 
 /** FORM PAGES **/
 .divided {width: 100%; overflow: hidden; margin-top: 3em;}
 .divided #new_user_session {width: 40%; float: left; padding-right: 5%; }
-#new_user_session a {color: #940600;}
 .divided #new_user {float: left; width: 45%; padding-left: 4%; border-left: 1px solid @grisclaro;}
 form p.info {width: 80%;}
-.login h1, .login h2 {color: #159A26;}
+
+/** LOGIN **/
+#new_user_session .submit {
+    width: 68px; height: 23px;
+    .sprites; .sprite-entrar;
+}
+#new_user_session a {color: #0E4C4A;}
+.login h1, .login h2 {color: #0E4C4A;}
+
+#new_user .submit.create {
+    width: 101px; height: 23px;
+    .sprites; .sprite-alta;
+}
+
+/** COMMENTS **/
 
 .comments h1, h2 {color: #159A26;}
+.comments .submit {.sprites; .sprite-enviar; width: 68px; height: 23px; border: 0; }
 form p.feedback textarea {width: 95%; height: 10em;}
 
 /** PASSWORD REMINDER */
