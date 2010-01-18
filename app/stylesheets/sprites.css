@@ -1,9 +1,9 @@
 .sprites {
        display: block; overflow: hidden; text-indent: -1000px;
-       background: url(/images/sprite.png) no-repeat top left;
+       background: url(/images/sprites.png) no-repeat top left;
 }
 
-.sprite-enviar { background-position: 0 0; }
+.sprite-alta { background-position: 0 0; }
 .sprite-e_num1 { background-position: 0 -28px; }
 .sprite-e_num2 { background-position: 0 -46px; }
 .sprite-e_num3 { background-position: 0 -64px; }
@@ -16,23 +16,29 @@
 .sprite-electricidad_on { background-position: 0 -256px; }
 .sprite-encuesta_off { background-position: 0 -288px; }
 .sprite-encuesta_on { background-position: 0 -320px; }
-.sprite-gas_less { background-position: 0 -352px; }
-.sprite-gas_more { background-position: 0 -396px; }
-.sprite-gas_off { background-position: 0 -440px; }
-.sprite-gas_on { background-position: 0 -472px; }
-.sprite-guardar_electricidad { background-position: 0 -504px; }
-.sprite-guardar_encuesta { background-position: 0 -535px; }
-.sprite-guardar_gas { background-position: 0 -566px; }
-.sprite-hazclick { background-position: 0 -597px; }
-.sprite-home_step1 { background-position: 0 -673px; }
-.sprite-home_step2 { background-position: 0 -691px; }
-.sprite-home_step3 { background-position: 0 -709px; }
-.sprite-home_step4 { background-position: 0 -727px; }
-.sprite-informe_off { background-position: 0 -745px; }
-.sprite-informe_on { background-position: 0 -777px; }
-.sprite-entrar { background-position: 0 -809px; }
-.sprite-alta { background-position: 0 -837px; }
+.sprite-entrar { background-position: 0 -352px; }
+.sprite-enviar { background-position: 0 -380px; }
+.sprite-gas_less { background-position: 0 -408px; }
+.sprite-gas_more { background-position: 0 -452px; }
+.sprite-gas_off { background-position: 0 -496px; }
+.sprite-gas_on { background-position: 0 -528px; }
+.sprite-guardar_electricidad { background-position: 0 -560px; }
+.sprite-guardar_encuesta { background-position: 0 -591px; }
+.sprite-guardar_gas { background-position: 0 -622px; }
+.sprite-hazclick { background-position: 0 -653px; }
+.sprite-home_step1 { background-position: 0 -729px; }
+.sprite-home_step2 { background-position: 0 -747px; }
+.sprite-home_step3 { background-position: 0 -765px; }
+.sprite-home_step4 { background-position: 0 -783px; }
+.sprite-informe_off { background-position: 0 -801px; }
+.sprite-informe_on { background-position: 0 -833px; }
 .sprite-logo { background-position: 0 -865px; }
 .sprite-que_off { background-position: 0 -931px; }
 .sprite-que_on { background-position: 0 -963px; }
 .sprite-quees { background-position: 0 -995px; }
+.sprite-sess_editar { background-position: 0 -1027px; }
+.sprite-sess_editar_on { background-position: 0 -1059px; }
+.sprite-sess_entrar { background-position: 0 -1091px; }
+.sprite-sess_entrar_on { background-position: 0 -1123px; }
+.sprite-sess_salir { background-position: 0 -1155px; }
+.sprite-sess_salir_on { background-position: 0 -1187px; }

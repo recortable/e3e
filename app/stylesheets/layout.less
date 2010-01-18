@@ -20,18 +20,25 @@
 }
 .session {
     width: 100%; overflow: hidden;
-    height: 35px;
+    height: 35px; margin-left: 10px;
 }
-.session a, .session span {
-    float: left; display: block; margin-top: 5px; padding: 3px 10px;
+.session span {
+    float: left; display: block; padding: 2px 10px;
     font-size: 130%; font-style: italic;
-    color: @gris; -webkit-border-radius: 0.5em; -moz-border-radius: 0.5em;
+    color: @gris; 
 }
-.session a:hover {text-decoration: none; background-color: @grisclaro; }
 
-.session #feedback { margin-left: 5px;  width: 100px; margin-right: 8px; }
+.session a {
+    display: block; float: left; .sprites;
+}
+.session a#enter { width: 66px; height: 27px; .sprite-sess_entrar; }
+.session a#enter:hover {.sprite-sess_entrar_on;}
+.session a#profile { width: 64px; height: 27px; .sprite-sess_editar; }
+.session a#profile:hover {.sprite-sess_editar_on;}
+.session a#logout { width: 54px; height: 27px; .sprite-sess_salir; }
+.session a#logout:hover {.sprite-sess_salir_on;}
+
 .session #profile {margin-left: 5px; width: 45px;}
-.session #welcome {float: right; margin-right: 0; font-style: normal; font-size: 100%; padding-right: 0;}
 
 .sections {width: 850px;}
 .sections > * {
@@ -53,7 +60,7 @@
 .sections .reportscontroller:hover { .sprite-informe_on;}
 
 #partners {
-    margin: 6em 0 1em 0;
+    margin: 6em 0 5px 0;
     padding: 10px 0;
     border-top: 1px solid @grisclaro;
     border-bottom: 1px solid @grisclaro;
@@ -70,3 +77,7 @@
 .calc {
     font-family: monospace; letter-spacing: 0.5em; font-size: 130%;
 }
+
+#feedback { display: block; text-align: center;}
+#feedback a {color: @gris;}
+#feedback a:hover {color: @gris;}
