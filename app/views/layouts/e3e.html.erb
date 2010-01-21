@@ -6,7 +6,7 @@
   <head>
     <title>E3E - <%= yield(:title) || 'E3E' %></title>
     <meta http-equiv="X-UA-Compatible" content="IE=7" />
-    <link rel="icon" href="/images/favicon-e3e.ico" type="image/x-icon" />
+    <link rel="icon" href="/images/favicon-e3e-letter.ico" type="image/x-icon" />
     <%= stylesheet_link_tag 'public', 'jquery.jgrowl.css' %>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
     <%= javascript_include_tag 'jquery.ichart', 'jquery.jgrowl.min' %>
@@ -26,7 +26,9 @@
     <div class="wrapper">
       <div class="ie6sucks">
         <div id="top" class="container">
+          <!--
           <div id="logo" >e3e</div>
+          -->
           <div id="navigation">
             <div class="session">
               <% if signed_in? %>
