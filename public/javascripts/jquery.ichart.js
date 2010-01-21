@@ -1,10 +1,19 @@
 (function($) {
     if (typeof console == "undefined" || typeof console.log == "undefined") {
         console = {
-            log : function(text) {
-                alert("text");
-            }
+            log : function() { },
+            debug : function() {}
         };
+        function log() {}
+    } else {
+        // LOG
+        function log() {
+            var output = "LOG (" + arguments.length + "): ";
+            for ( var i = 0; i < arguments.length; i++) {
+                output = output + arguments[i] + ",";
+            }
+            console.log(output);
+        }
     }
 
     Array.prototype.max = function() {
@@ -64,7 +73,8 @@
             max: 1000,
             division: 100,
             zero: 0, // value to display at 0
-            fontSize: 13
+            fontSize: 13,
+            units: 'kWh'
         },
         xaxis : {
             label: 'Xaxis',
@@ -212,7 +222,7 @@
         var yFont = chart.grid.fontSize / 3;
         var maxWidth = 0;
         for (var value = chart.yaxis.max; value >= 0; value -= division) {
-            var text = ((value == 0) ? chart.yaxis.zero : "" + value) + " ";
+            var text = ((value == 0) ? chart.yaxis.zero : "" + value + " " + chart.yaxis.units) + " ";
             var y = bottom - (value * chart.grid.ratio);
             ctx.strokeRect(left, y, width, 0.1);
             var textWidth = ctx.measureText(text).width;
@@ -227,8 +237,14 @@
         var div = chart.yaxis.division;
 
         var lines = chart.yaxis.max / div;
-        if (lines < 5) div = div / 2;
-        if (lines > 10) div = div * 2;
+        while (lines < 8) {
+            lines = chart.yaxis.max / div;
+            div = div / 2;
+        }
+        while (lines > 12) {
+            div = div * 2;
+            lines = chart.yaxis.max / div;
+        }
 
         return div;
     }
@@ -286,14 +302,7 @@
         ctx.restore();
     }
 
-    // LOG
-    function log() {
-        var output = "LOG (" + arguments.length + "): ";
-        for ( var i = 0; i < arguments.length; i++) {
-            output = output + arguments[i] + ",";
-        }
-        console.log(output);
-    }
+
 
     // SVG LIBRARY
     function rect(ctx, x,y,w,h) {

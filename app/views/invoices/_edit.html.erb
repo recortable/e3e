@@ -12,7 +12,8 @@
 
         var barColor = $("#colors").css("background-color");
         var darkColor = $("#colors").css("color");
-        $("#learn h2").css("color", darkColor);
+        $("h2").css("color", darkColor);
+        $("a").css("color", darkColor);
         var vals = [];
         var labels = [];
         $("#dataset .data").each(function() {
@@ -74,6 +75,7 @@
   que aparece en la misma.</p>
 <p class="about">Pinchando sobre el gráfico puede cambiar el valor del consumo según el mes. De aquellos meses
   que no disponga datos (N/D), déjelo en blanco (puede poner en blanco un mes pulsando sobre el nombre del mismo).</p>
+<p class="about"><a href="#video">Pulse aquí para ver un ejemplo de cómo introducir sus datos.</a></p>
 
 <div id="invoice" class="<%= controller.class.name  %>">
   <div id="colors">&nbsp;</div>
@@ -106,11 +108,9 @@
 </div>
 <br/><br/>
 <div class="block">
-  <div id="video" class="col2">
-    <object width="400" height="260"><param name="allowfullscreen" value="true" /><param name="allowscriptaccess" value="always" /><param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=8816220&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=&amp;fullscreen=1" /><embed src="http://vimeo.com/moogaloop.swf?clip_id=8816220&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=&amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="400" height="260"></embed></object>
-  </div>
-  <div id="learn" class="col2">
-    <h2>Cómo introducir los datos de la factura</h2>
-    <p class="about">En este vídeo puede ver cómo se rellena la encuesta de E3E. COMPLETAR TEXTO</p>
+  <a name="video">&nbsp;</a>
+  <div id="video" class="col2-center">
+    <h2>Cómo introducir los datos de la factura</h2><br/>
+    <object width="400" height="260"><param name="allowfullscreen" value="true" /><param name="allowscriptaccess" value="always" /><param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=8841377&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=&amp;fullscreen=1" /><embed src="http://vimeo.com/moogaloop.swf?clip_id=8841377&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=&amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="400" height="260"></embed></object>
   </div>
 </div>
