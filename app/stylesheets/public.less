@@ -20,6 +20,15 @@ strong {font-weight: bold;}
 h1 {display: block; font-size: 260%; letter-spacing: -0.06em; color: @darkgris; margin-top: 1em;}
 h2 {display: block; font-size: 175%; font-weight: bold; color: @darkgris;}
 
+sub {
+    height: 0;
+    line-height: 1;
+    vertical-align: baseline;
+    _vertical-align: bottom;
+    position: relative;
+    top: .5ex;
+}
+
 /** LAYOUT **/
 html, body {
     height: 100%;
@@ -130,6 +139,11 @@ form p.info {width: 80%;}
     width: 101px; height: 23px;
     .sprites; .sprite-alta;
 }
+#user_submit {
+    width: 90px; height: 23px;
+    .sprites; .sprite-modificar;
+}
+
 
 /** COMMENTS **/
 

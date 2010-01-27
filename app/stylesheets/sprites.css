@@ -5,42 +5,43 @@ img, div, a, input { behavior: url(/iepngfix.htc); }
        background: url(/images/sprites.png) no-repeat top left;
 }
 
-.sprite-alta { background-position: 0 0; }
-.sprite-e_num1 { background-position: 0 -28px; }
-.sprite-e_num2 { background-position: 0 -46px; }
-.sprite-e_num3 { background-position: 0 -64px; }
-.sprite-e_num4 { background-position: 0 -82px; }
-.sprite-e_num5 { background-position: 0 -100px; }
-.sprite-e_num6 { background-position: 0 -118px; }
-.sprite-electricidad_less { background-position: 0 -136px; }
-.sprite-electricidad_more { background-position: 0 -180px; }
-.sprite-electricidad_off { background-position: 0 -224px; }
-.sprite-electricidad_on { background-position: 0 -256px; }
-.sprite-encuesta_off { background-position: 0 -288px; }
-.sprite-encuesta_on { background-position: 0 -320px; }
-.sprite-entrar { background-position: 0 -352px; }
-.sprite-enviar { background-position: 0 -380px; }
-.sprite-gas_less { background-position: 0 -408px; }
-.sprite-gas_more { background-position: 0 -452px; }
-.sprite-gas_off { background-position: 0 -496px; }
-.sprite-gas_on { background-position: 0 -528px; }
-.sprite-guardar_electricidad { background-position: 0 -560px; }
-.sprite-guardar_encuesta { background-position: 0 -591px; }
-.sprite-guardar_gas { background-position: 0 -622px; }
-.sprite-hazclick { background-position: 0 -653px; }
-.sprite-home_step1 { background-position: 0 -729px; }
-.sprite-home_step2 { background-position: 0 -747px; }
-.sprite-home_step3 { background-position: 0 -765px; }
-.sprite-home_step4 { background-position: 0 -783px; }
-.sprite-informe_off { background-position: 0 -801px; }
-.sprite-informe_on { background-position: 0 -833px; }
-.sprite-logo { background-position: 0 -865px; }
-.sprite-que_off { background-position: 0 -931px; }
-.sprite-que_on { background-position: 0 -963px; }
-.sprite-quees { background-position: 0 -995px; }
-.sprite-sess_editar { background-position: 0 -1027px; }
-.sprite-sess_editar_on { background-position: 0 -1059px; }
-.sprite-sess_entrar { background-position: 0 -1091px; }
-.sprite-sess_entrar_on { background-position: 0 -1123px; }
-.sprite-sess_salir { background-position: 0 -1155px; }
-.sprite-sess_salir_on { background-position: 0 -1187px; }
+.sprite-alta { background-position: 0 0; width: 101px; height: 23px; }
+.sprite-e_num1 { background-position: 0 -28px; width: 18px; height: 13px; }
+.sprite-e_num2 { background-position: 0 -46px; width: 18px; height: 13px; }
+.sprite-e_num3 { background-position: 0 -64px; width: 18px; height: 13px; }
+.sprite-e_num4 { background-position: 0 -82px; width: 18px; height: 13px; }
+.sprite-e_num5 { background-position: 0 -100px; width: 18px; height: 13px; }
+.sprite-e_num6 { background-position: 0 -118px; width: 18px; height: 13px; }
+.sprite-electricidad_less { background-position: 0 -136px; width: 41px; height: 39px; }
+.sprite-electricidad_more { background-position: 0 -180px; width: 41px; height: 39px; }
+.sprite-electricidad_off { background-position: 0 -224px; width: 213px; height: 27px; }
+.sprite-electricidad_on { background-position: 0 -256px; width: 213px; height: 27px; }
+.sprite-encuesta_off { background-position: 0 -288px; width: 178px; height: 27px; }
+.sprite-encuesta_on { background-position: 0 -320px; width: 178px; height: 27px; }
+.sprite-entrar { background-position: 0 -352px; width: 68px; height: 23px; }
+.sprite-enviar { background-position: 0 -380px; width: 68px; height: 23px; }
+.sprite-gas_less { background-position: 0 -408px; width: 41px; height: 39px; }
+.sprite-gas_more { background-position: 0 -452px; width: 41px; height: 39px; }
+.sprite-gas_off { background-position: 0 -496px; width: 147px; height: 27px; }
+.sprite-gas_on { background-position: 0 -528px; width: 147px; height: 27px; }
+.sprite-guardar_electricidad { background-position: 0 -560px; width: 231px; height: 26px; }
+.sprite-guardar_encuesta { background-position: 0 -591px; width: 165px; height: 26px; }
+.sprite-guardar_gas { background-position: 0 -622px; width: 222px; height: 26px; }
+.sprite-hazclick { background-position: 0 -653px; width: 438px; height: 71px; }
+.sprite-home_step1 { background-position: 0 -729px; width: 19px; height: 13px; }
+.sprite-home_step2 { background-position: 0 -747px; width: 19px; height: 13px; }
+.sprite-home_step3 { background-position: 0 -765px; width: 18px; height: 13px; }
+.sprite-home_step4 { background-position: 0 -783px; width: 19px; height: 13px; }
+.sprite-informe_off { background-position: 0 -801px; width: 165px; height: 27px; }
+.sprite-informe_on { background-position: 0 -833px; width: 165px; height: 27px; }
+.sprite-logo { background-position: 0 -865px; width: 44px; height: 61px; }
+.sprite-modificar { background-position: 0 -931px; width: 90px; height: 23px; }
+.sprite-que_off { background-position: 0 -959px; width: 133px; height: 27px; }
+.sprite-que_on { background-position: 0 -991px; width: 133px; height: 27px; }
+.sprite-quees { background-position: 0 -1023px; width: 133px; height: 27px; }
+.sprite-sess_editar { background-position: 0 -1055px; width: 64px; height: 27px; }
+.sprite-sess_editar_on { background-position: 0 -1087px; width: 64px; height: 27px; }
+.sprite-sess_entrar { background-position: 0 -1119px; width: 66px; height: 27px; }
+.sprite-sess_entrar_on { background-position: 0 -1151px; width: 66px; height: 27px; }
+.sprite-sess_salir { background-position: 0 -1183px; width: 54px; height: 27px; }
+.sprite-sess_salir_on { background-position: 0 -1215px; width: 54px; height: 27px; }

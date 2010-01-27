@@ -74,6 +74,14 @@ body {height: 100%;}
     -ms-border-radius: 2px;
 }
 
+sub {
+    height: 0;
+    line-height: 1;
+    vertical-align: baseline;
+    _vertical-align: bottom;
+    position: relative;
+    top: .5ex;
+}
 
 .aboutcontroller {background-color: @color1;}
 .surveyscontroller {background-color: @color2;}
@@ -132,8 +140,8 @@ p {margin: 0.4em 0;}
 #head p {font-variant: small-caps; margin-top: -1em; }
 
 #navigation { font-family: "Lucida-Grande","Verdana",sans-serif;
-    width: 900px; _width: 900px; /* IE6 */
-    margin: 0 auto; overflow: hidden; background-color: white; padding: 0 1em 1em 1em;}
+              width: 900px; _width: 900px; /* IE6 */
+              margin: 0 auto; overflow: hidden; background-color: white; padding: 0 1em 1em 1em;}
 #navigation .sections {float: left; display: inline;}
 
 /* background-image: url(../images/cellshade.png); background-repeat: repeat-x; background-position: 0 0px; */
