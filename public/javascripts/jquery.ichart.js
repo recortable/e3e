@@ -56,7 +56,7 @@
         },
         grid : {
             width: 740, // width of the grid
-            height: 260, // height of the grid
+            height: 320, // height of the grid
             steps: 100, // number of steps when normalizing the event value
             fontSize: 11, // size of the font in pixels
             padding: {

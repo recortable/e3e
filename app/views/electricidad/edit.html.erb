@@ -1,5 +1,28 @@
 
 <%= title t(:title) %>
 
-<p class="about">Para finalizar, complete la evolución del consumo eléctrico de su vivienda.</p>
+<p class="about">
+  Para poder analizar su vivienda además de los datos que nos ha facilitado en la encuesta necesitamos conocer su consumo de energía.
+</p>
+<p class="about">
+  En esta página podrá introducir sus datos de consumo eléctrico.
+</p>
+<p class="about">
+  Coja la última factura que tenga a su disposición y represente el mismo esquema que aparece en la misma:
+</p>
+<ol class="about">
+  <li>
+    En primer lugar ajuste, con los botones + y -, el eje de la gráfica de modo que coincida con el máximo de la factura.
+  </li>
+  <li>
+    Después puede ir pinchando sobre el gráfico para cambiar el valor de consumo de cada mes. De aquellos meses que no disponga datos (N/D), déjelo en blanco.
+    Puede poner en blanco un mes pulsando sobre el nombre del mismo.
+  </li>
+  <li>
+    Seleccione 'Guardar Consumo Eléctrico' cuando haya finalizado.
+  </li>
+</ol>
+<p class="about">
+  Puede volver a esta página para añadir o modificar datos cuando lo desee.
+</p>
 <%= render :partial => 'invoices/edit' %>
